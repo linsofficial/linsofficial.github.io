@@ -1,1 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINS IO | Build, Learn, Evolve</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-deep: #030303;
+            --card-inner: rgba(12, 12, 12, 0.95);
+            --text-main: #f5f5f5;
+            --text-muted: #888888;
+            --accent: #3b82f6;
+            --border-light: rgba(255, 255, 255, 0.08);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 0%, #111 0%, transparent 70%);
+        }
+
+        /* Intro Animation Overlay */
+        #intro-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #000;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999;
+            animation: fadeOut 1.2s ease-in-out 2.5s forwards;
+        }
+
+        .intro-logo-box {
+            background: #fff;
+            padding: 10px;
+            border-radius: 25px;
+            opacity: 0;
+            animation: pulseIn 2s ease-out forwards;
+        }
+
+        .intro-logo { width: 120px; display: block; border-radius: 18px; }
+
+        @keyframes pulseIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+
+        /* Container & Layout */
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+
+        /* Header with App-Icon Style Logo Fix */
+        header {
+            text-align: center;
+            margin-bottom: 70px;
+            animation: slideDown 1s ease-out 2.5s both;
+        }
+
+        .logo-wrapper {
+            display: inline-block;
+            background: #fff;
+            padding: 8px;
+            border-radius: 24px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .main-logo { width: 100px; display: block; border-radius: 16px; }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p { color: var(--text-muted); letter-spacing: 2px; font-weight: 300; margin-top: 5px; }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            color: #666;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Grid System */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        /* The Premium Google AI Glowing Aura Card */
+        .card-wrapper {
+            position: relative;
+            background: #111;
+            border-radius: 20px;
+            padding: 1px; /* Super thin, elegant border */
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8);
+        }
+
+        .card-wrapper:hover { transform: translateY(-8px); }
+
+        .card-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            /* Sophisticated light beam effect */
+            background: conic-gradient(
+                from 0deg,
+                transparent 0%,
+                transparent 70%,
+                rgba(66, 133, 244, 0.8) 80%,
+                rgba(234, 67, 53, 0.8) 85%,
+                rgba(251, 188, 5, 0.8) 90%,
+                rgba(52, 168, 83, 0.8) 100%
+            );
+            animation: rotateAura 4s linear infinite;
+            z-index: 0;
+            opacity: 0.8;
+        }
+
+        @keyframes rotateAura { 100% { transform: rotate(360deg); } }
+
+        .card-content {
+            background: var(--card-inner);
+            backdrop-filter: blur(20px);
+            border-radius: 19px; /* Matches wrapper perfectly */
+            padding: 35px 30px;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Card Elements */
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #eaeaea;
+        }
+
+        .card-title i { color: var(--accent); font-size: 1.2rem; }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+            font-weight: 300;
+        }
+
+        .feature-list { list-style: none; margin-bottom: 25px; }
+        .feature-list li {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-weight: 300;
+        }
+        .feature-list i { color: #555; margin-top: 3px; font-size: 0.7rem; }
+
+        /* Premium Buttons */
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto; }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.03);
+            color: #ddd;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .btn:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+
+        .btn-primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover { background: #2563eb; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+
+        /* Void Talks Special Styling */
+        .void-card .card-content { background: #020202; text-align: center; padding: 50px 30px; }
+        .void-card .card-title { justify-content: center; font-size: 1.6rem; letter-spacing: 3px; }
+        .void-text { font-style: italic; color: #777; margin-bottom: 25px; font-weight: 300; }
+        
+        .void-tags {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;
+            margin: 25px 0; font-size: 0.8rem; color: #555;
+        }
+
+        .btn-void {
+            background: #b91c1c; border: none; color: white; max-width: 250px; margin: 0 auto;
+        }
+        .btn-void:hover { background: #dc2626; box-shadow: 0 0 25px rgba(220, 38, 38, 0.3); }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 50px 40px;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+        }
+
+        .contact-email {
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            margin-top: 15px;
+            display: inline-block;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .contact-email:hover { color: var(--accent); }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+            text-align: center;
+        }
+
+        .footer-brand { font-size: 1rem; font-weight: 800; letter-spacing: 3px; color: #444; }
+        .copyright { color: #444; font-size: 0.8rem; letter-spacing: 1px; }
+
+        @keyframes slideDown {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="intro-screen">
+        <div class="intro-logo-box">
+            <img src="https://i.ibb.co/Csw5H0Jy/20260507-215907.png" alt="LINS IO" class="intro-logo">
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo-wrapper">
+                <img src="https://i.ibb.co/Csw5H0Jy/20260507-215907.png" alt="LINS IO Logo" class="main-logo">
+            </div>
+            <h1>LINS IO</h1>
+            <p>BUILD, LEARN, EVOLVE</p>
+        </header>
+
+        <h2 class="section-title">Ecosystem</h2>
+        <div class="grid">
+            <div class="card-wrapper">
+                <div class="card-content">
+                    <div class="card-title"><i class="fa-brands fa-google-play"></i> AI Store</div>
+                    <p class="card-desc">1000 AI tools in top 20 categories. Your ultimate pocket AI companion.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-circle-dot"></i> Prompt Generator (Structured & Ready)</li>
+                        <li><i class="fa-solid fa-circle-dot"></i> Prompt Vault (Save & Manage)</li>
+                        <li><i class="fa-solid fa-circle-dot"></i> Latest AI Updates</li>
+                        <li><i class="fa-solid fa-circle-dot"></i> AI Jobs & Courses</li>
+                        <li><i class="fa-solid fa-circle-dot"></i> Hunter Bot Mini-game</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.snpixel.aistore" target="_blank" class="btn btn-primary"><i class="fa-brands fa-google-play"></i> Play Store</a>
+                        <a href="https://aistore.apk.com/" target="_blank" class="btn"><i class="fa-solid fa-download"></i> Web APK</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-wrapper">
+                <div class="card-content">
+                    <div class="card-title"><i class="fa-solid fa-globe"></i> AI Info Tech</div>
+                    <p class="card-desc">Discover the top AI tools, tutorials, and productivity hacks. We bring you the latest free and powerful AI innovations from around the world.</p>
+                    <div class="btn-group">
+                        <a href="https://powerfulaitool.blogspot.com/" target="_blank" class="btn btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Community</h2>
+        <div class="grid">
+            <div class="card-wrapper">
+                <div class="card-content">
+                    <div class="card-title"><i class="fa-brands fa-facebook" style="color: #1877F2;"></i> AI Information</div>
+                    <p class="card-desc">Discover the latest AI tools & tips – specially curated for mobile users. Follow for smart tricks and powerful AI updates.</p>
+                    <div class="btn-group">
+                        <a href="https://www.facebook.com/share/1XmxD5SWwn/" target="_blank" class="btn"><i class="fa-brands fa-facebook-f"></i> Follow Page</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-wrapper">
+                <div class="card-content">
+                    <div class="card-title"><i class="fa-brands fa-telegram" style="color: #26A5E4;"></i> The AI Aura</div>
+                    <p class="card-desc">Discover the Best Free AI Tools Daily! ChatGPT, No-Code AI, and Prompt Generators. Stay ahead in the AI revolution.</p>
+                    <div class="btn-group">
+                        <a href="https://t.me/linsio002" target="_blank" class="btn"><i class="fa-brands fa-telegram"></i> Join Channel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">The Vision</h2>
+        <div class="grid" style="grid-template-columns: 1fr;">
+            <div class="card-wrapper void-card">
+                <div class="card-content">
+                    <div class="card-title"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> VOID TALKS</div>
+                    <p class="void-text">"This channel explores the silent side of the mind — the subconscious, dreams, emotions, fear, and unseen systems."</p>
+                    <p class="card-desc" style="color: #999;">
+                        No face. No noise. No motivation.<br>
+                        Only deep truths, abstract visuals, space, glitches, and silence.<br>
+                        If you feel disconnected, or awake at night thinking — you belong here.
+                    </p>
+                    <div class="void-tags">
+                        <span>🎧 Headphones recommended</span>
+                        <span>🌌 Watch alone</span>
+                        <span>🕳️ Enter carefully</span>
+                    </div>
+                    <div class="btn-group" style="justify-content: center;">
+                        <a href="https://youtube.com/@lins_io?si=LR43E_hz1aXYE9BP" target="_blank" class="btn btn-void"><i class="fa-brands fa-youtube"></i> Enter The Void</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <i class="fa-regular fa-envelope" style="font-size: 1.8rem; color: #666; margin-bottom: 15px;"></i>
+            <h3 style="font-size: 1.3rem; font-weight: 500; color: #ddd;">Get in Touch</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">For business inquiries and collaborations</p>
+            <a href="mailto:linsio.official@gmail.com" class="contact-email">linsio.official@gmail.com</a>
+        </div>
+
+        <footer>
+            <div class="footer-brand">LINS IO</div>
+            <div class="copyright">&copy; 2026 LINS IO. All rights reserved.</div>
+        </footer>
+    </div>
+
+</body>
+</html>
