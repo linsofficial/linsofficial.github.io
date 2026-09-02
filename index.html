@@ -78,20 +78,33 @@
             opacity: 0.4;
             pointer-events: none;
         }
+
         body::before {
             top: -200px;
             left: -200px;
             background: linear-gradient(135deg, #e0e7ff 0%, #ffffff 100%);
         }
+
         body::after {
             bottom: -200px;
             right: -200px;
             background: linear-gradient(135deg, #f1f5f9 0%, #e0e7ff 100%);
         }
 
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        img { max-width: 100%; height: auto; display: block; }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
 
         .container {
             width: 100%;
@@ -100,8 +113,13 @@
             padding: 0 24px;
         }
 
-        .section-padding { padding: 120px 0; }
-        .bg-alt { background-color: rgba(248, 250, 252, 0.6); }
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        .bg-alt {
+            background-color: rgba(248, 250, 252, 0.6);
+        }
 
         /* Typography */
         h1, h2, h3, h4 {
@@ -118,8 +136,16 @@
             -webkit-text-fill-color: transparent;
         }
 
-        h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 20px; }
-        h3 { font-size: 1.75rem; margin-bottom: 12px; letter-spacing: -0.02em; }
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
         
         p {
             color: var(--color-text-secondary);
@@ -232,8 +258,16 @@
             cursor: pointer;
         }
 
-        .logo-img { height: 32px; width: auto; }
-        .logo-text { font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
+        .logo-img {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
 
         .nav-links {
             display: flex;
@@ -253,7 +287,9 @@
             padding: 8px 0;
         }
 
-        .nav-links a:hover { color: var(--color-text-primary); }
+        .nav-links a:hover {
+            color: var(--color-text-primary);
+        }
 
         .mobile-menu-toggle {
             display: none;
@@ -277,11 +313,18 @@
             min-height: 100vh;
             animation: fadeView 0.5s ease forwards;
         }
-        .view.active { display: block; }
+
+        .view.active {
+            display: block;
+        }
         
         @keyframes fadeView {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         /* Hero Section */
@@ -388,8 +431,15 @@
             box-shadow: var(--shadow-md);
         }
 
-        .coming-soon-content { flex: 1; min-width: 300px; }
-        .coming-soon-features { flex: 1; min-width: 300px; }
+        .coming-soon-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .coming-soon-features {
+            flex: 1;
+            min-width: 300px;
+        }
         
         .closing-statement {
             font-weight: 600;
@@ -408,12 +458,28 @@
             box-shadow: var(--shadow-lg);
         }
 
-        .vision-section h2 { color: #ffffff; }
-        .vision-section p { color: #94a3b8; max-width: 800px; margin: 0 auto 20px; font-size: 1.25rem; }
+        .vision-section h2 {
+            color: #ffffff;
+        }
+
+        .vision-section p {
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 1.25rem;
+        }
 
         /* About Section */
-        .about-content { max-width: 800px; margin: 0 auto; text-align: center; }
-        .about-content p { font-size: 1.25rem; margin-bottom: 24px; }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+        }
         
         .philosophy-text {
             font-size: 1.5rem !important;
@@ -423,11 +489,16 @@
         }
 
         /* FAQ Section */
-        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .faq-item {
             border-bottom: 1px solid var(--color-border);
             margin-bottom: 16px;
         }
+
         .faq-question {
             width: 100%;
             display: flex;
@@ -443,39 +514,73 @@
             cursor: pointer;
             font-family: inherit;
         }
+
         .faq-icon {
             width: 24px;
             height: 24px;
             transition: transform 0.4s ease;
         }
+
         .faq-answer {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
         }
+
         .faq-answer-inner {
             padding-bottom: 32px;
             color: var(--color-text-secondary);
             font-size: 1.125rem;
         }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
-        .faq-item.active .faq-answer { transition: max-height 0.6s ease-in-out; }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            transition: max-height 0.6s ease-in-out;
+        }
 
         /* Contact Section */
-        .contact-section { text-align: center; max-width: 600px; margin: 0 auto; }
+        .contact-section {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
         /* Legal Pages */
-        .legal-page { max-width: 800px; margin: 80px auto; }
-        .legal-page h1 { margin-bottom: 16px; }
+        .legal-page {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .legal-page h1 {
+            margin-bottom: 16px;
+        }
+
         .legal-page .last-updated {
             font-size: 1rem;
             color: var(--color-text-secondary);
             margin-bottom: 48px;
             display: block;
         }
-        .legal-page h2 { font-size: 1.75rem; margin-top: 48px; margin-bottom: 20px; }
-        .legal-page p, .legal-page ul { margin-bottom: 20px; font-size: 1.125rem; }
-        .legal-page ul { padding-left: 24px; color: var(--color-text-secondary); }
+
+        .legal-page h2 {
+            font-size: 1.75rem;
+            margin-top: 48px;
+            margin-bottom: 20px;
+        }
+
+        .legal-page p,
+        .legal-page ul {
+            margin-bottom: 20px;
+            font-size: 1.125rem;
+        }
+
+        .legal-page ul {
+            padding-left: 24px;
+            color: var(--color-text-secondary);
+        }
 
         /* Footer */
         .footer {
@@ -483,13 +588,19 @@
             border-top: 1px solid var(--color-border);
             padding: 80px 0 40px;
         }
+
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
             gap: 64px;
             margin-bottom: 64px;
         }
-        .footer-brand h3 { font-size: 1.5rem; margin-bottom: 8px; }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
         .footer-tagline {
             font-weight: 700;
             font-size: 0.875rem;
@@ -499,15 +610,29 @@
             margin-bottom: 16px;
             display: block;
         }
-        .footer h4 { font-size: 1.125rem; margin-bottom: 24px; color: var(--color-text-primary); }
-        .footer-links { display: flex; flex-direction: column; gap: 16px; }
+
+        .footer h4 {
+            font-size: 1.125rem;
+            margin-bottom: 24px;
+            color: var(--color-text-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
         .footer-links a {
             color: var(--color-text-secondary);
             transition: var(--transition);
             cursor: pointer;
             font-size: 1rem;
         }
-        .footer-links a:hover { color: var(--color-text-primary); }
+
+        .footer-links a:hover {
+            color: var(--color-text-primary);
+        }
         
         .footer-bottom {
             display: flex;
@@ -518,34 +643,44 @@
             flex-wrap: wrap;
             gap: 24px;
         }
-        .copyright { color: var(--color-text-secondary); font-size: 0.9375rem; }
+
+        .copyright {
+            color: var(--color-text-secondary);
+            font-size: 0.9375rem;
+        }
         
         /* Social Links - Fixed for easy clicking */
-        .social-links { display: flex; gap: 12px; }
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
         .social-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 48px;  /* Increased size for better touch */
-            height: 48px; /* Increased size */
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background-color: var(--color-bg-alt);
             color: var(--color-text-primary);
             transition: var(--transition);
             position: relative;
-            z-index: 10; /* Ensures it's clickable above other elements */
+            z-index: 10;
             cursor: pointer;
         }
+
         .social-link:hover {
             background-color: var(--color-text-primary);
             color: #ffffff;
             transform: translateY(-3px);
         }
+
         .social-link svg {
             width: 20px;
             height: 20px;
             fill: currentColor;
-            pointer-events: none; /* Prevents SVG from stealing the click */
+            pointer-events: none;
         }
 
         /* Scroll Animation Class */
@@ -554,6 +689,7 @@
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
+
         .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
@@ -561,8 +697,15 @@
 
         /* Mobile Responsive */
         @media (max-width: 900px) {
-            .footer-grid { grid-template-columns: 1fr; gap: 48px; }
-            .coming-soon-card { padding: 40px; gap: 40px; }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .coming-soon-card {
+                padding: 40px;
+                gap: 40px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -594,47 +737,122 @@
                 transform: translateY(0);
             }
 
-            .nav-links a { font-size: 1.5rem; font-weight: 600; }
+            .nav-links a {
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
             
-            .mobile-menu-toggle { display: block; z-index: 1002; position: relative; }
+            .mobile-menu-toggle {
+                display: block;
+                z-index: 1002;
+                position: relative;
+            }
             
-            .section-padding { padding: 80px 0; }
-            .product-grid { grid-template-columns: 1fr; }
-            .hero { padding: 140px 0 80px; }
-            .vision-section { padding: 64px 24px; }
-            .footer-bottom { flex-direction: column-reverse; text-align: center; }
-            .product-card { padding: 32px; }
+            .section-padding {
+                padding: 80px 0;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 140px 0 80px;
+            }
+
+            .vision-section {
+                padding: 64px 24px;
+            }
+
+            .footer-bottom {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .product-card {
+                padding: 32px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
+
             <div class="logo-container" onclick="app.navigate('home')">
-                <img src="https://i.ibb.co/Csw5H0Jy/20260507-215907.png" alt="LINS IO Logo" class="logo-img">
-                <span class="logo-text">LINS IO</span>
+                <img src="https://i.ibb.co/Csw5H0Jy/20260507-215907.png"
+                     alt="LINS IO Logo"
+                     class="logo-img">
+
+                <span class="logo-text">
+                    LINS IO
+                </span>
             </div>
             
-            <button class="mobile-menu-toggle" aria-label="Toggle Menu" onclick="app.toggleMenu()">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menu-icon">
+            <button class="mobile-menu-toggle"
+                    aria-label="Toggle Menu"
+                    onclick="app.toggleMenu()">
+
+                <svg viewBox="0 0 24 24"
+                     fill="none"
+                     stroke-width="2"
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
+                     id="menu-icon">
+
                     <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <line x1="3" y1="18" x2="21" y2="18"></line>
+
                 </svg>
+
             </button>
 
             <ul class="nav-links" id="nav-menu">
-                <li><a onclick="app.navigate('home', 'hero')">Home</a></li>
-                <li><a onclick="app.navigate('home', 'products')">Products</a></li>
-                <li><a onclick="app.navigate('home', 'coming-soon')">Coming Soon</a></li>
-                <li><a onclick="app.navigate('home', 'about')">About</a></li>
-                <li><a onclick="app.navigate('home', 'faq')">FAQ</a></li>
-                <li><a onclick="app.navigate('home', 'contact')">Contact</a></li>
+
+                <li>
+                    <a onclick="app.navigate('home', 'hero')">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a onclick="app.navigate('home', 'products')">
+                        Products
+                    </a>
+                </li>
+
+                <li>
+                    <a onclick="app.navigate('home', 'coming-soon')">
+                        Coming Soon
+                    </a>
+                </li>
+
+                <li>
+                    <a onclick="app.navigate('home', 'about')">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a onclick="app.navigate('home', 'faq')">
+                        FAQ
+                    </a>
+                </li>
+
+                <li>
+                    <a onclick="app.navigate('home', 'contact')">
+                        Contact
+                    </a>
+                </li>
+
             </ul>
         </div>
     </nav>
+
 
     <main id="main-content">
         
@@ -643,460 +861,1265 @@
             
             <!-- Hero -->
             <header id="hero" class="hero container fade-up">
-                <div class="hero-tag">Build, Learn, Evolve</div>
-                <h1>Building useful technology<br>for the real world.</h1>
-                <p>LINS IO is an independent technology ecosystem focused on building useful apps, AI-powered tools, and digital experiences that make technology more practical, accessible, and useful.</p>
-                <button class="btn btn-primary" onclick="app.scrollToSection('products')">Explore Products</button>
+
+                <div class="hero-tag">
+                    Build, Learn, Evolve
+                </div>
+
+                <h1>
+                    Building useful technology<br>
+                    for the real world.
+                </h1>
+
+                <p>
+                    LINS IO is an independent technology ecosystem focused on building useful apps, AI-powered tools, and digital experiences that make technology more practical, accessible, and useful.
+                </p>
+
+                <button class="btn btn-primary"
+                        onclick="app.scrollToSection('products')">
+                    Explore Products
+                </button>
+
             </header>
+
 
             <!-- Products -->
             <section id="products" class="section-padding bg-alt">
+
                 <div class="container">
+
                     <div class="section-header fade-up">
-                        <h2>Products</h2>
-                        <p>Technology we're building for real-world use.</p>
+
+                        <h2>
+                            Products
+                        </h2>
+
+                        <p>
+                            Technology we're building for real-world use.
+                        </p>
+
                     </div>
 
+
                     <div class="product-grid">
+
                         <!-- AI Store -->
                         <div class="product-card fade-up">
-                            <h3>AI Store</h3>
-                            <div class="product-highlight">1000+ AI Tools. One App. Everything AI.</div>
-                            <p>AI Store is a centralized AI discovery and productivity app featuring 1000+ AI tools across 20 categories. It helps users discover useful AI tools, generate structured prompts, save and manage their favorite prompts, stay updated with the latest AI developments, and explore AI jobs and courses in one place.</p>
+
+                            <h3>
+                                AI Store
+                            </h3>
+
+                            <div class="product-highlight">
+                                1000+ AI Tools. One App. Everything AI.
+                            </div>
+
+                            <p>
+                                AI Store is a centralized AI discovery and productivity app featuring 1000+ AI tools across 20 categories. It helps users discover useful AI tools, generate structured prompts, save and manage their favorite prompts, stay updated with the latest AI developments, and explore AI jobs and courses in one place.
+                            </p>
                             
                             <ul class="product-features">
-                                <li>1000+ AI Tools</li>
-                                <li>20 AI Categories</li>
-                                <li>Prompt Generator & Vault</li>
-                                <li>Latest AI Updates</li>
-                                <li>AI Jobs & Courses</li>
-                                <li>Favorites</li>
+
+                                <li>
+                                    1000+ AI Tools
+                                </li>
+
+                                <li>
+                                    20 AI Categories
+                                </li>
+
+                                <li>
+                                    Prompt Generator & Vault
+                                </li>
+
+                                <li>
+                                    Latest AI Updates
+                                </li>
+
+                                <li>
+                                    AI Jobs & Courses
+                                </li>
+
+                                <li>
+                                    Favorites
+                                </li>
+
                             </ul>
                             
-                            <a href="https://play.google.com/store/apps/details?id=com.snpixel.aistore" target="_blank" rel="noopener noreferrer" class="btn-google-play">
-                                <svg viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" /></svg>
+                            <a href="https://play.google.com/store/apps/details?id=com.snpixel.aistore"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn-google-play">
+
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                                </svg>
+
                                 Available on Google Play
+
                             </a>
+
                         </div>
+
 
                         <!-- LinsPlay -->
                         <div class="product-card fade-up">
-                            <h3>LinsPlay</h3>
-                            <div class="product-highlight">5 Mini Games. 1 App. Endless Fun.</div>
-                            <p>LinsPlay is a lightweight offline gaming app featuring five mini games in one place: Block Blast, Fruit Slice, Cyber Glide, Highway, and Galaxy.</p>
-                            <p>Designed for simple, quick, and enjoyable gameplay, LinsPlay lets you play anytime without requiring an internet connection.</p>
+
+                            <h3>
+                                LinsPlay
+                            </h3>
+
+                            <div class="product-highlight">
+                                5 Mini Games. 1 App. Endless Fun.
+                            </div>
+
+                            <p>
+                                LinsPlay is a lightweight offline gaming app featuring five mini games in one place: Block Blast, Fruit Slice, Cyber Glide, Highway, and Galaxy.
+                            </p>
+
+                            <p>
+                                Designed for simple, quick, and enjoyable gameplay, LinsPlay lets you play anytime without requiring an internet connection.
+                            </p>
                             
                             <ul class="product-features">
-                                <li>Block Blast</li>
-                                <li>Fruit Slice</li>
-                                <li>Cyber Glide</li>
-                                <li>Highway</li>
-                                <li>Galaxy</li>
+
+                                <li>
+                                    Block Blast
+                                </li>
+
+                                <li>
+                                    Fruit Slice
+                                </li>
+
+                                <li>
+                                    Cyber Glide
+                                </li>
+
+                                <li>
+                                    Highway
+                                </li>
+
+                                <li>
+                                    Galaxy
+                                </li>
+
                             </ul>
                             
-                            <a href="https://play.google.com/store/apps/details?id=com.lins.game" target="_blank" rel="noopener noreferrer" class="btn-google-play" style="margin-top: auto;">
-                                <svg viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" /></svg>
+                            <a href="https://play.google.com/store/apps/details?id=com.lins.game"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn-google-play"
+                               style="margin-top: auto;">
+
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                                </svg>
+
                                 Available on Google Play
+
                             </a>
+
                         </div>
+
 
                         <!-- Resume Builder -->
                         <div class="product-card fade-up">
-                            <h3>Resume Builder</h3>
-                            <div class="product-highlight">Web-based Resume Creation</div>
-                            <p>Resume Builder is a web-based resume creation tool by LINS IO, designed to help users create and prepare professional resumes through a simple digital experience.</p>
+
+                            <h3>
+                                Resume Builder
+                            </h3>
+
+                            <div class="product-highlight">
+                                Web-based Resume Creation
+                            </div>
+
+                            <p>
+                                Resume Builder is a web-based resume creation tool by LINS IO, designed to help users create and prepare professional resumes through a simple digital experience.
+                            </p>
                             
                             <div class="product-features"></div>
                             
-                            <a href="https://linsofficial.github.io/Resume/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top: auto;">
+                            <a href="https://linsofficial.github.io/Resume/"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-outline"
+                               style="margin-top: auto;">
+
                                 Open Resume Builder
+
                             </a>
+
                         </div>
+
                     </div>
                 </div>
             </section>
+
 
             <!-- Coming Soon -->
             <section id="coming-soon" class="section-padding">
+
                 <div class="container fade-up">
+
                     <div class="section-header">
-                        <h2>Coming Soon</h2>
+
+                        <h2>
+                            Coming Soon
+                        </h2>
+
                     </div>
 
+
                     <div class="coming-soon-card">
+
                         <div class="coming-soon-content">
-                            <span class="badge">Coming Soon</span>
-                            <h3>LinsCam AI</h3>
-                            <p>LinsCam AI is a lightweight AI-powered visual analysis app.</p>
-                            <p>It helps you understand what’s in an image by using AI to analyze visible objects, text, and context. You can upload an image, choose what you want to know, and receive a clear explanation in your preferred language.</p>
-                            <div class="closing-statement">Understand images. Ask better questions.</div>
+
+                            <span class="badge">
+                                Coming Soon
+                            </span>
+
+                            <h3>
+                                LinsCam AI
+                            </h3>
+
+                            <p>
+                                LinsCam AI is a lightweight AI-powered visual analysis app.
+                            </p>
+
+                            <p>
+                                It helps you understand what’s in an image by using AI to analyze visible objects, text, and context. You can upload an image, choose what you want to know, and receive a clear explanation in your preferred language.
+                            </p>
+
+                            <div class="closing-statement">
+                                Understand images. Ask better questions.
+                            </div>
+
                         </div>
+
+
                         <div class="coming-soon-features">
+
                             <ul class="product-features" style="margin: 0;">
-                                <li>AI image analysis</li>
-                                <li>Explain, Fix, Check & Understand modes</li>
-                                <li>Multiple AI response languages</li>
-                                <li>OCR and visual understanding</li>
-                                <li>Practical suggestions when appropriate</li>
-                                <li>Local analysis history</li>
-                                <li>Privacy-first approach</li>
-                                <li>Lightweight app</li>
+
+                                <li>
+                                    AI image analysis
+                                </li>
+
+                                <li>
+                                    Explain, Fix, Check & Understand modes
+                                </li>
+
+                                <li>
+                                    Multiple AI response languages
+                                </li>
+
+                                <li>
+                                    OCR and visual understanding
+                                </li>
+
+                                <li>
+                                    Practical suggestions when appropriate
+                                </li>
+
+                                <li>
+                                    Local analysis history
+                                </li>
+
+                                <li>
+                                    Privacy-first approach
+                                </li>
+
+                                <li>
+                                    Lightweight app
+                                </li>
+
                             </ul>
+
                         </div>
+
                     </div>
                 </div>
             </section>
+
 
             <!-- Ecosystem -->
             <section id="ecosystem" class="section-padding">
+
                 <div class="container fade-up">
+
                     <div class="vision-section">
-                        <h2>More Than Apps. We're Building an Ecosystem.</h2>
-                        <p>LINS IO brings together apps, AI-powered experiences, digital tools, and future projects under one independent technology ecosystem.</p>
-                        <p>The goal is simple: build useful technology that solves practical problems, remains accessible to everyday users, and evolves with the world around it.</p>
+
+                        <h2>
+                            More Than Apps. We're Building an Ecosystem.
+                        </h2>
+
+                        <p>
+                            LINS IO brings together apps, AI-powered experiences, digital tools, and future projects under one independent technology ecosystem.
+                        </p>
+
+                        <p>
+                            The goal is simple: build useful technology that solves practical problems, remains accessible to everyday users, and evolves with the world around it.
+                        </p>
+
                     </div>
+
                 </div>
             </section>
+
 
             <!-- About -->
             <section id="about" class="section-padding bg-alt">
+
                 <div class="container fade-up">
+
                     <div class="section-header">
-                        <h2>About LINS IO</h2>
+
+                        <h2>
+                            About LINS IO
+                        </h2>
+
                     </div>
+
                     <div class="about-content">
-                        <p>LINS IO is an independent technology brand focused on building practical applications, AI-powered tools, and digital experiences.</p>
-                        <p>We are interested in technology that is useful in the real world, easy to access, and designed with purpose.</p>
-                        <p>From AI discovery and productivity to entertainment and future applications, LINS IO is built around one idea:</p>
-                        <p class="philosophy-text">Build useful things. Learn from them. Keep evolving.</p>
+
+                        <p>
+                            LINS IO is an independent technology brand focused on building practical applications, AI-powered tools, and digital experiences.
+                        </p>
+
+                        <p>
+                            We are interested in technology that is useful in the real world, easy to access, and designed with purpose.
+                        </p>
+
+                        <p>
+                            From AI discovery and productivity to entertainment and future applications, LINS IO is built around one idea:
+                        </p>
+
+                        <p class="philosophy-text">
+                            Build useful things. Learn from them. Keep evolving.
+                        </p>
+
                     </div>
+
                 </div>
             </section>
+
 
             <!-- FAQ -->
             <section id="faq" class="section-padding">
+
                 <div class="container fade-up">
+
                     <div class="section-header">
-                        <h2>FAQ</h2>
+
+                        <h2>
+                            FAQ
+                        </h2>
+
                     </div>
                     
                     <div class="faq-container">
+
                         <div class="faq-item">
+
                             <button class="faq-question">
+
                                 What is LINS IO?
-                                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+
+                                <svg class="faq-icon"
+                                     viewBox="0 0 24 24"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     stroke-width="2">
+
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+
+                                </svg>
+
                             </button>
-                            <div class="faq-answer"><div class="faq-answer-inner">LINS IO is an independent technology ecosystem building useful apps, AI-powered tools, and digital experiences.</div></div>
+
+                            <div class="faq-answer">
+
+                                <div class="faq-answer-inner">
+                                    LINS IO is an independent technology ecosystem building useful apps, AI-powered tools, and digital experiences.
+                                </div>
+
+                            </div>
+
                         </div>
 
+
                         <div class="faq-item">
+
                             <button class="faq-question">
+
                                 What products does LINS IO currently offer?
-                                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+
+                                <svg class="faq-icon"
+                                     viewBox="0 0 24 24"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     stroke-width="2">
+
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+
+                                </svg>
+
                             </button>
-                            <div class="faq-answer"><div class="faq-answer-inner">AI Store, LinsPlay, and Resume Builder are currently available products.</div></div>
+
+                            <div class="faq-answer">
+
+                                <div class="faq-answer-inner">
+                                    AI Store, LinsPlay, and Resume Builder are currently available products.
+                                </div>
+
+                            </div>
+
                         </div>
 
+
                         <div class="faq-item">
+
                             <button class="faq-question">
+
                                 What is coming next?
-                                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+
+                                <svg class="faq-icon"
+                                     viewBox="0 0 24 24"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     stroke-width="2">
+
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+
+                                </svg>
+
                             </button>
-                            <div class="faq-answer"><div class="faq-answer-inner">LinsCam AI is currently under development and marked as Coming Soon.</div></div>
+
+                            <div class="faq-answer">
+
+                                <div class="faq-answer-inner">
+                                    LinsCam AI is currently under development and marked as Coming Soon.
+                                </div>
+
+                            </div>
+
                         </div>
 
+
                         <div class="faq-item">
+
                             <button class="faq-question">
+
                                 Where can I download LINS IO apps?
-                                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+
+                                <svg class="faq-icon"
+                                     viewBox="0 0 24 24"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     stroke-width="2">
+
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+
+                                </svg>
+
                             </button>
-                            <div class="faq-answer"><div class="faq-answer-inner">AI Store and LinsPlay are currently available through Google Play.</div></div>
+
+                            <div class="faq-answer">
+
+                                <div class="faq-answer-inner">
+                                    AI Store and LinsPlay are currently available through Google Play.
+                                </div>
+
+                            </div>
+
                         </div>
 
+
                         <div class="faq-item">
+
                             <button class="faq-question">
+
                                 Is LinsCam AI available yet?
-                                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+
+                                <svg class="faq-icon"
+                                     viewBox="0 0 24 24"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     stroke-width="2">
+
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+
+                                </svg>
+
                             </button>
-                            <div class="faq-answer"><div class="faq-answer-inner">No. LinsCam AI is currently Coming Soon.</div></div>
+
+                            <div class="faq-answer">
+
+                                <div class="faq-answer-inner">
+                                    No. LinsCam AI is currently Coming Soon.
+                                </div>
+
+                            </div>
+
                         </div>
 
+
                         <div class="faq-item">
+
                             <button class="faq-question">
+
                                 How can I contact LINS IO?
-                                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+
+                                <svg class="faq-icon"
+                                     viewBox="0 0 24 24"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     stroke-width="2">
+
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+
+                                </svg>
+
                             </button>
-                            <div class="faq-answer"><div class="faq-answer-inner">Use the official email address provided in the Contact section.</div></div>
+
+                            <div class="faq-answer">
+
+                                <div class="faq-answer-inner">
+                                    Use the official email address provided in the Contact section.
+                                </div>
+
+                            </div>
+
                         </div>
+
                     </div>
+
                 </div>
             </section>
+
 
             <!-- Contact -->
             <section id="contact" class="section-padding bg-alt">
+
                 <div class="container fade-up">
+
                     <div class="contact-section">
-                        <h2>Get in Touch</h2>
-                        <p>For questions, feedback, business inquiries, collaborations, or general communication, contact LINS IO by email.</p>
-                        <a href="mailto:linsio.official@gmail.com" class="btn btn-primary" style="margin-top: 24px;">linsio.official@gmail.com</a>
+
+                        <h2>
+                            Get in Touch
+                        </h2>
+
+                        <p>
+                            For questions, feedback, business inquiries, collaborations, or general communication, contact LINS IO by email.
+                        </p>
+
+                        <a href="mailto:linsio.official@gmail.com"
+                           class="btn btn-primary"
+                           style="margin-top: 24px;">
+
+                            linsio.official@gmail.com
+
+                        </a>
+
                     </div>
+
                 </div>
             </section>
+
         </div>
+
 
         <!-- View: PRIVACY -->
         <div id="view-privacy" class="view">
-            <div class="container fade-up">
-                <div class="legal-page">
-                    <h1>Privacy Policy</h1>
-                    <span class="last-updated">Last Updated: August 2026</span>
-                    
-                    <p>This Privacy Policy outlines the privacy practices specifically for the LINS IO website (the "Website"). This policy does not cover, merge, replace, or modify the separate Privacy Policies of AI Store, LinsPlay, or any other LINS IO application or product.</p>
 
-                    <h2>1. Website Scope & Information Practices</h2>
-                    <p>The LINS IO website operates primarily as a static, informational brand presence. As part of our commitment to privacy and simplicity:</p>
+            <div class="container fade-up">
+
+                <div class="legal-page">
+
+                    <h1>
+                        Privacy Policy
+                    </h1>
+
+                    <span class="last-updated">
+                        Last Updated: August 2026
+                    </span>
+                    
+                    <p>
+                        This Privacy Policy outlines the privacy practices specifically for the LINS IO website (the "Website"). This policy does not cover, merge, replace, or modify the separate Privacy Policies of AI Store, LinsPlay, or any other LINS IO application or product.
+                    </p>
+
+                    <h2>
+                        1. Website Scope & Information Practices
+                    </h2>
+
+                    <p>
+                        The LINS IO website operates primarily as a static, informational brand presence. As part of our commitment to privacy and simplicity:
+                    </p>
+
                     <ul>
-                        <li>We do not have user accounts or require login.</li>
-                        <li>We do not intentionally collect personal information through forms.</li>
-                        <li>We do not operate a newsletter or email subscription system.</li>
-                        <li>We do not host or display third-party advertisements on this Website.</li>
+                        <li>
+                            We do not have user accounts or require login.
+                        </li>
+
+                        <li>
+                            We do not intentionally collect personal information through forms.
+                        </li>
+
+                        <li>
+                            We do not operate a newsletter or email subscription system.
+                        </li>
+
+                        <li>
+                            We do not host or display third-party advertisements on this Website.
+                        </li>
                     </ul>
 
-                    <h2>2. Cookies and Tracking</h2>
-                    <p>This Website is built to be lightweight and does not natively implement aggressive user tracking, profiling, or marketing cookies. However, standard web hosting infrastructure inherently processes basic technical data (such as IP addresses and browser types) required to serve web pages securely and efficiently.</p>
+                    <h2>
+                        2. Cookies and Tracking
+                    </h2>
 
-                    <h2>3. Third-Party Links & External Products</h2>
-                    <p>The Website contains links to external platforms (such as Google Play, GitHub, and social media platforms) and standalone LINS IO products. When you click on these links and leave our Website, or when you use a separate LINS IO app, this Privacy Policy no longer applies. Those external services and applications have their own independent privacy policies and data practices which we encourage you to review.</p>
+                    <p>
+                        This Website is built to be lightweight and does not natively implement aggressive user tracking, profiling, or marketing cookies. However, standard web hosting infrastructure inherently processes basic technical data (such as IP addresses and browser types) required to serve web pages securely and efficiently.
+                    </p>
 
-                    <h2>4. Data Security</h2>
-                    <p>We rely on modern, secure hosting providers to ensure the Website is delivered safely. Because we do not collect personal data via the Website, there are no databases of user information connected directly to this informational site.</p>
+                    <h2>
+                        3. Third-Party Links & External Products
+                    </h2>
 
-                    <h2>5. Children's Privacy</h2>
-                    <p>The LINS IO Website is general audience and does not intentionally target or collect personal information from children.</p>
+                    <p>
+                        The Website contains links to external platforms (such as Google Play, GitHub, and social media platforms) and standalone LINS IO products. When you click on these links and leave our Website, or when you use a separate LINS IO app, this Privacy Policy no longer applies. Those external services and applications have their own independent privacy policies and data practices which we encourage you to review.
+                    </p>
 
-                    <h2>6. Policy Updates</h2>
-                    <p>We may update this Privacy Policy occasionally to reflect changes in our Website structure or functionality. The "Last Updated" date at the top will indicate when modifications were made.</p>
+                    <h2>
+                        4. Data Security
+                    </h2>
 
-                    <h2>7. Contact Information</h2>
-                    <p>If you have any questions regarding this Website Privacy Policy, please contact us at: <a href="mailto:linsio.official@gmail.com" style="color: var(--color-accent); font-weight:500;">linsio.official@gmail.com</a>.</p>
+                    <p>
+                        We rely on modern, secure hosting providers to ensure the Website is delivered safely. Because we do not collect personal data via the Website, there are no databases of user information connected directly to this informational site.
+                    </p>
+
+                    <h2>
+                        5. Children's Privacy
+                    </h2>
+
+                    <p>
+                        The LINS IO Website is general audience and does not intentionally target or collect personal information from children.
+                    </p>
+
+                    <h2>
+                        6. Policy Updates
+                    </h2>
+
+                    <p>
+                        We may update this Privacy Policy occasionally to reflect changes in our Website structure or functionality. The "Last Updated" date at the top will indicate when modifications were made.
+                    </p>
+
+                    <h2>
+                        7. Contact Information
+                    </h2>
+
+                    <p>
+                        If you have any questions regarding this Website Privacy Policy, please contact us at:
+                        <a href="mailto:linsio.official@gmail.com"
+                           style="color: var(--color-accent); font-weight:500;">
+                            linsio.official@gmail.com
+                        </a>.
+                    </p>
+
                 </div>
+
             </div>
+
         </div>
+
 
         <!-- View: TERMS -->
         <div id="view-terms" class="view">
+
             <div class="container fade-up">
+
                 <div class="legal-page">
-                    <h1>Terms & Conditions</h1>
-                    <span class="last-updated">Last Updated: August 2026</span>
 
-                    <p>Welcome to the LINS IO website. By accessing or using this Website, you agree to comply with and be bound by the following Terms & Conditions. If you do not agree with these terms, please do not use the Website.</p>
+                    <h1>
+                        Terms & Conditions
+                    </h1>
 
-                    <h2>1. Website Use & Scope</h2>
-                    <p>These terms govern your use of the LINS IO brand website only. They do not constitute the Terms of Service for AI Store, LinsPlay, or any other distinct application or product developed by LINS IO. Those products are governed by their respective terms and agreements provided upon download or usage.</p>
+                    <span class="last-updated">
+                        Last Updated: August 2026
+                    </span>
 
-                    <h2>2. Intellectual Property</h2>
-                    <p>All content, branding, logos (including the LINS IO logo), text, graphics, and structure present on this Website are the property of LINS IO, unless otherwise noted. You may not reproduce, distribute, or modify our intellectual property without explicit permission.</p>
+                    <p>
+                        Welcome to the LINS IO website. By accessing or using this Website, you agree to comply with and be bound by the following Terms & Conditions. If you do not agree with these terms, please do not use the Website.
+                    </p>
 
-                    <h2>3. Accuracy of Information & Availability</h2>
-                    <p>We strive to provide accurate information regarding our current and upcoming products. However, the status of products, features, and availability (such as "Coming Soon" tags) are subject to change without notice. LINS IO makes no warranties that the Website will be uninterrupted, error-free, or completely accurate at all times.</p>
+                    <h2>
+                        1. Website Use & Scope
+                    </h2>
 
-                    <h2>4. External Links</h2>
-                    <p>Our Website contains links to external websites, application stores (e.g., Google Play), and social media networks. LINS IO does not control these third-party platforms and is not responsible for their content, accuracy, or reliability. Accessing external links is at your own risk.</p>
+                    <p>
+                        These terms govern your use of the LINS IO brand website only. They do not constitute the Terms of Service for AI Store, LinsPlay, or any other distinct application or product developed by LINS IO. Those products are governed by their respective terms and agreements provided upon download or usage.
+                    </p>
 
-                    <h2>5. Acceptable Use</h2>
-                    <p>You agree to use the Website only for lawful purposes. You must not attempt to disrupt the Website's functionality, attempt unauthorized access, or use the Website to distribute malicious code.</p>
+                    <h2>
+                        2. Intellectual Property
+                    </h2>
 
-                    <h2>6. Limitation of Liability</h2>
-                    <p>To the maximum extent permitted by law, LINS IO shall not be liable for any direct, indirect, incidental, or consequential damages resulting from your use or inability to use this Website or the information contained within it.</p>
+                    <p>
+                        All content, branding, logos (including the LINS IO logo), text, graphics, and structure present on this Website are the property of LINS IO, unless otherwise noted. You may not reproduce, distribute, or modify our intellectual property without explicit permission.
+                    </p>
 
-                    <h2>7. Changes to Website and Terms</h2>
-                    <p>LINS IO reserves the right to modify, suspend, or discontinue any aspect of the Website at any time. We also reserve the right to update these Terms & Conditions. Continued use of the Website after updates constitutes acceptance of the new terms.</p>
+                    <h2>
+                        3. Accuracy of Information & Availability
+                    </h2>
 
-                    <h2>8. Contact Information</h2>
-                    <p>For inquiries regarding these Terms & Conditions, please contact: <a href="mailto:linsio.official@gmail.com" style="color: var(--color-accent); font-weight:500;">linsio.official@gmail.com</a>.</p>
+                    <p>
+                        We strive to provide accurate information regarding our current and upcoming products. However, the status of products, features, and availability (such as "Coming Soon" tags) are subject to change without notice. LINS IO makes no warranties that the Website will be uninterrupted, error-free, or completely accurate at all times.
+                    </p>
+
+                    <h2>
+                        4. External Links
+                    </h2>
+
+                    <p>
+                        Our Website contains links to external websites, application stores (e.g., Google Play), and social media networks. LINS IO does not control these third-party platforms and is not responsible for their content, accuracy, or reliability. Accessing external links is at your own risk.
+                    </p>
+
+                    <h2>
+                        5. Acceptable Use
+                    </h2>
+
+                    <p>
+                        You agree to use the Website only for lawful purposes. You must not attempt to disrupt the Website's functionality, attempt unauthorized access, or use the Website to distribute malicious code.
+                    </p>
+
+                    <h2>
+                        6. Limitation of Liability
+                    </h2>
+
+                    <p>
+                        To the maximum extent permitted by law, LINS IO shall not be liable for any direct, indirect, incidental, or consequential damages resulting from your use or inability to use this Website or the information contained within it.
+                    </p>
+
+                    <h2>
+                        7. Changes to Website and Terms
+                    </h2>
+
+                    <p>
+                        LINS IO reserves the right to modify, suspend, or discontinue any aspect of the Website at any time. We also reserve the right to update these Terms & Conditions. Continued use of the Website after updates constitutes acceptance of the new terms.
+                    </p>
+
+                    <h2>
+                        8. Contact Information
+                    </h2>
+
+                    <p>
+                        For inquiries regarding these Terms & Conditions, please contact:
+                        <a href="mailto:linsio.official@gmail.com"
+                           style="color: var(--color-accent); font-weight:500;">
+                            linsio.official@gmail.com
+                        </a>.
+                    </p>
+
                 </div>
+
             </div>
+
         </div>
 
     </main>
 
+
     <!-- Footer -->
     <footer class="footer">
+
         <div class="container">
+
             <div class="footer-grid fade-up">
                 
                 <div class="footer-brand">
-                    <span class="footer-tagline">Build, Learn, Evolve</span>
-                    <h3>LINS IO</h3>
-                    <p>Building useful technology for the real world.</p>
+
+                    <span class="footer-tagline">
+                        Build, Learn, Evolve
+                    </span>
+
+                    <h3>
+                        LINS IO
+                    </h3>
+
+                    <p>
+                        Building useful technology for the real world.
+                    </p>
+
                 </div>
                 
                 <div class="footer-nav">
-                    <h4>Navigation</h4>
+
+                    <h4>
+                        Navigation
+                    </h4>
+
                     <div class="footer-links">
-                        <a onclick="app.navigate('home', 'about')">About</a>
-                        <a onclick="app.navigate('home', 'faq')">FAQ</a>
-                        <a onclick="app.navigate('home', 'contact')">Contact</a>
+
+                        <a onclick="app.navigate('home', 'about')">
+                            About
+                        </a>
+
+                        <a onclick="app.navigate('home', 'faq')">
+                            FAQ
+                        </a>
+
+                        <a onclick="app.navigate('home', 'contact')">
+                            Contact
+                        </a>
+
+                        <!-- BLOG ADDED -->
+                        <a href="/blog/">
+                            Blog
+                        </a>
+
                     </div>
+
                 </div>
+
 
                 <div class="footer-legal">
-                    <h4>Legal</h4>
+
+                    <h4>
+                        Legal
+                    </h4>
+
                     <div class="footer-links">
-                        <a onclick="app.navigate('privacy')">Privacy Policy</a>
-                        <a onclick="app.navigate('terms')">Terms & Conditions</a>
+
+                        <a onclick="app.navigate('privacy')">
+                            Privacy Policy
+                        </a>
+
+                        <a onclick="app.navigate('terms')">
+                            Terms & Conditions
+                        </a>
+
                     </div>
+
                 </div>
+
             </div>
 
+
             <div class="footer-bottom fade-up">
+
                 <div class="copyright">
                     &copy; 2026 LINS IO. All rights reserved.
                 </div>
                 
                 <!-- SOCIAL LINKS FIX: Larger touch target, proper z-index -->
+
                 <div class="social-links">
-                    <a href="https://www.instagram.com/lins.io_?igsh=cGc0PXBvamIzZ2h1" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg>
+
+                    <a href="https://www.instagram.com/lins.io_?igsh=cGc0PXBvamIzZ2h1"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link"
+                       aria-label="Instagram">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8C2,4.6 4.6,2 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0 0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0 1 18.5,6.75A1.25,1.25 0 0 1 17.25,8A1.25,1.25 0 0 1 16,6.75A1.25,1.25 0 0 1 17.25,5.5M12,7A5,5 0 0 1 17,12A5,5 0 0 1 12,17A5,5 0 0 1 7,12A5,5 0 0 1 12,7M12,9A3,3 0 0 0 9,12A3,3 0 0 0 12,15A3,3 0 0 0 15,12A3,3 0 0 0 12,9Z"/>
+                        </svg>
+
                     </a>
-                    <a href="https://www.facebook.com/share/1XmxD5SWwn/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+
+
+                    <a href="https://www.facebook.com/share/1XmxD5SWwn/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link"
+                       aria-label="Facebook">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+                        </svg>
+
                     </a>
-                    <a href="https://youtube.com/@lins_io?si=LR43E_hz1aXYE9BP" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24"><path d="M21.58,7.19C21.35,6.33 20.67,5.65 19.81,5.42C18.25,5 12,5 12,5C12,5 5.75,5 4.19,5.42C3.33,5.65 2.65,6.33 2.42,7.19C2,8.75 2,12 2,12C2,12 2,15.25 2.42,16.81C2.65,17.67 3.33,18.35 4.19,18.58C5.75,19 12,19 12,19C12,19 18.25,19 19.81,18.58C20.67,18.35 21.35,17.67 21.58,16.81C22,15.25 22,12 22,12C22,12 22,8.75 21.58,7.19M10,15V9L15.2,12L10,15Z"/></svg>
+
+
+                    <a href="https://youtube.com/@lins_io?si=LR43E_hz1aXYE9BP"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link"
+                       aria-label="YouTube">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21.58,7.19C21.35,6.33 20.67,5.65 19.81,5.42C18.25,5 12,5 12,5C12,5 5.75,5 4.19,5.42C3.33,5.65 2.65,6.33 2.42,7.19C2,8.75 2,12 2,12C2,12 2,15.25 2.42,16.81C2.65,17.67 3.33,18.35 4.19,18.58C5.75,19 12,19 12,19C12,19 18.25,19 19.81,18.58C20.67,18.35 21.35,17.67 21.58,16.81C22,15.25 22,12 22,12C22,12 22,8.75 21.58,7.19M10,15V9L15.2,12L10,15Z"/>
+                        </svg>
+
                     </a>
-                    <a href="https://t.me/linsio002" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Telegram">
-                        <svg viewBox="0 0 24 24"><path d="M9.78,18.65L10.06,14.42L17.74,7.5C18.08,7.19 17.67,7.04 17.22,7.31L7.74,13.28L3.64,12C2.76,11.75 2.75,11.14 3.84,10.7L19.81,4.54C20.54,4.21 21.24,4.72 20.96,5.84L18.24,18.65C18.05,19.56 17.5,19.78 16.74,19.36L12.6,16.3L10.61,18.23C10.38,18.46 10.19,18.65 9.78,18.65Z"/></svg>
+
+
+                    <a href="https://t.me/linsio002"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link"
+                       aria-label="Telegram">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9.78,18.65L10.06,14.42L17.74,7.5C18.08,7.19 17.67,7.04 17.22,7.31L7.74,13.28L3.64,12C2.76,11.75 2.75,11.14 3.84,10.7L19.81,4.54C20.54,4.21 21.24,4.72 20.96,5.84L18.24,18.65C18.05,19.56 17.5,19.78 16.74,19.36L12.6,16.3L10.61,18.23C10.38,18.46 10.19,18.65 9.78,18.65Z"/>
+                        </svg>
+
                     </a>
+
                 </div>
+
             </div>
+
         </div>
+
     </footer>
+
 
     <!-- Interactivity Scripts -->
     <script>
+
         const app = {
+
             init: function() {
+
                 this.setupFAQ();
+
                 this.setupScrollObserver();
-                
-                window.addEventListener('hashchange', () => this.handleHashRoute());
+
+                window.addEventListener(
+                    'hashchange',
+                    () => this.handleHashRoute()
+                );
+
                 this.handleHashRoute();
+
             },
+
 
             // Scroll Animation Setup
             setupScrollObserver: function() {
-                const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
-                const observer = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, observerOptions);
 
-                document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.15
+                };
+
+                const observer =
+                    new IntersectionObserver(
+                        (entries, observer) => {
+
+                            entries.forEach(entry => {
+
+                                if (entry.isIntersecting) {
+
+                                    entry.target.classList.add('visible');
+
+                                    observer.unobserve(entry.target);
+
+                                }
+
+                            });
+
+                        },
+                        observerOptions
+                    );
+
+
+                document
+                    .querySelectorAll('.fade-up')
+                    .forEach(el =>
+                        observer.observe(el)
+                    );
+
             },
+
 
             // Mobile Menu
             toggleMenu: function() {
-                const navLinks = document.getElementById('nav-menu');
-                const icon = document.getElementById('menu-icon');
-                const isOpen = navLinks.classList.toggle('open');
-                
+
+                const navLinks =
+                    document.getElementById('nav-menu');
+
+                const icon =
+                    document.getElementById('menu-icon');
+
+                const isOpen =
+                    navLinks.classList.toggle('open');
+
+
                 if (isOpen) {
-                    icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';
+
+                    icon.innerHTML =
+                        '<line x1="18" y1="6" x2="6" y2="18"></line>' +
+                        '<line x1="6" y1="6" x2="18" y2="18"></line>';
+
                 } else {
-                    icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+
+                    icon.innerHTML =
+                        '<line x1="3" y1="12" x2="21" y2="12"></line>' +
+                        '<line x1="3" y1="6" x2="21" y2="6"></line>' +
+                        '<line x1="3" y1="18" x2="21" y2="18"></line>';
+
                 }
+
             },
+
 
             closeMenu: function() {
-                const navLinks = document.getElementById('nav-menu');
-                const icon = document.getElementById('menu-icon');
+
+                const navLinks =
+                    document.getElementById('nav-menu');
+
+                const icon =
+                    document.getElementById('menu-icon');
+
                 navLinks.classList.remove('open');
-                icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+
+                icon.innerHTML =
+                    '<line x1="3" y1="12" x2="21" y2="12"></line>' +
+                    '<line x1="3" y1="6" x2="21" y2="6"></line>' +
+                    '<line x1="3" y1="18" x2="21" y2="18"></line>';
+
             },
+
 
             // SPA Routing
-            navigate: function(viewId, targetSection = null) {
-                this.closeMenu();
-                
-                document.querySelectorAll('.view').forEach(view => {
-                    view.classList.remove('active');
-                });
+            navigate: function(
+                viewId,
+                targetSection = null
+            ) {
 
-                const targetView = document.getElementById('view-' + viewId);
-                if (targetView) targetView.classList.add('active');
+                this.closeMenu();
+
+
+                document
+                    .querySelectorAll('.view')
+                    .forEach(view => {
+
+                        view.classList.remove('active');
+
+                    });
+
+
+                const targetView =
+                    document.getElementById(
+                        'view-' + viewId
+                    );
+
+
+                if (targetView) {
+
+                    targetView.classList.add('active');
+
+                }
+
 
                 // Re-trigger scroll animations for the new view
-                document.querySelectorAll('.fade-up').forEach(el => el.classList.remove('visible'));
-                setTimeout(() => this.setupScrollObserver(), 50);
+                document
+                    .querySelectorAll('.fade-up')
+                    .forEach(el =>
+                        el.classList.remove('visible')
+                    );
 
-                if (targetSection && viewId === 'home') {
-                    setTimeout(() => this.scrollToSection(targetSection), 100);
+
+                setTimeout(
+                    () => this.setupScrollObserver(),
+                    50
+                );
+
+
+                if (
+                    targetSection &&
+                    viewId === 'home'
+                ) {
+
+                    setTimeout(
+                        () =>
+                            this.scrollToSection(
+                                targetSection
+                            ),
+                        100
+                    );
+
                 } else {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+
                 }
                 
-                if (viewId === 'home' && targetSection) {
-                    history.pushState(null, null, '#' + targetSection);
-                } else if (viewId !== 'home') {
-                    history.pushState(null, null, '#/' + viewId);
+                if (
+                    viewId === 'home' &&
+                    targetSection
+                ) {
+
+                    history.pushState(
+                        null,
+                        null,
+                        '#' + targetSection
+                    );
+
+                } else if (
+                    viewId !== 'home'
+                ) {
+
+                    history.pushState(
+                        null,
+                        null,
+                        '#/' + viewId
+                    );
+
                 } else {
-                    history.pushState(null, null, window.location.pathname);
+
+                    history.pushState(
+                        null,
+                        null,
+                        window.location.pathname
+                    );
+
                 }
+
             },
+
 
             scrollToSection: function(sectionId) {
-                const section = document.getElementById(sectionId);
+
+                const section =
+                    document.getElementById(sectionId);
+
+
                 if (section) {
+
                     const navHeight = 80;
-                    const sectionTop = section.getBoundingClientRect().top + window.scrollY - navHeight;
-                    window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+
+                    const sectionTop =
+                        section.getBoundingClientRect().top +
+                        window.scrollY -
+                        navHeight;
+
+
+                    window.scrollTo({
+                        top: sectionTop,
+                        behavior: 'smooth'
+                    });
+
                 }
+
             },
 
+
             handleHashRoute: function() {
-                const hash = window.location.hash;
+
+                const hash =
+                    window.location.hash;
+
+
                 if (hash === '#/privacy') {
+
                     this.navigate('privacy');
+
                 } else if (hash === '#/terms') {
+
                     this.navigate('terms');
-                } else if (hash.startsWith('#') && hash.length > 1 && !hash.startsWith('#/')) {
-                    const sectionId = hash.substring(1);
-                    this.navigate('home', sectionId);
+
+                } else if (
+                    hash.startsWith('#') &&
+                    hash.length > 1 &&
+                    !hash.startsWith('#/')
+                ) {
+
+                    const sectionId =
+                        hash.substring(1);
+
+                    this.navigate(
+                        'home',
+                        sectionId
+                    );
+
                 } else {
+
                     this.navigate('home');
+
                 }
+
             },
+
 
             // FAQ Accordion
             setupFAQ: function() {
-                const faqItems = document.querySelectorAll('.faq-question');
+
+                const faqItems =
+                    document.querySelectorAll(
+                        '.faq-question'
+                    );
+
+
                 faqItems.forEach(item => {
-                    item.addEventListener('click', function() {
-                        const parent = this.parentElement;
-                        const answer = this.nextElementSibling;
-                        const isActive = parent.classList.contains('active');
 
-                        document.querySelectorAll('.faq-item').forEach(faq => {
-                            faq.classList.remove('active');
-                            faq.querySelector('.faq-answer').style.maxHeight = null;
-                        });
+                    item.addEventListener(
+                        'click',
+                        function() {
 
-                        if (!isActive) {
-                            parent.classList.add('active');
-                            answer.style.maxHeight = answer.scrollHeight + "px";
+                            const parent =
+                                this.parentElement;
+
+                            const answer =
+                                this.nextElementSibling;
+
+                            const isActive =
+                                parent.classList.contains(
+                                    'active'
+                                );
+
+
+                            document
+                                .querySelectorAll('.faq-item')
+                                .forEach(faq => {
+
+                                    faq.classList.remove(
+                                        'active'
+                                    );
+
+                                    faq
+                                        .querySelector(
+                                            '.faq-answer'
+                                        )
+                                        .style.maxHeight = null;
+
+                                });
+
+
+                            if (!isActive) {
+
+                                parent.classList.add(
+                                    'active'
+                                );
+
+                                answer.style.maxHeight =
+                                    answer.scrollHeight +
+                                    "px";
+
+                            }
+
                         }
-                    });
+                    );
+
                 });
+
             }
+
         };
 
-        document.addEventListener('DOMContentLoaded', () => app.init());
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            () => app.init()
+        );
+
     </script>
+
 </body>
-</html>
+    </html>
