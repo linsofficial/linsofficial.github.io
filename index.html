@@ -12,13 +12,12 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Modern 2026 Premium Variables */
         :root {
             --color-bg: #ffffff;
             --color-bg-alt: #f8fafc;
@@ -26,24 +25,23 @@
             --color-text-secondary: #475569;
             --color-accent: #2563eb;
             --color-accent-light: #eff6ff;
+            --color-accent-cyan: #06b6d4;
             --color-border: #e2e8f0;
             --nav-height: 80px;
             
-            /* Premium Shadows */
             --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
             --shadow-md: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
-            --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.07);
-            --shadow-hover: 0 25px 50px -12px rgba(37, 99, 235, 0.15);
+            --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 25px 50px -12px rgba(37, 99, 235, 0.2);
             
-            /* Radii */
             --radius-md: 16px;
             --radius-lg: 24px;
             --radius-pill: 9999px;
             
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
-        /* Reset & Global */
         * {
             margin: 0;
             padding: 0;
@@ -66,29 +64,51 @@
             position: relative;
         }
 
-        /* Ambient Background Blur for Premium Feel */
-        body::before, body::after {
-            content: '';
+        /* Continuous Dynamic Global Grid & Ambience */
+        .ambient-layer {
             position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(120px);
-            z-index: -1;
-            opacity: 0.4;
+            inset: 0;
             pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
         }
 
-        body::before {
+        .ambient-field-1 {
+            position: absolute;
+            width: 750px;
+            height: 750px;
+            border-radius: 50%;
             top: -200px;
-            left: -200px;
-            background: linear-gradient(135deg, #e0e7ff 0%, #ffffff 100%);
+            left: -150px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%);
+            filter: blur(80px);
+            animation: driftPrimary 24s ease-in-out infinite alternate;
+            will-change: transform;
         }
 
-        body::after {
-            bottom: -200px;
+        .ambient-field-2 {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            bottom: 5%;
             right: -200px;
-            background: linear-gradient(135deg, #f1f5f9 0%, #e0e7ff 100%);
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, rgba(37, 99, 235, 0.04) 55%, transparent 75%);
+            filter: blur(90px);
+            animation: driftSecondary 28s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+
+        .ambient-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(226, 232, 240, 0.45) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(226, 232, 240, 0.45) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 90% 80% at 50% 35%, black 40%, transparent 85%);
+            -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 35%, black 40%, transparent 85%);
+            animation: gridFlow 40s linear infinite;
         }
 
         a {
@@ -111,14 +131,20 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
+            position: relative;
         }
 
         .section-padding {
-            padding: 120px 0;
+            padding: 130px 0;
+            position: relative;
         }
 
         .bg-alt {
-            background-color: rgba(248, 250, 252, 0.6);
+            background-color: rgba(248, 250, 252, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(226, 232, 240, 0.6);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
         }
 
         /* Typography */
@@ -129,16 +155,15 @@
         }
 
         h1 {
-            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-size: clamp(2.8rem, 6vw, 4.6rem);
             margin-bottom: 24px;
-            background: linear-gradient(180deg, #020617 0%, #334155 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #020617;
         }
 
         h2 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(2.4rem, 4.5vw, 3.4rem);
             margin-bottom: 20px;
+            letter-spacing: -0.025em;
         }
 
         h3 {
@@ -153,12 +178,12 @@
             margin-bottom: 24px;
         }
 
-        /* Buttons & CTAs */
+        /* Buttons & Actions */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 32px;
+            padding: 16px 34px;
             font-weight: 600;
             border-radius: var(--radius-pill);
             transition: var(--transition);
@@ -166,29 +191,47 @@
             border: none;
             font-size: 1rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
             background-color: var(--color-text-primary);
             color: #ffffff;
-            box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.18);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transform: rotate(25deg);
+            animation: btnShine 4s infinite cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .btn-primary:hover {
             background-color: #000000;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
         }
 
         .btn-outline {
-            background-color: transparent;
+            background-color: rgba(255, 255, 255, 0.8);
             border: 1px solid var(--color-border);
             color: var(--color-text-primary);
+            backdrop-filter: blur(8px);
         }
 
         .btn-outline:hover {
-            border-color: var(--color-text-primary);
-            background-color: var(--color-bg-alt);
+            border-color: var(--color-accent);
+            background-color: #ffffff;
+            color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
         }
 
         .btn-google-play {
@@ -201,10 +244,12 @@
             border-radius: var(--radius-pill);
             font-weight: 600;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-google-play:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             background-color: var(--color-accent);
             box-shadow: var(--shadow-hover);
         }
@@ -213,35 +258,71 @@
             width: 24px;
             height: 24px;
             fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-google-play:hover svg {
+            transform: scale(1.1) rotate(-4deg);
         }
 
         .badge {
-            display: inline-block;
-            padding: 8px 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
             background-color: var(--color-accent-light);
             color: var(--color-accent);
             border-radius: var(--radius-pill);
             font-size: 0.875rem;
             font-weight: 600;
-            margin-bottom: 20px;
-            border: 1px solid rgba(37, 99, 235, 0.1);
+            margin-bottom: 24px;
+            border: 1px solid rgba(37, 99, 235, 0.18);
+            animation: pulseBadge 3s infinite ease-in-out;
         }
 
-        /* Navigation */
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--color-accent);
+            box-shadow: 0 0 10px var(--color-accent);
+            animation: blinkDot 1.6s infinite ease-in-out;
+        }
+
+        /* 3. ACTIVE COMMAND NAVBAR */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: var(--nav-height);
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border-bottom: 1px solid rgba(226, 232, 240, 0.6);
             z-index: 1000;
             display: flex;
             align-items: center;
-            transition: var(--transition);
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+            border-bottom-color: rgba(37, 99, 235, 0.12);
+            height: 74px;
+        }
+
+        .navbar::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.4), rgba(6, 182, 212, 0.4), transparent);
+            opacity: 0.7;
+            animation: borderBeam 6s linear infinite;
         }
 
         .nav-container {
@@ -256,26 +337,41 @@
             align-items: center;
             gap: 12px;
             cursor: pointer;
+            position: relative;
         }
 
         .logo-img {
-            height: 32px;
+            height: 34px;
             width: auto;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .logo-container:hover .logo-img {
+            transform: scale(1.08) rotate(3deg);
         }
 
         .logo-text {
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: -0.02em;
+            font-weight: 800;
+            font-size: 1.3rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #020617 0%, #1e293b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
-            background: rgba(255, 255, 255, 0.5);
-            padding: 8px 24px;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.75);
+            padding: 6px 14px;
             border-radius: var(--radius-pill);
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.03);
+            position: relative;
+        }
+
+        .nav-links li {
+            position: relative;
         }
 
         .nav-links a {
@@ -284,11 +380,16 @@
             color: var(--color-text-secondary);
             transition: var(--transition);
             cursor: pointer;
-            padding: 8px 0;
+            padding: 8px 18px;
+            border-radius: var(--radius-pill);
+            display: inline-block;
+            position: relative;
+            z-index: 1;
         }
 
         .nav-links a:hover {
             color: var(--color-text-primary);
+            background: rgba(241, 245, 249, 0.8);
         }
 
         .mobile-menu-toggle {
@@ -306,7 +407,7 @@
             stroke: var(--color-text-primary);
         }
 
-        /* View Container */
+        /* Views */
         .view {
             display: none;
             padding-top: var(--nav-height);
@@ -317,82 +418,417 @@
         .view.active {
             display: block;
         }
-        
+
         @keyframes fadeView {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Section */
+        /* 1 & 2. HERO — LIVE TECHNOLOGY ENVIRONMENT */
         .hero {
+            position: relative;
             text-align: center;
-            padding: 160px 0 100px;
+            padding: 170px 0 120px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            overflow: visible;
+        }
+
+        /* Interactive Stage Behind Hero */
+        .hero-environment {
+            position: absolute;
+            inset: -40px -100px;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            border-radius: 40px;
+        }
+
+        .hero-orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            border: 1px dashed rgba(37, 99, 235, 0.18);
+            transform: translate(-50%, -50%);
+            animation: orbitSpin 32s linear infinite;
+        }
+
+        .hero-orbit-1 {
+            width: 580px;
+            height: 580px;
+        }
+
+        .hero-orbit-2 {
+            width: 860px;
+            height: 860px;
+            border-color: rgba(6, 182, 212, 0.14);
+            animation-duration: 48s;
+            animation-direction: reverse;
+        }
+
+        .orbit-node {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            box-shadow: 0 0 14px var(--color-accent);
+            transform: translate(-50%, -50%);
+        }
+
+        .orbit-node-cyan {
+            top: 100%;
+            background: var(--color-accent-cyan);
+            box-shadow: 0 0 14px var(--color-accent-cyan);
+        }
+
+        .hero-glow-reactive {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 380px;
+            background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.14), transparent 70%);
+            filter: blur(50px);
+            transform: translate(-50%, -50%);
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 920px;
+            margin: 0 auto;
         }
 
         .hero-tag {
-            display: inline-block;
-            padding: 8px 16px;
-            background: var(--color-bg);
-            border: 1px solid var(--color-border);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(226, 232, 240, 0.9);
             border-radius: var(--radius-pill);
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: var(--color-text-primary);
             margin-bottom: 32px;
             box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(10px);
+            animation: heroTagBreath 4s ease-in-out infinite;
         }
 
-        .hero p {
-            max-width: 650px;
+        .live-status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 10px #10b981;
+            animation: pulseStatus 2s infinite ease-in-out;
+        }
+
+        /* Staged Hero Reveal Typography */
+        .reveal-line {
+            display: block;
+            overflow: hidden;
+            padding: 4px 0;
+        }
+
+        .reveal-text {
+            display: inline-block;
+            transform: translateY(110%);
+            opacity: 0;
+            filter: blur(12px);
+            animation: textStageReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .reveal-line:nth-child(1) .reveal-text {
+            animation-delay: 0.15s;
+        }
+
+        .reveal-line:nth-child(2) .reveal-text {
+            animation-delay: 0.35s;
+        }
+
+        .dynamic-gradient-text {
+            background: linear-gradient(120deg, #020617 0%, #2563eb 45%, #06b6d4 70%, #020617 100%);
+            background-size: 250% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientSweep 8s linear infinite;
+        }
+
+        .hero p.hero-description {
+            max-width: 680px;
             margin: 0 auto 40px;
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             color: var(--color-text-secondary);
+            opacity: 0;
+            transform: translateY(24px);
+            filter: blur(8px);
+            animation: textStageReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
         }
 
-        /* Products Section */
+        .hero-actions {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: textStageReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+        }
+
+        /* 4. LIVING PRODUCT CARDS */
         .section-header {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 80px;
+            margin: 0 auto 70px;
+            position: relative;
         }
 
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 40px;
+            gap: 36px;
+            position: relative;
         }
 
         .product-card {
-            background-color: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            background-color: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(226, 232, 240, 0.85);
             border-radius: var(--radius-lg);
-            padding: 48px;
+            padding: 44px;
             display: flex;
             flex-direction: column;
             transition: var(--transition);
             box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        /* Card continuous ambient edge sweep */
+        .product-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: var(--radius-lg);
+            padding: 1.5px;
+            background: linear-gradient(135deg, transparent 30%, rgba(37, 99, 235, 0.25), rgba(6, 182, 212, 0.25), transparent 70%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0.6;
+            animation: borderTravel 8s linear infinite;
+        }
+
+        /* Follow-pointer subtle light overlay */
+        .card-ambient-light {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.12), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            filter: blur(25px);
+        }
+
+        .product-card:hover .card-ambient-light {
+            opacity: 1;
         }
 
         .product-card:hover {
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-hover);
             transform: translateY(-8px);
-            border-color: rgba(37, 99, 235, 0.2);
+            border-color: rgba(37, 99, 235, 0.3);
+            background-color: #ffffff;
+        }
+
+        /* Living Visual Micro-Environments in Cards */
+        .card-visual-frame {
+            width: 100%;
+            height: 90px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(145deg, #f8fafc, #f1f5f9);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 5. AI Store Card Live Animation */
+        .ai-core-system {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ai-grid-micro {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(37, 99, 235, 0.15) 1px, transparent 1px);
+            background-size: 14px 14px;
+        }
+
+        .ai-core-pulse {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-accent-cyan));
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+            animation: coreBreathe 3s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ai-orbit-ring {
+            position: absolute;
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            border: 1px solid rgba(37, 99, 235, 0.25);
+            animation: orbitSpin 10s linear infinite;
+        }
+
+        .ai-orbit-ring::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-accent-cyan);
+            box-shadow: 0 0 8px var(--color-accent-cyan);
+        }
+
+        .ai-node-link {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.4), transparent);
+            animation: linkSignal 3s infinite ease-in-out;
+        }
+
+        .ai-node-1 { width: 120px; top: 35%; transform: rotate(15deg); }
+        .ai-node-2 { width: 140px; bottom: 35%; transform: rotate(-25deg); animation-delay: 1.2s; }
+
+        /* 6. LinsPlay Card Micro-Game Simulation */
+        .game-canvas-micro {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #020617;
+        }
+
+        .game-grid-vector {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(37, 99, 235, 0.15) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(37, 99, 235, 0.15) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .cyber-runner {
+            position: absolute;
+            bottom: 24px;
+            left: 20%;
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            background: #06b6d4;
+            box-shadow: 0 0 12px #06b6d4;
+            animation: playerJump 2.4s infinite cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cyber-obstacle {
+            position: absolute;
+            bottom: 24px;
+            right: -20px;
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            background: #ef4444;
+            box-shadow: 0 0 10px #ef4444;
+            animation: obstacleSlide 2.4s infinite linear;
+        }
+
+        .cyber-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            animation: particleFly 1.8s infinite linear;
+        }
+
+        /* 7. Resume Builder Living Document Engine */
+        .doc-canvas-micro {
+            width: 85%;
+            height: 80%;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            padding: 12px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .doc-line {
+            height: 5px;
+            border-radius: 3px;
+            background: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .doc-line-title { width: 45%; background: #94a3b8; }
+        .doc-line-body-1 { width: 85%; }
+        .doc-line-body-2 { width: 70%; }
+
+        .doc-scan-highlight {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50px;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.25), transparent);
+            animation: docScan 2.8s infinite ease-in-out;
+        }
+
+        .doc-cursor {
+            position: absolute;
+            right: 20%;
+            top: 32px;
+            width: 2px;
+            height: 10px;
+            background: var(--color-accent);
+            animation: blinkDot 0.8s infinite;
         }
 
         .product-highlight {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--color-text-primary);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             font-size: 1.125rem;
         }
 
@@ -407,6 +843,11 @@
             margin-bottom: 12px;
             color: var(--color-text-secondary);
             font-size: 1rem;
+            transition: transform 0.25s ease;
+        }
+
+        .product-card:hover .product-features li {
+            transform: translateX(4px);
         }
 
         .product-features li::before {
@@ -418,48 +859,225 @@
             font-weight: bold;
         }
 
-        /* Coming Soon */
+        /* 8. LINSCAM AI — ACTIVE VISION SYSTEM SHOWCASE */
         .coming-soon-card {
-            background: linear-gradient(145deg, #ffffff, var(--color-bg-alt));
-            border: 1px solid var(--color-border);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.7));
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
             border-radius: var(--radius-lg);
-            padding: 64px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 64px;
+            padding: 56px;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 48px;
             align-items: center;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
         }
 
-        .coming-soon-content {
-            flex: 1;
-            min-width: 300px;
+        .coming-soon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.12), transparent 70%);
+            filter: blur(60px);
+            pointer-events: none;
         }
 
-        .coming-soon-features {
-            flex: 1;
-            min-width: 300px;
+        /* Computer Vision Active Scanner Frame */
+        .vision-terminal {
+            background: #020617;
+            border-radius: var(--radius-md);
+            padding: 24px;
+            border: 1px solid #1e293b;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+            position: relative;
+            color: #f8fafc;
+            overflow: hidden;
+            font-family: var(--font-mono);
         }
-        
-        .closing-statement {
+
+        .vision-terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #1e293b;
+            margin-bottom: 16px;
+        }
+
+        .status-badge-active {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.12);
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
             font-weight: 600;
+        }
+
+        .vision-viewfinder {
+            position: relative;
+            height: 240px;
+            background: #0a0f1d;
+            border-radius: 8px;
+            border: 1px dashed #334155;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vision-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(6, 182, 212, 0.08) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(6, 182, 212, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .scanner-beam {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #06b6d4, #3b82f6, transparent);
+            box-shadow: 0 0 16px #06b6d4, 0 0 8px #3b82f6;
+            animation: scanLineVertical 3.2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        /* Corner Reticles */
+        .reticle-corner {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-color: #06b6d4;
+            pointer-events: none;
+        }
+
+        .rc-tl { top: 8px; left: 8px; border-top: 2px solid; border-left: 2px solid; }
+        .rc-tr { top: 8px; right: 8px; border-top: 2px solid; border-right: 2px solid; }
+        .rc-bl { bottom: 8px; left: 8px; border-bottom: 2px solid; border-left: 2px solid; }
+        .rc-br { bottom: 8px; right: 8px; border-bottom: 2px solid; border-right: 2px solid; }
+
+        /* Detection Bounding Box 1 */
+        .bbox-sample-1 {
+            position: absolute;
+            width: 110px;
+            height: 80px;
+            border: 1.5px solid #06b6d4;
+            background: rgba(6, 182, 212, 0.07);
+            border-radius: 4px;
+            animation: boxTrack1 6s infinite ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 4px;
+        }
+
+        .bbox-tag {
+            font-size: 0.65rem;
+            background: #06b6d4;
+            color: #020617;
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+
+        /* Detection Bounding Box 2 */
+        .bbox-sample-2 {
+            position: absolute;
+            width: 80px;
+            height: 60px;
+            border: 1.5px dashed #3b82f6;
+            background: rgba(59, 130, 246, 0.07);
+            border-radius: 4px;
+            animation: boxTrack2 7s infinite ease-in-out 1s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 4px;
+        }
+
+        .bbox-coords {
+            font-size: 0.6rem;
+            color: #94a3b8;
+        }
+
+        .vision-terminal-footer {
+            margin-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .closing-statement {
+            font-weight: 700;
             font-size: 1.25rem;
             color: var(--color-text-primary);
-            margin-top: 32px;
+            margin-top: 28px;
+            letter-spacing: -0.01em;
         }
 
-        /* Ecosystem / Vision */
+        /* 9. ECOSYSTEM — CINEMATIC TECHNOLOGY UNIVERSE */
         .vision-section {
-            text-align: center;
-            background: linear-gradient(135deg, #020617 0%, #1e293b 100%);
+            position: relative;
+            background: radial-gradient(circle at center, #0a1128 0%, #020617 80%);
             color: #ffffff;
             border-radius: var(--radius-lg);
-            padding: 100px 40px;
-            box-shadow: var(--shadow-lg);
+            padding: 120px 48px;
+            box-shadow: 0 24px 60px -12px rgba(2, 6, 23, 0.4);
+            overflow: hidden;
+            text-align: center;
         }
+
+        .universe-background {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .universe-orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            border: 1px solid rgba(37, 99, 235, 0.18);
+            transform: translate(-50%, -50%);
+            animation: orbitSpin 40s linear infinite;
+        }
+
+        .universe-orbit-1 { width: 500px; height: 500px; }
+        .universe-orbit-2 { width: 800px; height: 800px; border-color: rgba(6, 182, 212, 0.12); animation-duration: 65s; animation-direction: reverse; }
+        .universe-orbit-3 { width: 1100px; height: 1100px; border-color: rgba(99, 102, 241, 0.08); animation-duration: 90s; }
+
+        .star-particle {
+            position: absolute;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 0 8px #ffffff;
+            animation: starTwinkle 3s infinite ease-in-out alternate;
+        }
+
+        .sp-1 { top: 25%; left: 18%; width: 3px; height: 3px; animation-delay: 0.2s; }
+        .sp-2 { top: 75%; left: 22%; width: 2px; height: 2px; animation-delay: 1.1s; }
+        .sp-3 { top: 30%; right: 20%; width: 4px; height: 4px; animation-delay: 1.8s; box-shadow: 0 0 10px #06b6d4; }
+        .sp-4 { top: 80%; right: 25%; width: 2.5px; height: 2.5px; animation-delay: 2.5s; }
 
         .vision-section h2 {
             color: #ffffff;
+            position: relative;
+            z-index: 2;
         }
 
         .vision-section p {
@@ -467,13 +1085,16 @@
             max-width: 800px;
             margin: 0 auto 20px;
             font-size: 1.25rem;
+            position: relative;
+            z-index: 2;
         }
 
-        /* About Section */
+        /* 10. ABOUT SECTION — EDITORIAL MOTION */
         .about-content {
-            max-width: 800px;
+            max-width: 840px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
         }
 
         .about-content p {
@@ -481,14 +1102,38 @@
             margin-bottom: 24px;
         }
         
-        .philosophy-text {
-            font-size: 1.5rem !important;
-            font-weight: 600;
-            color: var(--color-text-primary) !important;
-            margin-top: 48px;
+        .philosophy-container {
+            margin-top: 56px;
+            padding: 36px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* FAQ Section */
+        .philosophy-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.08), transparent);
+            animation: lightPass 5s infinite cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .philosophy-text {
+            font-size: clamp(1.4rem, 3vw, 1.85rem) !important;
+            font-weight: 700;
+            color: var(--color-text-primary) !important;
+            margin: 0 !important;
+            line-height: 1.4;
+            letter-spacing: -0.02em;
+        }
+
+        /* 11. FAQ ACCORDION WITH FLUID ANIMATION */
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
@@ -496,7 +1141,14 @@
 
         .faq-item {
             border-bottom: 1px solid var(--color-border);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            transition: background-color 0.3s ease;
+            border-radius: 12px;
+            padding: 0 12px;
+        }
+
+        .faq-item.active {
+            background-color: rgba(241, 245, 249, 0.5);
         }
 
         .faq-question {
@@ -504,7 +1156,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 0;
+            padding: 24px 8px;
             background: none;
             border: none;
             text-align: left;
@@ -513,39 +1165,66 @@
             color: var(--color-text-primary);
             cursor: pointer;
             font-family: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--color-accent);
         }
 
         .faq-icon {
             width: 24px;
             height: 24px;
-            transition: transform 0.4s ease;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            color: var(--color-text-secondary);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: var(--color-accent);
         }
 
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+            transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .faq-answer-inner {
-            padding-bottom: 32px;
+            padding: 0 8px 28px 8px;
             color: var(--color-text-secondary);
             font-size: 1.125rem;
+            transform: translateY(6px);
+            opacity: 0;
+            transition: all 0.35s ease;
         }
 
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
+        .faq-item.active .faq-answer-inner {
+            transform: translateY(0);
+            opacity: 1;
         }
 
-        .faq-item.active .faq-answer {
-            transition: max-height 0.6s ease-in-out;
-        }
-
-        /* Contact Section */
+        /* 12. CONTACT — FINAL CINEMATIC MOMENT */
         .contact-section {
             text-align: center;
-            max-width: 600px;
+            max-width: 680px;
             margin: 0 auto;
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .contact-halo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.12), rgba(6, 182, 212, 0.05), transparent 70%);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(50px);
+            animation: coreBreathe 6s ease-in-out infinite;
         }
 
         /* Legal Pages */
@@ -586,7 +1265,8 @@
         .footer {
             background-color: var(--color-bg);
             border-top: 1px solid var(--color-border);
-            padding: 80px 0 40px;
+            padding: 90px 0 40px;
+            position: relative;
         }
 
         .footer-grid {
@@ -631,7 +1311,8 @@
         }
 
         .footer-links a:hover {
-            color: var(--color-text-primary);
+            color: var(--color-accent);
+            transform: translateX(3px);
         }
         
         .footer-bottom {
@@ -649,7 +1330,6 @@
             font-size: 0.9375rem;
         }
         
-        /* Social Links - Fixed for easy clicking */
         .social-links {
             display: flex;
             gap: 12px;
@@ -668,12 +1348,14 @@
             position: relative;
             z-index: 10;
             cursor: pointer;
+            border: 1px solid var(--color-border);
         }
 
         .social-link:hover {
             background-color: var(--color-text-primary);
             color: #ffffff;
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
         }
 
         .social-link svg {
@@ -683,11 +1365,141 @@
             pointer-events: none;
         }
 
-        /* Scroll Animation Class */
+        /* 13. GLOBAL ANIMATION SYSTEM KEYFRAMES */
+        @keyframes driftPrimary {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(60px, 40px) scale(1.08); }
+            100% { transform: translate(-30px, 70px) scale(0.95); }
+        }
+
+        @keyframes driftSecondary {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-70px, -50px) scale(1.1); }
+            100% { transform: translate(40px, -80px) scale(0.92); }
+        }
+
+        @keyframes gridFlow {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(48px); }
+        }
+
+        @keyframes orbitSpin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes borderBeam {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes heroTagBreath {
+            0%, 100% { transform: translateY(0); box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+            50% { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12); }
+        }
+
+        @keyframes pulseStatus {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.85); }
+        }
+
+        @keyframes textStageReveal {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        @keyframes gradientSweep {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes btnShine {
+            0% { left: -100%; }
+            30%, 100% { left: 150%; }
+        }
+
+        @keyframes borderTravel {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes coreBreathe {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.14); opacity: 1; box-shadow: 0 0 26px rgba(37, 99, 235, 0.6); }
+        }
+
+        @keyframes linkSignal {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.85; }
+        }
+
+        @keyframes playerJump {
+            0%, 100% { transform: translateY(0); }
+            35% { transform: translateY(-28px) rotate(-15deg); }
+            65% { transform: translateY(0) rotate(0deg); }
+        }
+
+        @keyframes obstacleSlide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-240px); }
+        }
+
+        @keyframes particleFly {
+            0% { transform: translate(160px, 15px); opacity: 1; }
+            100% { transform: translate(-30px, 45px); opacity: 0; }
+        }
+
+        @keyframes docScan {
+            0% { left: -30%; }
+            100% { left: 130%; }
+        }
+
+        @keyframes scanLineVertical {
+            0% { top: 0%; opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { top: 100%; opacity: 0.2; }
+        }
+
+        @keyframes boxTrack1 {
+            0%, 100% { top: 40px; left: 30px; }
+            50% { top: 90px; left: 120px; }
+        }
+
+        @keyframes boxTrack2 {
+            0%, 100% { bottom: 30px; right: 40px; }
+            50% { bottom: 80px; right: 110px; }
+        }
+
+        @keyframes starTwinkle {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.3); }
+        }
+
+        @keyframes lightPass {
+            0% { left: -100%; }
+            50%, 100% { left: 150%; }
+        }
+
+        @keyframes pulseBadge {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.15); }
+            50% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.05); }
+        }
+
+        @keyframes blinkDot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* 16. Scroll Reveal Observer Class */
         .fade-up {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(28px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
         }
 
         .fade-up.visible {
@@ -695,16 +1507,35 @@
             transform: translateY(0);
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 900px) {
+        /* 18. REDUCED MOTION PREFERENCE */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .hero-orbit, .ambient-field-1, .ambient-field-2, .scanner-beam {
+                display: none !important;
+            }
+            .reveal-text, .hero p.hero-description, .hero-actions {
+                transform: none !important;
+                opacity: 1 !important;
+                filter: none !important;
+            }
+        }
+
+        /* Responsive Layouts */
+        @media (max-width: 960px) {
+            .coming-soon-card {
+                grid-template-columns: 1fr;
+                padding: 40px;
+                gap: 40px;
+            }
+
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 48px;
-            }
-
-            .coming-soon-card {
-                padding: 40px;
-                gap: 40px;
             }
         }
 
@@ -716,11 +1547,11 @@
                 width: 100%;
                 height: 100vh;
                 background-color: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(20px);
+                backdrop-filter: blur(24px);
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                gap: 32px;
+                gap: 28px;
                 padding: 0;
                 border-radius: 0;
                 border: none;
@@ -738,18 +1569,16 @@
             }
 
             .nav-links a {
-                font-size: 1.5rem;
+                font-size: 1.45rem;
                 font-weight: 600;
             }
             
             .mobile-menu-toggle {
                 display: block;
-                z-index: 1002;
-                position: relative;
             }
             
             .section-padding {
-                padding: 80px 0;
+                padding: 85px 0;
             }
 
             .product-grid {
@@ -757,11 +1586,15 @@
             }
 
             .hero {
-                padding: 140px 0 80px;
+                padding: 130px 0 70px;
+            }
+
+            .hero-orbit-2 {
+                display: none;
             }
 
             .vision-section {
-                padding: 64px 24px;
+                padding: 70px 24px;
             }
 
             .footer-bottom {
@@ -778,7 +1611,14 @@
 
 <body>
 
-    <!-- Navigation -->
+    <!-- Ambient Visual Environment Behind Everything -->
+    <div class="ambient-layer">
+        <div class="ambient-field-1"></div>
+        <div class="ambient-field-2"></div>
+        <div class="ambient-grid"></div>
+    </div>
+
+    <!-- Navigation Command Bar -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
 
@@ -786,129 +1626,109 @@
                 <img src="https://i.ibb.co/Csw5H0Jy/20260507-215907.png"
                      alt="LINS IO Logo"
                      class="logo-img">
-
-                <span class="logo-text">
-                    LINS IO
-                </span>
+                <span class="logo-text">LINS IO</span>
             </div>
             
             <button class="mobile-menu-toggle"
                     aria-label="Toggle Menu"
                     onclick="app.toggleMenu()">
-
                 <svg viewBox="0 0 24 24"
                      fill="none"
                      stroke-width="2"
                      stroke-linecap="round"
                      stroke-linejoin="round"
                      id="menu-icon">
-
                     <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <line x1="3" y1="18" x2="21" y2="18"></line>
-
                 </svg>
-
             </button>
 
             <ul class="nav-links" id="nav-menu">
-
-                <li>
-                    <a onclick="app.navigate('home', 'hero')">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a onclick="app.navigate('home', 'products')">
-                        Products
-                    </a>
-                </li>
-
-                <li>
-                    <a onclick="app.navigate('home', 'coming-soon')">
-                        Coming Soon
-                    </a>
-                </li>
-
-                <li>
-                    <a onclick="app.navigate('home', 'about')">
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a onclick="app.navigate('home', 'faq')">
-                        FAQ
-                    </a>
-                </li>
-
-                <li>
-                    <a onclick="app.navigate('home', 'contact')">
-                        Contact
-                    </a>
-                </li>
-
+                <li><a onclick="app.navigate('home', 'hero')">Home</a></li>
+                <li><a onclick="app.navigate('home', 'products')">Products</a></li>
+                <li><a onclick="app.navigate('home', 'coming-soon')">Coming Soon</a></li>
+                <li><a onclick="app.navigate('home', 'about')">About</a></li>
+                <li><a onclick="app.navigate('home', 'faq')">FAQ</a></li>
+                <li><a onclick="app.navigate('home', 'contact')">Contact</a></li>
             </ul>
         </div>
     </nav>
-
 
     <main id="main-content">
         
         <!-- View: HOME -->
         <div id="view-home" class="view active">
             
-            <!-- Hero -->
-            <header id="hero" class="hero container fade-up">
+            <!-- Hero Section -->
+            <header id="hero" class="hero container">
 
-                <div class="hero-tag">
-                    Build, Learn, Evolve
+                <!-- Interactive Hero Technology Matrix -->
+                <div class="hero-environment">
+                    <div class="hero-orbit hero-orbit-1">
+                        <div class="orbit-node"></div>
+                    </div>
+                    <div class="hero-orbit hero-orbit-2">
+                        <div class="orbit-node orbit-node-cyan"></div>
+                    </div>
+                    <div class="hero-glow-reactive" id="hero-interactive-glow"></div>
                 </div>
 
-                <h1>
-                    Building useful technology<br>
-                    for the real world.
-                </h1>
+                <div class="hero-content">
+                    <div class="hero-tag">
+                        <span class="live-status-dot"></span>
+                        Build, Learn, Evolve
+                    </div>
 
-                <p>
-                    LINS IO is an independent technology ecosystem focused on building useful apps, AI-powered tools, and digital experiences that make technology more practical, accessible, and useful.
-                </p>
+                    <h1>
+                        <span class="reveal-line">
+                            <span class="reveal-text">Building useful technology</span>
+                        </span>
+                        <span class="reveal-line">
+                            <span class="reveal-text dynamic-gradient-text">for the real world.</span>
+                        </span>
+                    </h1>
 
-                <button class="btn btn-primary"
-                        onclick="app.scrollToSection('products')">
-                    Explore Products
-                </button>
+                    <p class="hero-description">
+                        LINS IO is an independent technology ecosystem focused on building useful apps, AI-powered tools, and digital experiences that make technology more practical, accessible, and useful.
+                    </p>
+
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="app.scrollToSection('products')">
+                            Explore Products
+                        </button>
+                    </div>
+                </div>
 
             </header>
 
-
-            <!-- Products -->
+            <!-- Products Section -->
             <section id="products" class="section-padding bg-alt">
-
                 <div class="container">
 
                     <div class="section-header fade-up">
-
-                        <h2>
-                            Products
-                        </h2>
-
-                        <p>
-                            Technology we're building for real-world use.
-                        </p>
-
+                        <h2>Products</h2>
+                        <p>Technology we're building for real-world use.</p>
                     </div>
-
 
                     <div class="product-grid">
 
                         <!-- AI Store -->
                         <div class="product-card fade-up">
+                            <div class="card-ambient-light"></div>
+                            
+                            <!-- Living AI Core Visualization -->
+                            <div class="card-visual-frame">
+                                <div class="ai-core-system">
+                                    <div class="ai-grid-micro"></div>
+                                    <div class="ai-orbit-ring"></div>
+                                    <div class="ai-core-pulse"></div>
+                                    <div class="ai-node-link ai-node-1"></div>
+                                    <div class="ai-node-link ai-node-2"></div>
+                                </div>
+                            </div>
 
-                            <h3>
-                                AI Store
-                            </h3>
+                            <h3>AI Store</h3>
 
                             <div class="product-highlight">
                                 1000+ AI Tools. One App. Everything AI.
@@ -919,55 +1739,41 @@
                             </p>
                             
                             <ul class="product-features">
-
-                                <li>
-                                    1000+ AI Tools
-                                </li>
-
-                                <li>
-                                    20 AI Categories
-                                </li>
-
-                                <li>
-                                    Prompt Generator & Vault
-                                </li>
-
-                                <li>
-                                    Latest AI Updates
-                                </li>
-
-                                <li>
-                                    AI Jobs & Courses
-                                </li>
-
-                                <li>
-                                    Favorites
-                                </li>
-
+                                <li>1000+ AI Tools</li>
+                                <li>20 AI Categories</li>
+                                <li>Prompt Generator & Vault</li>
+                                <li>Latest AI Updates</li>
+                                <li>AI Jobs & Courses</li>
+                                <li>Favorites</li>
                             </ul>
                             
                             <a href="https://play.google.com/store/apps/details?id=com.snpixel.aistore"
                                target="_blank"
                                rel="noopener noreferrer"
-                               class="btn-google-play">
-
+                               class="btn-google-play"
+                               style="margin-top: auto;">
                                 <svg viewBox="0 0 24 24">
                                     <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
                                 </svg>
-
                                 Available on Google Play
-
                             </a>
-
                         </div>
-
 
                         <!-- LinsPlay -->
                         <div class="product-card fade-up">
+                            <div class="card-ambient-light"></div>
+                            
+                            <!-- Living Game Engine Simulation -->
+                            <div class="card-visual-frame">
+                                <div class="game-canvas-micro">
+                                    <div class="game-grid-vector"></div>
+                                    <div class="cyber-runner"></div>
+                                    <div class="cyber-obstacle"></div>
+                                    <div class="cyber-particle"></div>
+                                </div>
+                            </div>
 
-                            <h3>
-                                LinsPlay
-                            </h3>
+                            <h3>LinsPlay</h3>
 
                             <div class="product-highlight">
                                 5 Mini Games. 1 App. Endless Fun.
@@ -982,27 +1788,11 @@
                             </p>
                             
                             <ul class="product-features">
-
-                                <li>
-                                    Block Blast
-                                </li>
-
-                                <li>
-                                    Fruit Slice
-                                </li>
-
-                                <li>
-                                    Cyber Glide
-                                </li>
-
-                                <li>
-                                    Highway
-                                </li>
-
-                                <li>
-                                    Galaxy
-                                </li>
-
+                                <li>Block Blast</li>
+                                <li>Fruit Slice</li>
+                                <li>Cyber Glide</li>
+                                <li>Highway</li>
+                                <li>Galaxy</li>
                             </ul>
                             
                             <a href="https://play.google.com/store/apps/details?id=com.lins.game"
@@ -1010,24 +1800,29 @@
                                rel="noopener noreferrer"
                                class="btn-google-play"
                                style="margin-top: auto;">
-
                                 <svg viewBox="0 0 24 24">
-                                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
                                 </svg>
-
                                 Available on Google Play
-
                             </a>
-
                         </div>
-
 
                         <!-- Resume Builder -->
                         <div class="product-card fade-up">
+                            <div class="card-ambient-light"></div>
+                            
+                            <!-- Living Document Architecture -->
+                            <div class="card-visual-frame">
+                                <div class="doc-canvas-micro">
+                                    <div class="doc-line doc-line-title"></div>
+                                    <div class="doc-line doc-line-body-1"></div>
+                                    <div class="doc-line doc-line-body-2"></div>
+                                    <div class="doc-scan-highlight"></div>
+                                    <div class="doc-cursor"></div>
+                                </div>
+                            </div>
 
-                            <h3>
-                                Resume Builder
-                            </h3>
+                            <h3>Resume Builder</h3>
 
                             <div class="product-highlight">
                                 Web-based Resume Creation
@@ -1044,43 +1839,31 @@
                                rel="noopener noreferrer"
                                class="btn btn-outline"
                                style="margin-top: auto;">
-
                                 Open Resume Builder
-
                             </a>
-
                         </div>
 
                     </div>
                 </div>
             </section>
 
-
-            <!-- Coming Soon -->
+            <!-- 8. LinsCam AI Live Computer Vision System -->
             <section id="coming-soon" class="section-padding">
-
                 <div class="container fade-up">
 
                     <div class="section-header">
-
-                        <h2>
-                            Coming Soon
-                        </h2>
-
+                        <h2>Coming Soon</h2>
                     </div>
-
 
                     <div class="coming-soon-card">
 
                         <div class="coming-soon-content">
-
                             <span class="badge">
+                                <span class="badge-dot"></span>
                                 Coming Soon
                             </span>
 
-                            <h3>
-                                LinsCam AI
-                            </h3>
+                            <h3>LinsCam AI</h3>
 
                             <p>
                                 LinsCam AI is a lightweight AI-powered visual analysis app.
@@ -1093,65 +1876,84 @@
                             <div class="closing-statement">
                                 Understand images. Ask better questions.
                             </div>
-
                         </div>
 
+                        <!-- Active Computer Vision Scanning Terminal -->
+                        <div class="vision-terminal">
+                            <div class="vision-terminal-header">
+                                <span>LINS_VISION // CORE v2.4</span>
+                                <span class="status-badge-active">
+                                    <span class="badge-dot"></span> SCANNING ACTIVE
+                                </span>
+                            </div>
 
-                        <div class="coming-soon-features">
+                            <div class="vision-viewfinder">
+                                <div class="vision-grid"></div>
+                                <div class="scanner-beam"></div>
 
-                            <ul class="product-features" style="margin: 0;">
+                                <!-- Camera Reticles -->
+                                <div class="reticle-corner rc-tl"></div>
+                                <div class="reticle-corner rc-tr"></div>
+                                <div class="reticle-corner rc-bl"></div>
+                                <div class="reticle-corner rc-br"></div>
 
-                                <li>
-                                    AI image analysis
-                                </li>
+                                <!-- Dynamic Detected Objects -->
+                                <div class="bbox-sample-1">
+                                    <span class="bbox-tag">OBJECT_DETECTED [99.4%]</span>
+                                    <span class="bbox-coords">X: 184 Y: 092</span>
+                                </div>
 
-                                <li>
-                                    Explain, Fix, Check & Understand modes
-                                </li>
+                                <div class="bbox-sample-2">
+                                    <span class="bbox-coords">OCR_ACTIVE // LATIN</span>
+                                    <span class="bbox-tag" style="background: #3b82f6; color: #fff;">TEXT_SEGMENT</span>
+                                </div>
+                            </div>
 
-                                <li>
-                                    Multiple AI response languages
-                                </li>
-
-                                <li>
-                                    OCR and visual understanding
-                                </li>
-
-                                <li>
-                                    Practical suggestions when appropriate
-                                </li>
-
-                                <li>
-                                    Local analysis history
-                                </li>
-
-                                <li>
-                                    Privacy-first approach
-                                </li>
-
-                                <li>
-                                    Lightweight app
-                                </li>
-
-                            </ul>
-
+                            <div class="vision-terminal-footer">
+                                <span>FPS: 60.0</span>
+                                <span>NEURAL: CF_GEMMA_ONLINE</span>
+                                <span>LATENCY: 14ms</span>
+                            </div>
                         </div>
 
                     </div>
+
+                    <div style="margin-top: 40px;" class="coming-soon-card">
+                        <div class="coming-soon-features" style="width: 100%;">
+                            <h4 style="margin-bottom: 24px; font-size: 1.25rem;">Core Vision Capabilities</h4>
+                            <ul class="product-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 0;">
+                                <li>AI image analysis</li>
+                                <li>Explain, Fix, Check & Understand modes</li>
+                                <li>Multiple AI response languages</li>
+                                <li>OCR and visual understanding</li>
+                                <li>Practical suggestions when appropriate</li>
+                                <li>Local analysis history</li>
+                                <li>Privacy-first approach</li>
+                                <li>Lightweight app</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
-
-            <!-- Ecosystem -->
+            <!-- 9. Ecosystem Living Universe -->
             <section id="ecosystem" class="section-padding">
-
                 <div class="container fade-up">
 
                     <div class="vision-section">
+                        <!-- Universe Atmosphere -->
+                        <div class="universe-background">
+                            <div class="universe-orbit universe-orbit-1"></div>
+                            <div class="universe-orbit universe-orbit-2"></div>
+                            <div class="universe-orbit universe-orbit-3"></div>
+                            <div class="star-particle sp-1"></div>
+                            <div class="star-particle sp-2"></div>
+                            <div class="star-particle sp-3"></div>
+                            <div class="star-particle sp-4"></div>
+                        </div>
 
-                        <h2>
-                            More Than Apps. We're Building an Ecosystem.
-                        </h2>
+                        <h2>More Than Apps. We're Building an Ecosystem.</h2>
 
                         <p>
                             LINS IO brings together apps, AI-powered experiences, digital tools, and future projects under one independent technology ecosystem.
@@ -1160,28 +1962,20 @@
                         <p>
                             The goal is simple: build useful technology that solves practical problems, remains accessible to everyday users, and evolves with the world around it.
                         </p>
-
                     </div>
 
                 </div>
             </section>
 
-
-            <!-- About -->
+            <!-- 10. About Section -->
             <section id="about" class="section-padding bg-alt">
-
                 <div class="container fade-up">
 
                     <div class="section-header">
-
-                        <h2>
-                            About LINS IO
-                        </h2>
-
+                        <h2>About LINS IO</h2>
                     </div>
 
                     <div class="about-content">
-
                         <p>
                             LINS IO is an independent technology brand focused on building practical applications, AI-powered tools, and digital experiences.
                         </p>
@@ -1194,202 +1988,108 @@
                             From AI discovery and productivity to entertainment and future applications, LINS IO is built around one idea:
                         </p>
 
-                        <p class="philosophy-text">
-                            Build useful things. Learn from them. Keep evolving.
-                        </p>
-
+                        <div class="philosophy-container">
+                            <p class="philosophy-text">
+                                Build useful things. Learn from them. Keep evolving.
+                            </p>
+                        </div>
                     </div>
 
                 </div>
             </section>
 
-
-            <!-- FAQ -->
+            <!-- 11. FAQ Section -->
             <section id="faq" class="section-padding">
-
                 <div class="container fade-up">
 
                     <div class="section-header">
-
-                        <h2>
-                            FAQ
-                        </h2>
-
+                        <h2>FAQ</h2>
                     </div>
                     
                     <div class="faq-container">
 
                         <div class="faq-item">
-
                             <button class="faq-question">
-
                                 What is LINS IO?
-
-                                <svg class="faq-icon"
-                                     viewBox="0 0 24 24"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     stroke-width="2">
-
+                                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6 9 12 15 18 9"></polyline>
-
                                 </svg>
-
                             </button>
-
                             <div class="faq-answer">
-
                                 <div class="faq-answer-inner">
                                     LINS IO is an independent technology ecosystem building useful apps, AI-powered tools, and digital experiences.
                                 </div>
-
                             </div>
-
                         </div>
 
-
                         <div class="faq-item">
-
                             <button class="faq-question">
-
                                 What products does LINS IO currently offer?
-
-                                <svg class="faq-icon"
-                                     viewBox="0 0 24 24"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     stroke-width="2">
-
+                                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6 9 12 15 18 9"></polyline>
-
                                 </svg>
-
                             </button>
-
                             <div class="faq-answer">
-
                                 <div class="faq-answer-inner">
                                     AI Store, LinsPlay, and Resume Builder are currently available products.
                                 </div>
-
                             </div>
-
                         </div>
 
-
                         <div class="faq-item">
-
                             <button class="faq-question">
-
                                 What is coming next?
-
-                                <svg class="faq-icon"
-                                     viewBox="0 0 24 24"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     stroke-width="2">
-
+                                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6 9 12 15 18 9"></polyline>
-
                                 </svg>
-
                             </button>
-
                             <div class="faq-answer">
-
                                 <div class="faq-answer-inner">
                                     LinsCam AI is currently under development and marked as Coming Soon.
                                 </div>
-
                             </div>
-
                         </div>
 
-
                         <div class="faq-item">
-
                             <button class="faq-question">
-
                                 Where can I download LINS IO apps?
-
-                                <svg class="faq-icon"
-                                     viewBox="0 0 24 24"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     stroke-width="2">
-
+                                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6 9 12 15 18 9"></polyline>
-
                                 </svg>
-
                             </button>
-
                             <div class="faq-answer">
-
                                 <div class="faq-answer-inner">
                                     AI Store and LinsPlay are currently available through Google Play.
                                 </div>
-
                             </div>
-
                         </div>
 
-
                         <div class="faq-item">
-
                             <button class="faq-question">
-
                                 Is LinsCam AI available yet?
-
-                                <svg class="faq-icon"
-                                     viewBox="0 0 24 24"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     stroke-width="2">
-
+                                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6 9 12 15 18 9"></polyline>
-
                                 </svg>
-
                             </button>
-
                             <div class="faq-answer">
-
                                 <div class="faq-answer-inner">
                                     No. LinsCam AI is currently Coming Soon.
                                 </div>
-
                             </div>
-
                         </div>
 
-
                         <div class="faq-item">
-
                             <button class="faq-question">
-
                                 How can I contact LINS IO?
-
-                                <svg class="faq-icon"
-                                     viewBox="0 0 24 24"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     stroke-width="2">
-
+                                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6 9 12 15 18 9"></polyline>
-
                                 </svg>
-
                             </button>
-
                             <div class="faq-answer">
-
                                 <div class="faq-answer-inner">
                                     Use the official email address provided in the Contact section.
                                 </div>
-
                             </div>
-
                         </div>
 
                     </div>
@@ -1397,17 +2097,14 @@
                 </div>
             </section>
 
-
-            <!-- Contact -->
+            <!-- 12. Contact Section -->
             <section id="contact" class="section-padding bg-alt">
-
                 <div class="container fade-up">
 
                     <div class="contact-section">
+                        <div class="contact-halo"></div>
 
-                        <h2>
-                            Get in Touch
-                        </h2>
+                        <h2>Get in Touch</h2>
 
                         <p>
                             For questions, feedback, business inquiries, collaborations, or general communication, contact LINS IO by email.
@@ -1416,11 +2113,8 @@
                         <a href="mailto:linsio.official@gmail.com"
                            class="btn btn-primary"
                            style="margin-top: 24px;">
-
                             linsio.official@gmail.com
-
                         </a>
-
                     </div>
 
                 </div>
@@ -1428,698 +2122,397 @@
 
         </div>
 
-
         <!-- View: PRIVACY -->
         <div id="view-privacy" class="view">
-
             <div class="container fade-up">
-
                 <div class="legal-page">
-
-                    <h1>
-                        Privacy Policy
-                    </h1>
-
-                    <span class="last-updated">
-                        Last Updated: August 2026
-                    </span>
+                    <h1>Privacy Policy</h1>
+                    <span class="last-updated">Last Updated: August 2026</span>
                     
                     <p>
                         This Privacy Policy outlines the privacy practices specifically for the LINS IO website (the "Website"). This policy does not cover, merge, replace, or modify the separate Privacy Policies of AI Store, LinsPlay, or any other LINS IO application or product.
                     </p>
 
-                    <h2>
-                        1. Website Scope & Information Practices
-                    </h2>
-
+                    <h2>1. Website Scope & Information Practices</h2>
                     <p>
                         The LINS IO website operates primarily as a static, informational brand presence. As part of our commitment to privacy and simplicity:
                     </p>
-
                     <ul>
-                        <li>
-                            We do not have user accounts or require login.
-                        </li>
-
-                        <li>
-                            We do not intentionally collect personal information through forms.
-                        </li>
-
-                        <li>
-                            We do not operate a newsletter or email subscription system.
-                        </li>
-
-                        <li>
-                            We do not host or display third-party advertisements on this Website.
-                        </li>
+                        <li>We do not have user accounts or require login.</li>
+                        <li>We do not intentionally collect personal information through forms.</li>
+                        <li>We do not operate a newsletter or email subscription system.</li>
+                        <li>We do not host or display third-party advertisements on this Website.</li>
                     </ul>
 
-                    <h2>
-                        2. Cookies and Tracking
-                    </h2>
-
+                    <h2>2. Cookies and Tracking</h2>
                     <p>
                         This Website is built to be lightweight and does not natively implement aggressive user tracking, profiling, or marketing cookies. However, standard web hosting infrastructure inherently processes basic technical data (such as IP addresses and browser types) required to serve web pages securely and efficiently.
                     </p>
 
-                    <h2>
-                        3. Third-Party Links & External Products
-                    </h2>
-
+                    <h2>3. Third-Party Links & External Products</h2>
                     <p>
                         The Website contains links to external platforms (such as Google Play, GitHub, and social media platforms) and standalone LINS IO products. When you click on these links and leave our Website, or when you use a separate LINS IO app, this Privacy Policy no longer applies. Those external services and applications have their own independent privacy policies and data practices which we encourage you to review.
                     </p>
 
-                    <h2>
-                        4. Data Security
-                    </h2>
-
+                    <h2>4. Data Security</h2>
                     <p>
                         We rely on modern, secure hosting providers to ensure the Website is delivered safely. Because we do not collect personal data via the Website, there are no databases of user information connected directly to this informational site.
                     </p>
 
-                    <h2>
-                        5. Children's Privacy
-                    </h2>
-
+                    <h2>5. Children's Privacy</h2>
                     <p>
                         The LINS IO Website is general audience and does not intentionally target or collect personal information from children.
                     </p>
 
-                    <h2>
-                        6. Policy Updates
-                    </h2>
-
+                    <h2>6. Policy Updates</h2>
                     <p>
                         We may update this Privacy Policy occasionally to reflect changes in our Website structure or functionality. The "Last Updated" date at the top will indicate when modifications were made.
                     </p>
 
-                    <h2>
-                        7. Contact Information
-                    </h2>
-
+                    <h2>7. Contact Information</h2>
                     <p>
                         If you have any questions regarding this Website Privacy Policy, please contact us at:
-                        <a href="mailto:linsio.official@gmail.com"
-                           style="color: var(--color-accent); font-weight:500;">
+                        <a href="mailto:linsio.official@gmail.com" style="color: var(--color-accent); font-weight:500;">
                             linsio.official@gmail.com
                         </a>.
                     </p>
-
                 </div>
-
             </div>
-
         </div>
-
 
         <!-- View: TERMS -->
         <div id="view-terms" class="view">
-
             <div class="container fade-up">
-
                 <div class="legal-page">
-
-                    <h1>
-                        Terms & Conditions
-                    </h1>
-
-                    <span class="last-updated">
-                        Last Updated: August 2026
-                    </span>
+                    <h1>Terms & Conditions</h1>
+                    <span class="last-updated">Last Updated: August 2026</span>
 
                     <p>
                         Welcome to the LINS IO website. By accessing or using this Website, you agree to comply with and be bound by the following Terms & Conditions. If you do not agree with these terms, please do not use the Website.
                     </p>
 
-                    <h2>
-                        1. Website Use & Scope
-                    </h2>
-
+                    <h2>1. Website Use & Scope</h2>
                     <p>
                         These terms govern your use of the LINS IO brand website only. They do not constitute the Terms of Service for AI Store, LinsPlay, or any other distinct application or product developed by LINS IO. Those products are governed by their respective terms and agreements provided upon download or usage.
                     </p>
 
-                    <h2>
-                        2. Intellectual Property
-                    </h2>
-
+                    <h2>2. Intellectual Property</h2>
                     <p>
                         All content, branding, logos (including the LINS IO logo), text, graphics, and structure present on this Website are the property of LINS IO, unless otherwise noted. You may not reproduce, distribute, or modify our intellectual property without explicit permission.
                     </p>
 
-                    <h2>
-                        3. Accuracy of Information & Availability
-                    </h2>
-
+                    <h2>3. Accuracy of Information & Availability</h2>
                     <p>
                         We strive to provide accurate information regarding our current and upcoming products. However, the status of products, features, and availability (such as "Coming Soon" tags) are subject to change without notice. LINS IO makes no warranties that the Website will be uninterrupted, error-free, or completely accurate at all times.
                     </p>
 
-                    <h2>
-                        4. External Links
-                    </h2>
-
+                    <h2>4. External Links</h2>
                     <p>
                         Our Website contains links to external websites, application stores (e.g., Google Play), and social media networks. LINS IO does not control these third-party platforms and is not responsible for their content, accuracy, or reliability. Accessing external links is at your own risk.
                     </p>
 
-                    <h2>
-                        5. Acceptable Use
-                    </h2>
-
+                    <h2>5. Acceptable Use</h2>
                     <p>
                         You agree to use the Website only for lawful purposes. You must not attempt to disrupt the Website's functionality, attempt unauthorized access, or use the Website to distribute malicious code.
                     </p>
 
-                    <h2>
-                        6. Limitation of Liability
-                    </h2>
-
+                    <h2>6. Limitation of Liability</h2>
                     <p>
                         To the maximum extent permitted by law, LINS IO shall not be liable for any direct, indirect, incidental, or consequential damages resulting from your use or inability to use this Website or the information contained within it.
                     </p>
 
-                    <h2>
-                        7. Changes to Website and Terms
-                    </h2>
-
+                    <h2>7. Changes to Website and Terms</h2>
                     <p>
                         LINS IO reserves the right to modify, suspend, or discontinue any aspect of the Website at any time. We also reserve the right to update these Terms & Conditions. Continued use of the Website after updates constitutes acceptance of the new terms.
                     </p>
 
-                    <h2>
-                        8. Contact Information
-                    </h2>
-
+                    <h2>8. Contact Information</h2>
                     <p>
                         For inquiries regarding these Terms & Conditions, please contact:
-                        <a href="mailto:linsio.official@gmail.com"
-                           style="color: var(--color-accent); font-weight:500;">
+                        <a href="mailto:linsio.official@gmail.com" style="color: var(--color-accent); font-weight:500;">
                             linsio.official@gmail.com
                         </a>.
                     </p>
-
                 </div>
-
             </div>
-
         </div>
 
     </main>
 
-
     <!-- Footer -->
     <footer class="footer">
-
         <div class="container">
 
             <div class="footer-grid fade-up">
                 
                 <div class="footer-brand">
-
-                    <span class="footer-tagline">
-                        Build, Learn, Evolve
-                    </span>
-
-                    <h3>
-                        LINS IO
-                    </h3>
-
-                    <p>
-                        Building useful technology for the real world.
-                    </p>
-
+                    <span class="footer-tagline">Build, Learn, Evolve</span>
+                    <h3>LINS IO</h3>
+                    <p>Building useful technology for the real world.</p>
                 </div>
                 
                 <div class="footer-nav">
-
-                    <h4>
-                        Navigation
-                    </h4>
-
+                    <h4>Navigation</h4>
                     <div class="footer-links">
-
-                        <a onclick="app.navigate('home', 'about')">
-                            About
-                        </a>
-
-                        <a onclick="app.navigate('home', 'faq')">
-                            FAQ
-                        </a>
-
-                        <a onclick="app.navigate('home', 'contact')">
-                            Contact
-                        </a>
-
-                        <!-- BLOG ADDED -->
-                        <a href="/blog/">
-                            Blog
-                        </a>
-
+                        <a onclick="app.navigate('home', 'about')">About</a>
+                        <a onclick="app.navigate('home', 'faq')">FAQ</a>
+                        <a onclick="app.navigate('home', 'contact')">Contact</a>
+                        <a href="/blog/">Blog</a>
                     </div>
-
                 </div>
 
-
                 <div class="footer-legal">
-
-                    <h4>
-                        Legal
-                    </h4>
-
+                    <h4>Legal</h4>
                     <div class="footer-links">
-
-                        <a onclick="app.navigate('privacy')">
-                            Privacy Policy
-                        </a>
-
-                        <a onclick="app.navigate('terms')">
-                            Terms & Conditions
-                        </a>
-
+                        <a onclick="app.navigate('privacy')">Privacy Policy</a>
+                        <a onclick="app.navigate('terms')">Terms & Conditions</a>
                     </div>
-
                 </div>
 
             </div>
 
-
             <div class="footer-bottom fade-up">
-
                 <div class="copyright">
                     &copy; 2026 LINS IO. All rights reserved.
                 </div>
                 
-                <!-- SOCIAL LINKS FIX: Larger touch target, proper z-index -->
-
                 <div class="social-links">
-
                     <a href="https://www.instagram.com/lins.io_?igsh=cGc0PXBvamIzZ2h1"
                        target="_blank"
                        rel="noopener noreferrer"
                        class="social-link"
                        aria-label="Instagram">
-
                         <svg viewBox="0 0 24 24">
                             <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8C2,4.6 4.6,2 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0 0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0 1 18.5,6.75A1.25,1.25 0 0 1 17.25,8A1.25,1.25 0 0 1 16,6.75A1.25,1.25 0 0 1 17.25,5.5M12,7A5,5 0 0 1 17,12A5,5 0 0 1 12,17A5,5 0 0 1 7,12A5,5 0 0 1 12,7M12,9A3,3 0 0 0 9,12A3,3 0 0 0 12,15A3,3 0 0 0 15,12A3,3 0 0 0 12,9Z"/>
                         </svg>
-
                     </a>
-
 
                     <a href="https://www.facebook.com/share/1XmxD5SWwn/"
                        target="_blank"
                        rel="noopener noreferrer"
                        class="social-link"
                        aria-label="Facebook">
-
                         <svg viewBox="0 0 24 24">
                             <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
                         </svg>
-
                     </a>
-
 
                     <a href="https://youtube.com/@lins_io?si=LR43E_hz1aXYE9BP"
                        target="_blank"
                        rel="noopener noreferrer"
                        class="social-link"
                        aria-label="YouTube">
-
                         <svg viewBox="0 0 24 24">
                             <path d="M21.58,7.19C21.35,6.33 20.67,5.65 19.81,5.42C18.25,5 12,5 12,5C12,5 5.75,5 4.19,5.42C3.33,5.65 2.65,6.33 2.42,7.19C2,8.75 2,12 2,12C2,12 2,15.25 2.42,16.81C2.65,17.67 3.33,18.35 4.19,18.58C5.75,19 12,19 12,19C12,19 18.25,19 19.81,18.58C20.67,18.35 21.35,17.67 21.58,16.81C22,15.25 22,12 22,12C22,12 22,8.75 21.58,7.19M10,15V9L15.2,12L10,15Z"/>
                         </svg>
-
                     </a>
-
 
                     <a href="https://t.me/linsio002"
                        target="_blank"
                        rel="noopener noreferrer"
                        class="social-link"
                        aria-label="Telegram">
-
                         <svg viewBox="0 0 24 24">
                             <path d="M9.78,18.65L10.06,14.42L17.74,7.5C18.08,7.19 17.67,7.04 17.22,7.31L7.74,13.28L3.64,12C2.76,11.75 2.75,11.14 3.84,10.7L19.81,4.54C20.54,4.21 21.24,4.72 20.96,5.84L18.24,18.65C18.05,19.56 17.5,19.78 16.74,19.36L12.6,16.3L10.61,18.23C10.38,18.46 10.19,18.65 9.78,18.65Z"/>
                         </svg>
-
                     </a>
-
                 </div>
 
             </div>
 
         </div>
-
     </footer>
 
-
-    <!-- Interactivity Scripts -->
+    <!-- Interactive Logic & Live Reactive Motion Engine -->
     <script>
-
         const app = {
-
             init: function() {
-
                 this.setupFAQ();
-
                 this.setupScrollObserver();
+                this.setupActiveNavbar();
+                this.setupCursorMotion();
 
-                window.addEventListener(
-                    'hashchange',
-                    () => this.handleHashRoute()
-                );
-
+                window.addEventListener('hashchange', () => this.handleHashRoute());
                 this.handleHashRoute();
-
             },
 
+            // Command Bar Scroll Elevation
+            setupActiveNavbar: function() {
+                const navbar = document.getElementById('navbar');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 40) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }, { passive: true });
+            },
 
-            // Scroll Animation Setup
+            // 14 & 15. Continuous Pointer/Touch Reactivity
+            setupCursorMotion: function() {
+                const heroGlow = document.getElementById('hero-interactive-glow');
+                const cards = document.querySelectorAll('.product-card');
+
+                // Pointer movement tracking
+                const handlePointerMove = (x, y) => {
+                    if (heroGlow) {
+                        const winW = window.innerWidth;
+                        const winH = window.innerHeight;
+                        const offsetX = (x - winW / 2) * 0.08;
+                        const offsetY = (y - winH / 2) * 0.08;
+                        heroGlow.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
+                    }
+
+                    cards.forEach(card => {
+                        const rect = card.getBoundingClientRect();
+                        if (
+                            x >= rect.left &&
+                            x <= rect.right &&
+                            y >= rect.top &&
+                            y <= rect.bottom
+                        ) {
+                            const localX = x - rect.left;
+                            const localY = y - rect.top;
+                            const light = card.querySelector('.card-ambient-light');
+                            if (light) {
+                                light.style.left = localX + 'px';
+                                light.style.top = localY + 'px';
+                            }
+                        }
+                    });
+                };
+
+                window.addEventListener('pointermove', (e) => {
+                    handlePointerMove(e.clientX, e.clientY);
+                }, { passive: true });
+
+                window.addEventListener('touchmove', (e) => {
+                    if (e.touches && e.touches[0]) {
+                        handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+                    }
+                }, { passive: true });
+            },
+
+            // Intersection Observer for Elements
             setupScrollObserver: function() {
-
                 const observerOptions = {
                     root: null,
                     rootMargin: '0px',
-                    threshold: 0.15
+                    threshold: 0.12
                 };
 
-                const observer =
-                    new IntersectionObserver(
-                        (entries, observer) => {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
 
-                            entries.forEach(entry => {
-
-                                if (entry.isIntersecting) {
-
-                                    entry.target.classList.add('visible');
-
-                                    observer.unobserve(entry.target);
-
-                                }
-
-                            });
-
-                        },
-                        observerOptions
-                    );
-
-
-                document
-                    .querySelectorAll('.fade-up')
-                    .forEach(el =>
-                        observer.observe(el)
-                    );
-
+                document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
             },
 
-
-            // Mobile Menu
             toggleMenu: function() {
-
-                const navLinks =
-                    document.getElementById('nav-menu');
-
-                const icon =
-                    document.getElementById('menu-icon');
-
-                const isOpen =
-                    navLinks.classList.toggle('open');
-
+                const navLinks = document.getElementById('nav-menu');
+                const icon = document.getElementById('menu-icon');
+                const isOpen = navLinks.classList.toggle('open');
 
                 if (isOpen) {
-
-                    icon.innerHTML =
-                        '<line x1="18" y1="6" x2="6" y2="18"></line>' +
-                        '<line x1="6" y1="6" x2="18" y2="18"></line>';
-
+                    icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';
                 } else {
-
-                    icon.innerHTML =
-                        '<line x1="3" y1="12" x2="21" y2="12"></line>' +
-                        '<line x1="3" y1="6" x2="21" y2="6"></line>' +
-                        '<line x1="3" y1="18" x2="21" y2="18"></line>';
-
+                    icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
                 }
-
             },
-
 
             closeMenu: function() {
-
-                const navLinks =
-                    document.getElementById('nav-menu');
-
-                const icon =
-                    document.getElementById('menu-icon');
-
-                navLinks.classList.remove('open');
-
-                icon.innerHTML =
-                    '<line x1="3" y1="12" x2="21" y2="12"></line>' +
-                    '<line x1="3" y1="6" x2="21" y2="6"></line>' +
-                    '<line x1="3" y1="18" x2="21" y2="18"></line>';
-
+                const navLinks = document.getElementById('nav-menu');
+                const icon = document.getElementById('menu-icon');
+                if (navLinks) navLinks.classList.remove('open');
+                if (icon) {
+                    icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+                }
             },
 
-
-            // SPA Routing
-            navigate: function(
-                viewId,
-                targetSection = null
-            ) {
-
+            navigate: function(viewId, targetSection = null) {
                 this.closeMenu();
 
-
-                document
-                    .querySelectorAll('.view')
-                    .forEach(view => {
-
-                        view.classList.remove('active');
-
-                    });
-
-
-                const targetView =
-                    document.getElementById(
-                        'view-' + viewId
-                    );
-
-
-                if (targetView) {
-
-                    targetView.classList.add('active');
-
-                }
-
-
-                // Re-trigger scroll animations for the new view
-                document
-                    .querySelectorAll('.fade-up')
-                    .forEach(el =>
-                        el.classList.remove('visible')
-                    );
-
-
-                setTimeout(
-                    () => this.setupScrollObserver(),
-                    50
-                );
-
-
-                if (
-                    targetSection &&
-                    viewId === 'home'
-                ) {
-
-                    setTimeout(
-                        () =>
-                            this.scrollToSection(
-                                targetSection
-                            ),
-                        100
-                    );
-
-                } else {
-
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-
-                }
-                
-                if (
-                    viewId === 'home' &&
-                    targetSection
-                ) {
-
-                    history.pushState(
-                        null,
-                        null,
-                        '#' + targetSection
-                    );
-
-                } else if (
-                    viewId !== 'home'
-                ) {
-
-                    history.pushState(
-                        null,
-                        null,
-                        '#/' + viewId
-                    );
-
-                } else {
-
-                    history.pushState(
-                        null,
-                        null,
-                        window.location.pathname
-                    );
-
-                }
-
-            },
-
-
-            scrollToSection: function(sectionId) {
-
-                const section =
-                    document.getElementById(sectionId);
-
-
-                if (section) {
-
-                    const navHeight = 80;
-
-                    const sectionTop =
-                        section.getBoundingClientRect().top +
-                        window.scrollY -
-                        navHeight;
-
-
-                    window.scrollTo({
-                        top: sectionTop,
-                        behavior: 'smooth'
-                    });
-
-                }
-
-            },
-
-
-            handleHashRoute: function() {
-
-                const hash =
-                    window.location.hash;
-
-
-                if (hash === '#/privacy') {
-
-                    this.navigate('privacy');
-
-                } else if (hash === '#/terms') {
-
-                    this.navigate('terms');
-
-                } else if (
-                    hash.startsWith('#') &&
-                    hash.length > 1 &&
-                    !hash.startsWith('#/')
-                ) {
-
-                    const sectionId =
-                        hash.substring(1);
-
-                    this.navigate(
-                        'home',
-                        sectionId
-                    );
-
-                } else {
-
-                    this.navigate('home');
-
-                }
-
-            },
-
-
-            // FAQ Accordion
-            setupFAQ: function() {
-
-                const faqItems =
-                    document.querySelectorAll(
-                        '.faq-question'
-                    );
-
-
-                faqItems.forEach(item => {
-
-                    item.addEventListener(
-                        'click',
-                        function() {
-
-                            const parent =
-                                this.parentElement;
-
-                            const answer =
-                                this.nextElementSibling;
-
-                            const isActive =
-                                parent.classList.contains(
-                                    'active'
-                                );
-
-
-                            document
-                                .querySelectorAll('.faq-item')
-                                .forEach(faq => {
-
-                                    faq.classList.remove(
-                                        'active'
-                                    );
-
-                                    faq
-                                        .querySelector(
-                                            '.faq-answer'
-                                        )
-                                        .style.maxHeight = null;
-
-                                });
-
-
-                            if (!isActive) {
-
-                                parent.classList.add(
-                                    'active'
-                                );
-
-                                answer.style.maxHeight =
-                                    answer.scrollHeight +
-                                    "px";
-
-                            }
-
-                        }
-                    );
-
+                document.querySelectorAll('.view').forEach(view => {
+                    view.classList.remove('active');
                 });
 
-            }
+                const targetView = document.getElementById('view-' + viewId);
+                if (targetView) {
+                    targetView.classList.add('active');
+                }
 
+                // Reset animations in view
+                document.querySelectorAll('.fade-up').forEach(el => el.classList.remove('visible'));
+                setTimeout(() => this.setupScrollObserver(), 50);
+
+                if (targetSection && viewId === 'home') {
+                    setTimeout(() => this.scrollToSection(targetSection), 100);
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                
+                if (viewId === 'home' && targetSection) {
+                    history.pushState(null, null, '#' + targetSection);
+                } else if (viewId !== 'home') {
+                    history.pushState(null, null, '#/' + viewId);
+                } else {
+                    history.pushState(null, null, window.location.pathname);
+                }
+            },
+
+            scrollToSection: function(sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const navHeight = 80;
+                    const sectionTop = section.getBoundingClientRect().top + window.scrollY - navHeight;
+                    window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                }
+            },
+
+            handleHashRoute: function() {
+                const hash = window.location.hash;
+                if (hash === '#/privacy') {
+                    this.navigate('privacy');
+                } else if (hash === '#/terms') {
+                    this.navigate('terms');
+                } else if (hash.startsWith('#') && hash.length > 1 && !hash.startsWith('#/')) {
+                    const sectionId = hash.substring(1);
+                    this.navigate('home', sectionId);
+                } else {
+                    this.navigate('home');
+                }
+            },
+
+            // 11. FAQ Accordion Interaction
+            setupFAQ: function() {
+                const faqItems = document.querySelectorAll('.faq-question');
+                faqItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const parent = this.parentElement;
+                        const answer = this.nextElementSibling;
+                        const isActive = parent.classList.contains('active');
+
+                        document.querySelectorAll('.faq-item').forEach(faq => {
+                            faq.classList.remove('active');
+                            const a = faq.querySelector('.faq-answer');
+                            if (a) a.style.maxHeight = null;
+                        });
+
+                        if (!isActive) {
+                            parent.classList.add('active');
+                            answer.style.maxHeight = answer.scrollHeight + "px";
+                        }
+                    });
+                });
+            }
         };
 
-
-        document.addEventListener(
-            'DOMContentLoaded',
-            () => app.init()
-        );
-
+        document.addEventListener('DOMContentLoaded', () => app.init());
     </script>
-
 </body>
-    </html>
+</html>
