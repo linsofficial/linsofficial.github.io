@@ -314,24 +314,160 @@
         @media(max-width:768px){.product-grid{grid-template-columns:1fr;gap:32px}.product-card{padding:4px 0 26px!important}}
 
 
-/* Premium static product presentation */
-.logo-container{display:flex;align-items:center;gap:12px}
-.logo-img{width:48px!important;height:48px!important;object-fit:contain;display:block}
-.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:46px 58px}
-.product-card{background:transparent!important;border:0!important;border-bottom:1px solid var(--color-border)!important;border-radius:0!important;box-shadow:none!important;padding:12px 0 32px!important;transform:none!important;transition:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-.product-card:hover{background:transparent!important;box-shadow:none!important;transform:none!important;border-color:var(--color-border)!important}
-.card-visual-frame{display:flex;align-items:center;justify-content:flex-start;min-height:112px;margin:0 0 22px!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important}
-.product-original-icon{display:block;width:100px;height:100px;object-fit:contain;border-radius:0!important}
-.product-card h3{letter-spacing:-.045em}
-.product-card,.product-card *,.social-link,.social-link:hover,.logo-img{animation:none!important;transition:none!important}
-.product-card:hover *,.social-link:hover{transform:none!important}
-.fade-up,.fade-up.visible{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
-.vision-terminal,.vision-viewfinder,.scanner-beam{display:none!important;animation:none!important}
-.social-link{display:flex;align-items:center;justify-content:center}
-.social-link svg{width:22px;height:22px;fill:currentColor}
-@media(max-width:768px){.product-grid{grid-template-columns:1fr;gap:34px}.product-card{padding:4px 0 28px!important}.logo-img{width:42px!important;height:42px!important}}
+        /* Premium static product presentation */
+        .logo-container{display:flex;align-items:center;gap:12px}
+        .logo-img{width:48px!important;height:48px!important;object-fit:contain;display:block}
+        .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:46px 58px}
+        .product-card{background:transparent!important;border:0!important;border-bottom:1px solid var(--color-border)!important;border-radius:0!important;box-shadow:none!important;padding:12px 0 32px!important;transform:none!important;transition:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+        .product-card:hover{background:transparent!important;box-shadow:none!important;transform:none!important;border-color:var(--color-border)!important}
+        .card-visual-frame{display:flex;align-items:center;justify-content:flex-start;min-height:112px;margin:0 0 22px!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important}
+        .product-original-icon{display:block;width:100px;height:100px;object-fit:contain;border-radius:0!important}
+        .product-card h3{letter-spacing:-.045em}
+        .product-card,.product-card *,.social-link,.social-link:hover,.logo-img{animation:none!important;transition:none!important}
+        .product-card:hover *,.social-link:hover{transform:none!important}
+        .fade-up,.fade-up.visible{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+        .vision-terminal,.vision-viewfinder,.scanner-beam{display:none!important;animation:none!important}
+        .social-link{display:flex;align-items:center;justify-content:center}
+        .social-link svg{width:22px;height:22px;fill:currentColor}
+        @media(max-width:768px){.product-grid{grid-template-columns:1fr;gap:34px}.product-card{padding:4px 0 28px!important}.logo-img{width:42px!important;height:42px!important}}
 
-</style>
+        /* =========================================================
+           PREMIUM UI REDESIGN OVERRIDES (EDITORIAL & MODERN)
+           ========================================================= */
+        :root {
+            --color-bg: #FFFFFF !important;
+            --color-bg-alt: #F8FAFC !important;
+            --color-text-primary: #0F172A !important; 
+            --color-text-secondary: #475569 !important;
+            --color-accent: #0F172A !important;
+            --color-accent-blue: #2563EB !important;
+            --color-border: #E2E8F0 !important;
+            --radius-pill: 8px !important; 
+            --radius-lg: 16px !important;
+            --glass-shadow: none !important;
+            --shadow-hover: none !important;
+        }
+
+        body { background-color: var(--color-bg) !important; }
+        
+        .ambient-layer { background: #FFFFFF !important; }
+        .ambient-grid {
+            background-image: 
+                linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px) !important;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 20%, transparent 70%) !important;
+            -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 20%, transparent 70%) !important;
+        }
+
+        .bg-alt { background-color: var(--color-bg) !important; border: none !important; }
+
+        /* Typography Upgrades */
+        h1 { font-weight: 800 !important; letter-spacing: -0.04em !important; color: #020617 !important; }
+        h2 { font-weight: 700 !important; letter-spacing: -0.03em !important; color: #020617 !important; }
+        h3 { font-weight: 700 !important; letter-spacing: -0.02em !important; color: #020617 !important; }
+        
+        .dynamic-gradient-text {
+            background: linear-gradient(135deg, #020617 0%, #1E3A8A 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        .hero-tag {
+            border-radius: 99px !important;
+            border: 1px solid var(--color-border) !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+            background: #F8FAFC !important;
+        }
+
+        /* Buttons */
+        .btn, .btn-google-play {
+            border-radius: 8px !important;
+            box-shadow: none !important;
+            font-weight: 600 !important;
+            letter-spacing: -0.01em !important;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
+        }
+        .btn-primary, .btn-google-play { background-color: #0F172A !important; color: #FFFFFF !important; border: 1px solid #0F172A !important; }
+        .btn-primary:hover, .btn-google-play:hover { background-color: #1E293B !important; transform: none !important; box-shadow: none !important; }
+        
+        .btn-outline { border-color: var(--color-border) !important; background: transparent !important; }
+        .btn-outline:hover { background-color: #F8FAFC !important; border-color: #CBD5E1 !important; color: #0F172A !important; transform: none !important; box-shadow: none !important; }
+
+        /* Navbar */
+        .navbar { background-color: rgba(255, 255, 255, 0.95) !important; border-bottom: 1px solid var(--color-border) !important; backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important; }
+        .navbar.scrolled { box-shadow: none !important; border-bottom-color: var(--color-border) !important; }
+        .logo-text { color: #0F172A !important; font-weight: 800 !important; }
+        .nav-links a { color: var(--color-text-secondary) !important; }
+        .nav-links a:hover { color: #0F172A !important; }
+        .nav-links a.nav-blog { color: var(--color-accent-blue) !important; }
+
+        /* Product Cards - Editorial layout */
+        .product-grid { gap: 64px 48px !important; }
+        .product-card {
+            padding: 0 !important;
+            border: none !important;
+            border-bottom: none !important;
+        }
+        .card-visual-frame { margin-bottom: 20px !important; height: auto !important; min-height: auto !important; }
+        .product-original-icon {
+            width: 80px !important; height: 80px !important;
+            border-radius: 18px !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.03) !important;
+        }
+        .product-highlight { color: var(--color-accent-blue) !important; font-weight: 600 !important; }
+        .product-features li { color: #334155 !important; font-weight: 500 !important; }
+        .product-features li::before { color: var(--color-accent-blue) !important; }
+
+        /* Vision Section */
+        .vision-section {
+            background: #0F172A !important;
+            border-radius: 20px !important;
+            padding: 80px 40px !important;
+            box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15) !important;
+        }
+        .vision-section h2 { color: #FFFFFF !important; }
+        .vision-section p { color: #94A3B8 !important; max-width: 600px !important; margin: 0 auto !important; }
+
+        /* Philosophy / About */
+        .philosophy-container {
+            background: #F8FAFC !important;
+            border: 1px solid var(--color-border) !important;
+            box-shadow: none !important;
+            border-radius: 16px !important;
+            padding: 40px !important;
+        }
+        .philosophy-text { color: var(--color-accent-blue) !important; font-size: 1.5rem !important; }
+
+        /* FAQ */
+        .faq-container { max-width: 680px !important; }
+        .faq-item {
+            border: none !important;
+            border-bottom: 1px solid var(--color-border) !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+        }
+        .faq-item.active { background: transparent !important; }
+        .faq-question { padding: 24px 0 !important; font-size: 1.1rem !important; }
+        .faq-answer-inner { padding: 0 0 24px 0 !important; font-size: 1rem !important; }
+
+        /* Footer */
+        .footer { border-top: 1px solid var(--color-border) !important; background: #FFFFFF !important; }
+        .footer-brand h3 { color: #020617 !important; font-weight: 800 !important; }
+        .footer h4 { font-weight: 700 !important; color: #020617 !important; }
+        .social-link { background: transparent !important; border: 1px solid var(--color-border) !important; border-radius: 8px !important; }
+        .social-link:hover { background: #0F172A !important; color: #FFFFFF !important; border-color: #0F172A !important; transform: none !important; }
+
+        /* Legal Pages */
+        .legal-page h1 { font-weight: 800 !important; color: #020617 !important; }
+        .legal-page h2 { font-weight: 700 !important; color: #020617 !important; border-bottom: 1px solid var(--color-border) !important; padding-bottom: 8px !important; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .product-grid { gap: 56px !important; }
+            .vision-section { padding: 56px 24px !important; border-radius: 16px !important; }
+            .hero { padding-top: 140px !important; }
+        }
+    </style>
 
     <link rel="canonical" href="https://linsio.site/">
     <meta property="og:url" content="https://linsio.site/">
@@ -457,7 +593,7 @@
 
                         <!-- Resume Builder -->
                         <div class="product-card">
-<div class="card-visual-frame"><img class="product-original-icon" src="Resume.png" alt="Resume Builder app icon" width="100" height="100" loading="lazy"></div>
+<div class="card-visual-frame"><img class="product-original-icon" src="Resume.png" alt="resume Builder app icon" width="100" height="100" loading="lazy"></div>
 <h3>Resume Builder</h3>
                             <div class="product-highlight">Web-based Resume Creation</div>
                             <p>
