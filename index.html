@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="LINS IO builds useful apps, AI-powered tools, and digital experiences including AI Store, LinsPlay, Resume Builder, and upcoming LinsCam AI.">
-    <title>LINS IO | Build, Learn, Evolve</title>
+    <meta name="description" content="Discover LINS IO products: AI Store, LinsPlay, Resume Builder, and LinsCam AI. Explore useful apps and AI-powered tools at linsio.site.">
+    <title>LINS IO — Premium Apps, AI Tools & Digital Products</title>
     
     <!-- SEO & Open Graph Meta Tags -->
-    <meta property="og:title" content="LINS IO | Build, Learn, Evolve">
-    <meta property="og:description" content="Building useful technology for the real world. LINS IO is an independent technology ecosystem.">
+    <meta property="og:title" content="LINS IO | Premium Apps & AI Tools">
+    <meta property="og:description" content="Explore LINS IO products: AI Store, LinsPlay, Resume Builder, and LinsCam AI.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     
@@ -300,7 +300,47 @@
             .footer-bottom { flex-direction: column-reverse; text-align: center; }
             .product-card { padding: 28px; }
         }
-    </style>
+    
+        .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px 56px}
+        .product-card{background:transparent!important;border:0!important;border-bottom:1px solid var(--color-border)!important;border-radius:0!important;box-shadow:none!important;padding:8px 0 30px!important;transform:none!important;transition:none!important;display:flex;flex-direction:column}
+        .product-card:hover{background:transparent!important;box-shadow:none!important;transform:none!important}
+        .card-visual-frame{min-height:112px;margin:0 0 24px!important;display:flex;align-items:center;justify-content:flex-start;background:transparent!important;border:0!important;border-radius:0!important}
+        .product-original-icon{display:block;width:100px;height:100px;object-fit:contain;border-radius:0}
+        .coming-soon-card{background:transparent!important;border:0!important;border-top:1px solid var(--color-border)!important;border-bottom:1px solid var(--color-border)!important;border-radius:0!important;box-shadow:none!important}
+        .vision-terminal,.vision-viewfinder,.scanner-beam{display:none!important;animation:none!important}
+        .fade-up,.fade-up.visible{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
+        .product-card,.product-card *,.social-link,.social-link:hover{transition:none!important;animation:none!important}
+        .product-card:hover *{transform:none!important}
+        @media(max-width:768px){.product-grid{grid-template-columns:1fr;gap:32px}.product-card{padding:4px 0 26px!important}}
+
+
+/* Premium static product presentation */
+.logo-container{display:flex;align-items:center;gap:12px}
+.logo-img{width:48px!important;height:48px!important;object-fit:contain;display:block}
+.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:46px 58px}
+.product-card{background:transparent!important;border:0!important;border-bottom:1px solid var(--color-border)!important;border-radius:0!important;box-shadow:none!important;padding:12px 0 32px!important;transform:none!important;transition:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.product-card:hover{background:transparent!important;box-shadow:none!important;transform:none!important;border-color:var(--color-border)!important}
+.card-visual-frame{display:flex;align-items:center;justify-content:flex-start;min-height:112px;margin:0 0 22px!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important}
+.product-original-icon{display:block;width:100px;height:100px;object-fit:contain;border-radius:0!important}
+.product-card h3{letter-spacing:-.045em}
+.product-card,.product-card *,.social-link,.social-link:hover,.logo-img{animation:none!important;transition:none!important}
+.product-card:hover *,.social-link:hover{transform:none!important}
+.fade-up,.fade-up.visible{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+.vision-terminal,.vision-viewfinder,.scanner-beam{display:none!important;animation:none!important}
+.social-link{display:flex;align-items:center;justify-content:center}
+.social-link svg{width:22px;height:22px;fill:currentColor}
+@media(max-width:768px){.product-grid{grid-template-columns:1fr;gap:34px}.product-card{padding:4px 0 28px!important}.logo-img{width:42px!important;height:42px!important}}
+
+</style>
+
+    <link rel="canonical" href="https://linsio.site/">
+    <meta property="og:url" content="https://linsio.site/">
+    <meta property="og:image" content="https://linsio.site/lins.png">
+    <meta name="twitter:title" content="LINS IO — Premium Apps, AI Tools & Digital Products">
+    <meta name="twitter:description" content="Explore AI Store, LinsPlay, Resume Builder, and LinsCam AI at linsio.site.">
+    <meta name="twitter:image" content="https://linsio.site/lins.png">
+    <link rel="icon" type="image/png" href="https://linsio.site/lins.png">
+    <meta name="theme-color" content="#0b1020">
 </head>
 
 <body>
@@ -313,7 +353,7 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo-container" onclick="app.navigate('home')">
-                <img src="lins.png" alt="LINS IO Logo" class="logo-img">
+                <img src="https://linsio.site/lins.png" alt="LINS IO" class="logo-img" width="48" height="48">
                 <span class="logo-text">LINS IO</span>
             </div>
             
@@ -364,7 +404,7 @@
             <!-- Products Section -->
             <section id="products" class="section-padding bg-alt">
                 <div class="container">
-                    <div class="section-header fade-up">
+                    <div class="section-header">
                         <h2>Products</h2>
                         <p>Technology we're building for real-world use.</p>
                     </div>
@@ -372,21 +412,9 @@
                     <div class="product-grid">
 
                         <!-- AI Store -->
-                        <div class="product-card fade-up">
-                            <!-- Premium SVG instead of live animation -->
-                            <div class="card-visual-frame">
-                                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2L14.09 8.26L20 9.27L15 14.14L16.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L7.91 8.26L12 2Z" fill="url(#ai-grad)"/>
-                                    <defs>
-                                        <linearGradient id="ai-grad" x1="2" y1="2" x2="20" y2="21" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#2563EB"/>
-                                            <stop offset="1" stop-color="#06B6D4"/>
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-
-                            <h3>AI Store</h3>
+                        <div class="product-card">
+<div class="card-visual-frame"><img class="product-original-icon" src="store.png" alt="AI Store app icon" width="100" height="100" loading="lazy"></div>
+<h3>AI Store</h3>
                             <div class="product-highlight">1000+ AI Tools. One App. Everything AI.</div>
                             <p>
                                 AI Store is a centralized AI discovery and productivity app featuring 1000+ AI tools across 20 categories. Generate structured prompts, save to your vault, and explore AI jobs.
@@ -406,19 +434,9 @@
                         </div>
 
                         <!-- LinsPlay -->
-                        <div class="product-card fade-up">
-                            <!-- Premium SVG instead of live animation -->
-                            <div class="card-visual-frame" style="background: linear-gradient(145deg, #0F172A, #1E293B);">
-                                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="6" width="20" height="12" rx="2" ry="2"></rect>
-                                    <path d="M6 12h4"></path>
-                                    <path d="M8 10v4"></path>
-                                    <line x1="15" y1="13" x2="15.01" y2="13"></line>
-                                    <line x1="18" y1="11" x2="18.01" y2="11"></line>
-                                </svg>
-                            </div>
-
-                            <h3>LinsPlay</h3>
+                        <div class="product-card">
+<div class="card-visual-frame"><img class="product-original-icon" src="Inlogo.png" alt="LinsPlay app icon" width="100" height="100" loading="lazy"></div>
+<h3>LinsPlay</h3>
                             <div class="product-highlight">5 Mini Games. 1 App. Endless Fun.</div>
                             <p>
                                 LinsPlay is a lightweight offline gaming app featuring five mini games in one place. Designed for simple, quick, and enjoyable gameplay anytime.
@@ -438,19 +456,9 @@
                         </div>
 
                         <!-- Resume Builder -->
-                        <div class="product-card fade-up">
-                            <!-- Premium SVG instead of live animation -->
-                            <div class="card-visual-frame">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                                    <polyline points="10 9 9 9 8 9"></polyline>
-                                </svg>
-                            </div>
-
-                            <h3>Resume Builder</h3>
+                        <div class="product-card">
+<div class="card-visual-frame"><img class="product-original-icon" src="Resume.png" alt="Resume Builder app icon" width="100" height="100" loading="lazy"></div>
+<h3>Resume Builder</h3>
                             <div class="product-highlight">Web-based Resume Creation</div>
                             <p>
                                 Resume Builder is a web-based creation tool designed to help users prepare professional resumes through a simple digital experience.
@@ -467,48 +475,28 @@
                             </a>
                         </div>
 
+                    
+                    <div class="product-card">
+<div class="card-visual-frame"><img class="product-original-icon" src="linsnew.jpg" alt="LinsCam AI app icon" width="100" height="100" loading="lazy"></div>
+<h3>LinsCam AI</h3>
+                        <div class="product-highlight">AI-powered visual understanding. Available now.</div>
+                        <p>LinsCam AI helps you explore images, ask questions about what you see, and understand visual context through AI-powered analysis.</p>
+                        <ul class="product-features">
+                            <li>AI-powered image analysis</li>
+                            <li>Ask questions about image content</li>
+                            <li>Clear, useful visual explanations</li>
+                        </ul>
+                        <a href="https://play.google.com/store/apps/details?id=com.LinsCam.io" target="_blank" rel="noopener noreferrer" class="btn-google-play">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20.5V3.5c0-.6.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.25-.84-.76-.84-1.35M16.81 15.12 6.05 21.34l8.49-8.49 2.27 2.27M20.16 10.81c.34.27.59.69.02 2.37l-2.29 1.32L15.39 12l2.5-2.5 2.27 1.31M6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66Z"/></svg>
+                            Get it on Google Play
+                        </a>
                     </div>
+</div>
                 </div>
             </section>
 
             <!-- Coming Soon: LinsCam AI -->
-            <section id="coming-soon" class="section-padding">
-                <div class="container fade-up">
-                    <div class="section-header">
-                        <h2>Coming Soon</h2>
-                    </div>
-
-                    <div class="coming-soon-card">
-                        <div class="coming-soon-content">
-                            <span class="badge">
-                                <span class="badge-dot"></span> Coming Soon
-                            </span>
-                            <h3>LinsCam AI</h3>
-                            <p>LinsCam AI is a lightweight AI-powered visual analysis app.</p>
-                            <p>
-                                It helps you understand what’s in an image by using AI to analyze visible objects, text, and context. Upload an image, choose your query, and receive a clear explanation.
-                            </p>
-                            <div class="closing-statement">Understand images. Ask better questions.</div>
-                        </div>
-
-                        <!-- Computer Vision Scanning Terminal -->
-                        <div class="vision-terminal">
-                            <div class="vision-terminal-header">
-                                <span>LINS_VISION // CORE v2.4</span>
-                                <span class="status-badge-active"><span class="badge-dot"></span> ACTIVE</span>
-                            </div>
-                            <div class="vision-viewfinder">
-                                <div class="scanner-beam"></div>
-                                <div style="color: #06B6D4; font-size: 0.85rem; font-weight: 600;">VISION ANALYSIS READY</div>
-                            </div>
-                            <div style="margin-top: 14px; display: flex; justify-content: space-between; font-size: 0.75rem; color: #64748B;">
-                                <span>MODEL: GEMMA AI</span>
-                                <span>STATUS: OPTIMIZED</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            
 
             <!-- Ecosystem Universe -->
             <section id="ecosystem" class="section-padding">
@@ -642,10 +630,10 @@
             <div class="footer-bottom fade-up">
                 <div class="copyright">&copy; 2026 LINS IO. All rights reserved.</div>
                 <div class="social-links">
-                    <a href="https://www.instagram.com/lins.io_?igsh=cGc0PXBvamIzZ2h1" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                    <a href="https://instagram.com/lins.io_?srtk=cGc0ZXBvamIzZ2h1" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
                         <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8C2,4.6 4.6,2 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0 0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0 1 18.5,6.75A1.25,1.25 0 0 1 17.25,8A1.25,1.25 0 0 1 16,6.75A1.25,1.25 0 0 1 17.25,5.5M12,7A5,5 0 0 1 17,12A5,5 0 0 1 12,17A5,5 0 0 1 7,12A5,5 0 0 1 12,7M12,9A3,3 0 0 0 9,12A3,3 0 0 0 12,15A3,3 0 0 0 15,12A3,3 0 0 0 12,9Z"/></svg>
                     </a>
-                    <a href="https://www.facebook.com/share/1XmxD5SWwn/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                    <a href="https://www.facebook.com/share/1DtRWEawb9/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
                         <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
                     </a>
                     <a href="https://youtube.com/@lins_io?si=LR43E_hz1aXYE9BP" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
@@ -654,6 +642,7 @@
                     <a href="https://t.me/linsio002" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Telegram">
                         <svg viewBox="0 0 24 24"><path d="M9.78,18.65L10.06,14.42L17.74,7.5C18.08,7.19 17.67,7.04 17.22,7.31L7.74,13.28L3.64,12C2.76,11.75 2.75,11.14 3.84,10.7L19.81,4.54C20.54,4.21 21.24,4.72 20.96,5.84L18.24,18.65C18.05,19.56 17.5,19.78 16.74,19.36L12.6,16.3L10.61,18.23C10.38,18.46 10.19,18.65 9.78,18.65Z"/></svg>
                     </a>
+<a href="https://whatsapp.com/channel/0029Vb5yqiL96H4VX0o33x0I" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp Channel" title="WhatsApp Channel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.9-.2-.3.2-.4.6-1 .1-.2 0-.4 0-.5l-.7-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.3 3.9.6.3 1.1.4 1.4.5.6.2 1.1.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
                 </div>
             </div>
         </div>
