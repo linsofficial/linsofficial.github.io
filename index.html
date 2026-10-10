@@ -18,454 +18,273 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* =========================================================
+           LINS IO - PREMIUM CORPORATE / SAAS THEME
+           ========================================================= */
         :root {
-            --color-bg: #F8FAFC;
-            --color-bg-alt: #F1F5F9;
-            --color-text-primary: #0F172A;
-            --color-text-secondary: #475569;
-            --color-accent: #2563EB;
-            --color-accent-light: #EFF6FF;
-            --color-accent-cyan: #06B6D4;
-            --color-border: #E2E8F0;
-            --nav-height: 80px;
+            --bg-main: #FFFFFF;
+            --bg-alt: #F8FAFC;
+            --bg-footer: #0A0F1C;
             
-            --glass-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.9);
-            --shadow-hover: 0 20px 40px -12px rgba(37, 99, 235, 0.15);
+            --text-main: #020617;
+            --text-muted: #475569;
+            --text-light: #94A3B8;
             
-            --radius-md: 16px;
-            --radius-lg: 28px;
-            --radius-pill: 9999px;
+            --accent-blue: #0F172A; /* Refined to deep slate for a more premium look */
+            --accent-link: #2563EB;
             
-            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            --font-mono: 'JetBrains Mono', monospace;
+            --border: #E2E8F0;
+            
+            --nav-height: 72px;
+            --transition: all 0.3s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        html { scroll-behavior: smooth; font-size: 16px; background-color: var(--bg-main); }
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            position: relative;
         }
 
-        /* Static Gradient Background for Ultimate Performance */
-        .ambient-layer {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
-            background: linear-gradient(135deg, #F8FAFC 0%, #E0E7FF 50%, #F3E8FF 100%);
-            transform: translateZ(0);
-        }
-
-        .ambient-grid {
-            position: absolute;
-            inset: 0;
-            background-image: 
-                linear-gradient(to right, rgba(226, 232, 240, 0.35) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(226, 232, 240, 0.35) 1px, transparent 1px);
-            background-size: 40px 40px;
-            mask-image: radial-gradient(ellipse 90% 80% at 50% 35%, black 40%, transparent 85%);
-            -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 35%, black 40%, transparent 85%);
-        }
-
-        a { text-decoration: none; color: inherit; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
         ul { list-style: none; }
         img { max-width: 100%; height: auto; display: block; }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-        }
-
-        .section-padding { padding: 120px 0; position: relative; }
-
-        .bg-alt {
-            background-color: rgba(241, 245, 249, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-top: 1px solid rgba(226, 232, 240, 0.7);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.7);
-        }
+        .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; position: relative; }
+        .section-padding { padding: 140px 0; }
+        
+        .bg-alt { background-color: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
         /* Typography */
-        h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; }
-        h1 { font-size: clamp(2.6rem, 5.5vw, 4.4rem); margin-bottom: 24px; color: var(--color-text-primary); }
-        h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 16px; letter-spacing: -0.025em; }
-        h3 { font-size: 1.65rem; margin-bottom: 12px; letter-spacing: -0.02em; }
-        p { color: var(--color-text-secondary); font-size: 1.1rem; margin-bottom: 24px; }
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; color: var(--text-main); }
+        h1 { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 24px; font-weight: 800; letter-spacing: -0.04em; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; font-weight: 800; }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 16px; font-weight: 700; }
+        p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px; font-weight: 400; }
 
-        /* Buttons */
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center;
-            padding: 15px 32px; font-weight: 600; border-radius: var(--radius-pill);
-            transition: var(--transition); cursor: pointer; border: none; font-size: 1rem;
-            transform: translateZ(0);
+        /* Minimalist Buttons */
+        .btn, .btn-google-play {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 14px 28px; font-size: 1rem; font-weight: 600;
+            border-radius: 6px; cursor: pointer; border: 1px solid transparent;
+            transition: var(--transition);
         }
-        .btn-primary { background-color: var(--color-text-primary); color: #ffffff; box-shadow: 0 4px 16px rgba(15, 23, 42, 0.2); }
-        .btn-primary:hover { background-color: #000000; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); }
-        .btn-outline { background-color: rgba(255, 255, 255, 0.9); border: 1px solid var(--color-border); color: var(--color-text-primary); }
-        .btn-outline:hover { border-color: var(--color-accent); color: var(--color-accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.1); }
         
-        .btn-google-play {
-            background-color: var(--color-text-primary); color: #ffffff;
-            display: inline-flex; align-items: center; gap: 12px;
-            padding: 14px 26px; border-radius: var(--radius-pill);
-            font-weight: 600; transition: var(--transition); transform: translateZ(0);
-        }
-        .btn-google-play:hover { transform: translateY(-2px); background-color: var(--color-accent); box-shadow: var(--shadow-hover); }
-        .btn-google-play svg { width: 22px; height: 22px; fill: currentColor; }
+        .btn-primary, .btn-google-play { background-color: var(--text-main); color: #FFFFFF; }
+        .btn-primary:hover, .btn-google-play:hover { background-color: #000000; transform: translateY(-1px); box-shadow: 0 8px 16px rgba(0,0,0,0.12); }
+        
+        .btn-outline { background-color: transparent; border-color: var(--border); color: var(--text-main); }
+        .btn-outline:hover { border-color: var(--text-main); background-color: var(--bg-alt); }
+        
+        .btn-google-play svg { width: 20px; height: 20px; fill: currentColor; }
 
-        .badge {
+        .hero-tag {
             display: inline-flex; align-items: center; gap: 8px;
-            padding: 7px 16px; background-color: var(--color-accent-light);
-            color: var(--color-accent); border-radius: var(--radius-pill);
-            font-size: 0.85rem; font-weight: 600; margin-bottom: 24px;
-            border: 1px solid rgba(37, 99, 235, 0.15);
+            padding: 6px 16px; border-radius: 99px;
+            background: #FFFFFF; border: 1px solid var(--border);
+            font-size: 0.85rem; font-weight: 600; color: var(--text-main);
+            margin-bottom: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
-        .badge-dot { width: 7px; height: 7px; border-radius: 50%; background-color: var(--color-accent); box-shadow: 0 0 8px var(--color-accent); }
+        .live-status-dot { width: 6px; height: 6px; border-radius: 50%; background: #10B981; }
 
         /* =========================================
-           PREMIUM WEBSITE NAVBAR (DESKTOP/SAAS STYLE)
+           ULTRA CLEAN CORPORATE NAVBAR
            ========================================= */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
-            background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8); z-index: 1000;
-            display: flex; align-items: center; transition: var(--transition); transform: translateZ(0);
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+            z-index: 1000; display: flex; align-items: center; transition: background-color 0.3s ease, border-color 0.3s ease;
         }
-        .navbar.scrolled {
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05); border-bottom-color: rgba(37, 99, 235, 0.1); height: 72px;
-        }
+        .navbar.scrolled { border-bottom: 1px solid var(--border); background-color: rgba(255, 255, 255, 0.98); }
 
         .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-
-        .logo-container { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        
+        .logo-container { display: flex; align-items: center; gap: 10px; cursor: pointer; }
         .logo-img { height: 32px; width: auto; object-fit: contain; }
-        .logo-text { font-weight: 800; font-size: 1.3rem; letter-spacing: -0.03em; color: var(--color-text-primary); }
+        .logo-text { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em; color: var(--text-main); }
 
-        .nav-links { display: flex; gap: 24px; align-items: center; }
-        .nav-links a {
-            font-size: 0.95rem; font-weight: 500; color: var(--color-text-secondary);
-            transition: var(--transition); cursor: pointer;
-        }
-        .nav-links a:hover { color: var(--color-accent); }
-        
-        /* Highlighted CTA style link for Blog if needed */
-        .nav-links a.nav-blog { color: var(--color-text-primary); font-weight: 600; }
-        .nav-links a.nav-blog:hover { color: var(--color-accent); }
+        .nav-links { display: flex; gap: 36px; align-items: center; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; color: var(--text-muted); cursor: pointer; position: relative; }
+        .nav-links a:hover { color: var(--text-main); }
+        .nav-links a.nav-blog { color: var(--accent-link); font-weight: 600; }
+        .nav-links a.nav-blog:hover { color: var(--text-main); }
 
-        .mobile-menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 1001; }
-        .mobile-menu-toggle svg { width: 26px; height: 26px; stroke: var(--color-text-primary); }
+        .mobile-menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1001; }
+        .mobile-menu-toggle svg { width: 26px; height: 26px; stroke: var(--text-main); }
 
+        /* Views */
         .view { display: none; padding-top: var(--nav-height); min-height: 100vh; }
-        .view.active { display: block; }
+        .view.active { display: block; animation: viewFadeIn 0.5s ease-out forwards; }
+        @keyframes viewFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* HERO SECTION */
-        .hero { text-align: center; padding: 150px 0 110px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .hero-content { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
-        .hero-tag { display: inline-flex; align-items: center; gap: 10px; padding: 7px 18px; background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-pill); font-size: 0.875rem; font-weight: 600; color: var(--color-text-primary); margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
-        .live-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #10B981; box-shadow: 0 0 8px #10B981; }
-        .dynamic-gradient-text { background: linear-gradient(135deg, #0F172A 0%, #2563EB 50%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p.hero-description { max-width: 660px; margin: 0 auto 36px; font-size: 1.2rem; color: var(--color-text-secondary); }
-
-        /* PRODUCT CARDS WITH STATIC SVGS */
-        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; }
-        .product-card {
-            background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 40px;
-            display: flex; flex-direction: column; transition: var(--transition); box-shadow: var(--glass-shadow);
-            transform: translateZ(0);
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero { 
+            text-align: center; padding: 140px 0 100px; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
         }
-        .product-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-6px); border-color: rgba(37, 99, 235, 0.25); background-color: #ffffff; }
-
-        .card-visual-frame {
-            width: 100%; height: 100px; border-radius: var(--radius-md); background: linear-gradient(145deg, #f8fafc, #f1f5f9);
-            border: 1px solid rgba(226, 232, 240, 0.9); margin-bottom: 24px; display: flex; align-items: center; justify-content: center;
+        .hero-content { max-width: 800px; margin: 0 auto; }
+        .hero p.hero-description { 
+            font-size: 1.2rem; max-width: 600px; margin: 0 auto 40px; color: var(--text-muted); 
+            line-height: 1.6;
         }
 
-        .product-highlight { font-weight: 700; color: var(--color-text-primary); margin-bottom: 16px; font-size: 1.05rem; }
-        .product-features { margin-bottom: 32px; flex-grow: 1; }
-        .product-features li { position: relative; padding-left: 24px; margin-bottom: 10px; color: var(--color-text-secondary); font-size: 0.95rem; }
-        .product-features li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--color-accent); font-weight: 700; }
+        /* =========================================
+           EDITORIAL PRODUCT SHOWCASE (MEDIUM ICONS)
+           ========================================= */
+        .section-header { text-align: center; max-width: 600px; margin: 0 auto 80px; }
+        .product-grid { display: flex; flex-direction: column; gap: 120px; }
 
-        /* LINSCAM AI SHOWCASE */
-        .coming-soon-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.8)); backdrop-filter: blur(16px);
-            border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 48px;
-            display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center; box-shadow: var(--glass-shadow);
+        .product-item {
+            display: flex; align-items: center; gap: 60px;
+            justify-content: space-between;
         }
-        .vision-terminal {
-            background: #0F172A; border-radius: var(--radius-md); padding: 20px; border: 1px solid #1E293B;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25); color: #F8FAFC; font-family: var(--font-mono);
+        .product-item:nth-child(even) { flex-direction: row-reverse; }
+
+        .product-content { flex: 1; max-width: 480px; }
+        .product-visual {
+            flex: 1; display: flex; align-items: center; justify-content: center;
+            background: #FFFFFF; border-radius: 16px; min-height: 340px;
+            border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
-        .vision-terminal-header { display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #94A3B8; padding-bottom: 10px; border-bottom: 1px solid #1E293B; margin-bottom: 14px; }
-        .status-badge-active { display: inline-flex; align-items: center; gap: 6px; color: #10B981; background: rgba(16, 185, 129, 0.12); padding: 3px 8px; border-radius: var(--radius-pill); font-weight: 600; font-size: 0.7rem; }
-        .vision-viewfinder { position: relative; height: 220px; background: #020617; border-radius: 8px; border: 1px solid #334155; display: flex; align-items: center; justify-content: center; overflow: hidden;}
-        .scanner-beam { position: absolute; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #06B6D4, #2563EB, transparent); box-shadow: 0 0 12px #06B6D4; animation: scan 3s infinite linear; }
-        @keyframes scan { 0% { top: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
-        .closing-statement { font-weight: 700; font-size: 1.15rem; color: var(--color-text-primary); margin-top: 24px; }
 
-        /* UNIVERSE ECOSYSTEM SECTION */
-        .vision-section { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #ffffff; border-radius: var(--radius-lg); padding: 100px 40px; text-align: center; }
-        .vision-section h2 { color: #ffffff; }
-        .vision-section p { color: #94A3B8; max-width: 750px; margin: 0 auto 20px; font-size: 1.15rem; }
-
-        /* ABOUT PHILOSOPHY */
-        .about-content { max-width: 800px; margin: 0 auto; text-align: center; }
-        .philosophy-container { margin-top: 48px; padding: 32px; background: rgba(255, 255, 255, 0.9); border-radius: var(--radius-lg); border: 1px solid var(--color-border); }
-        .philosophy-text { font-size: clamp(1.3rem, 2.5vw, 1.7rem) !important; font-weight: 700; color: var(--color-text-primary) !important; margin: 0 !important; letter-spacing: -0.02em; }
-
-        /* FAQ ACCORDION */
-        .faq-container { max-width: 760px; margin: 0 auto; }
-        .faq-item { border-bottom: 1px solid var(--color-border); margin-bottom: 10px; border-radius: 12px; padding: 0 12px; transition: background-color 0.2s ease; }
-        .faq-item.active { background-color: rgba(241, 245, 249, 0.8); }
-        .faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 8px; background: none; border: none; text-align: left; font-size: 1.15rem; font-weight: 600; color: var(--color-text-primary); cursor: pointer; font-family: inherit; }
-        .faq-icon { width: 22px; height: 22px; transition: transform 0.3s; color: var(--color-text-secondary); flex-shrink: 0; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); color: var(--color-accent); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; }
-        .faq-answer-inner { padding: 0 8px 24px 8px; color: var(--color-text-secondary); font-size: 1.05rem; }
-
-        /* CONTACT SECTION */
-        .contact-section { text-align: center; max-width: 640px; margin: 0 auto; padding: 20px 0; }
-
-        /* LEGAL PAGES */
-        .legal-page { max-width: 780px; margin: 60px auto; }
-        .legal-page h1 { margin-bottom: 12px; }
-        .legal-page .last-updated { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 40px; display: block; }
-        .legal-page h2 { font-size: 1.5rem; margin-top: 40px; margin-bottom: 16px; }
-        .legal-page p, .legal-page ul { margin-bottom: 18px; font-size: 1.05rem; color: var(--color-text-secondary); }
-        .legal-page ul { padding-left: 20px; }
-
-        /* FOOTER */
-        .footer { background-color: var(--color-bg); border-top: 1px solid var(--color-border); padding: 80px 0 36px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
-        .footer-brand h3 { font-size: 1.4rem; margin-bottom: 8px; }
-        .footer-tagline { font-weight: 700; font-size: 0.8rem; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; display: block; }
-        .footer h4 { font-size: 1.05rem; margin-bottom: 20px; color: var(--color-text-primary); }
-        .footer-links { display: flex; flex-direction: column; gap: 14px; }
-        .footer-links a { color: var(--color-text-secondary); transition: var(--transition); cursor: pointer; font-size: 0.95rem; }
-        .footer-links a:hover { color: var(--color-accent); }
+        /* Medium Icon Size Constraints */
+        .product-original-icon {
+            width: 120px; height: 120px; object-fit: contain;
+            border-radius: 24px; box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            background: #FFFFFF; transition: transform 0.4s ease;
+        }
+        .product-item:hover .product-original-icon { transform: translateY(-4px); }
         
-        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid var(--color-border); flex-wrap: wrap; gap: 20px; }
-        .copyright { color: var(--color-text-secondary); font-size: 0.9rem; }
+        img[src="linsnew.jpg"] { border-radius: 24px; }
+        img[src="Inlogo.png"] { padding: 12px; }
+
+        .product-highlight { font-size: 1.1rem; font-weight: 600; color: var(--accent-link); margin-bottom: 16px; }
+        .product-features { list-style: none; padding: 0; margin-bottom: 32px; }
+        .product-features li { 
+            position: relative; padding-left: 24px; margin-bottom: 10px; 
+            color: var(--text-main); font-weight: 500; font-size: 1rem;
+        }
+        .product-features li::before {
+            content: '—'; position: absolute; left: 0; top: 0; 
+            color: var(--text-muted); font-weight: bold;
+        }
+
+        /* =========================================
+           ECOSYSTEM / ABOUT SECTION
+           ========================================= */
+        .vision-section { 
+            background: var(--bg-footer); color: #FFFFFF; 
+            border-radius: 20px; padding: 100px 40px; text-align: center; 
+        }
+        .vision-section h2 { color: #FFFFFF; margin-bottom: 20px; }
+        .vision-section p { color: var(--text-light); max-width: 700px; margin: 0 auto; font-size: 1.15rem; }
+
+        .about-content { max-width: 700px; margin: 0 auto; text-align: center; }
+        .philosophy-container { 
+            margin-top: 50px; padding: 50px 30px; 
+            background: var(--bg-main); border-radius: 12px; 
+            border: 1px solid var(--border);
+        }
+        .philosophy-text { 
+            font-size: clamp(1.5rem, 3vw, 2.2rem) !important; 
+            font-weight: 800; color: var(--text-main) !important; 
+            margin: 0 !important; letter-spacing: -0.03em; line-height: 1.3;
+        }
+
+        /* =========================================
+           FAQ ACCORDION
+           ========================================= */
+        .faq-container { max-width: 700px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); transition: var(--transition); }
+        .faq-question { 
+            width: 100%; display: flex; justify-content: space-between; align-items: center; 
+            padding: 28px 0; background: none; border: none; text-align: left; 
+            font-size: 1.15rem; font-weight: 600; color: var(--text-main); 
+            cursor: pointer; font-family: inherit; 
+        }
+        .faq-icon { width: 22px; height: 22px; stroke: var(--text-muted); flex-shrink: 0; transition: var(--transition); }
+        .faq-item.active .faq-icon { transform: rotate(180deg); stroke: var(--text-main); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .faq-answer-inner { padding: 0 0 28px 0; color: var(--text-muted); font-size: 1.05rem; }
+
+        /* =========================================
+           CONTACT & LEGAL PAGES
+           ========================================= */
+        .contact-section { text-align: center; max-width: 600px; margin: 0 auto; }
+        
+        .legal-page { max-width: 760px; margin: 80px auto; padding: 0 24px; }
+        .legal-page h1 { margin-bottom: 12px; }
+        .legal-page .last-updated { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 40px; display: block; font-weight: 500; }
+        .legal-page h2 { font-size: 1.5rem; margin-top: 50px; padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+        .legal-page p, .legal-page ul { margin-bottom: 20px; font-size: 1.05rem; color: var(--text-muted); }
+        .legal-page ul { padding-left: 24px; }
+
+        /* =========================================
+           FOOTER 
+           ========================================= */
+        .footer { background-color: var(--bg-footer); color: #FFFFFF; padding: 80px 0 30px; border-top: none; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 60px; }
+        .footer-brand h3 { color: #FFFFFF; font-size: 1.4rem; margin-bottom: 10px; }
+        .footer-brand p { color: var(--text-light); font-size: 0.95rem; }
+        .footer-tagline { font-weight: 700; font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+        .footer h4 { color: #FFFFFF; font-size: 1.05rem; margin-bottom: 20px; }
+        .footer-links { display: flex; flex-direction: column; gap: 14px; }
+        .footer-links a { color: var(--text-light); cursor: pointer; font-size: 0.95rem; }
+        .footer-links a:hover { color: #FFFFFF; }
+        
+        .footer-bottom { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 20px; 
+        }
+        .copyright { color: var(--text-light); font-size: 0.9rem; }
         .social-links { display: flex; gap: 10px; }
-        .social-link { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background-color: var(--color-bg-alt); color: var(--color-text-primary); transition: var(--transition); border: 1px solid var(--color-border); }
-        .social-link:hover { background-color: var(--color-text-primary); color: #ffffff; transform: translateY(-2px); }
+        .social-link { 
+            display: flex; align-items: center; justify-content: center; 
+            width: 40px; height: 40px; border-radius: 6px; 
+            background-color: transparent; color: var(--text-light); border: 1px solid rgba(255,255,255,0.1);
+        }
+        .social-link:hover { background-color: #FFFFFF; color: var(--bg-footer); border-color: #FFFFFF; }
         .social-link svg { width: 18px; height: 18px; fill: currentColor; }
 
-        /* Scroll Reveal Utility */
+        /* =========================================
+           UTILITIES & RESPONSIVE
+           ========================================= */
         .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; will-change: opacity, transform; }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-        /* Responsive Layouts */
         @media (max-width: 960px) {
-            .coming-soon-card { grid-template-columns: 1fr; padding: 36px; gap: 32px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 50px; }
+            .product-item { flex-direction: column !important; gap: 40px; text-align: left; }
+            .product-content { max-width: 100%; display: flex; flex-direction: column; }
+            .product-visual { width: 100%; min-height: 280px; }
         }
 
         @media (max-width: 768px) {
             .nav-links {
-                position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-                background-color: rgba(255, 255, 255, 0.98); flex-direction: column; justify-content: center; align-items: center;
-                gap: 32px; padding: 0; border: none; opacity: 0; visibility: hidden; transform: translateY(-10px);
-                transition: var(--transition); z-index: 1000; box-shadow: none; border-radius: 0;
+                position: fixed; top: var(--nav-height); left: 0; width: 100%; height: calc(100vh - var(--nav-height));
+                background-color: rgba(255, 255, 255, 0.98);
+                flex-direction: column; justify-content: flex-start; align-items: center;
+                gap: 32px; padding-top: 60px; opacity: 0; visibility: hidden; transform: translateY(-10px);
+                transition: var(--transition); z-index: 1000;
             }
             .nav-links.open { opacity: 1; visibility: visible; transform: translateY(0); }
-            .nav-links a { font-size: 1.5rem; font-weight: 600; padding: 0; }
+            .nav-links a { font-size: 1.25rem; font-weight: 600; color: var(--text-main); }
             .mobile-menu-toggle { display: block; }
+            
             .section-padding { padding: 80px 0; }
-            .product-grid { grid-template-columns: 1fr; }
-            .hero { padding: 130px 0 60px; }
+            .hero { padding: 120px 0 60px; }
             .vision-section { padding: 60px 24px; }
             .footer-bottom { flex-direction: column-reverse; text-align: center; }
-            .product-card { padding: 28px; }
-        }
-    
-        .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px 56px}
-        .product-card{background:transparent!important;border:0!important;border-bottom:1px solid var(--color-border)!important;border-radius:0!important;box-shadow:none!important;padding:8px 0 30px!important;transform:none!important;transition:none!important;display:flex;flex-direction:column}
-        .product-card:hover{background:transparent!important;box-shadow:none!important;transform:none!important}
-        .card-visual-frame{min-height:112px;margin:0 0 24px!important;display:flex;align-items:center;justify-content:flex-start;background:transparent!important;border:0!important;border-radius:0!important}
-        .product-original-icon{display:block;width:100px;height:100px;object-fit:contain;border-radius:0}
-        .coming-soon-card{background:transparent!important;border:0!important;border-top:1px solid var(--color-border)!important;border-bottom:1px solid var(--color-border)!important;border-radius:0!important;box-shadow:none!important}
-        .vision-terminal,.vision-viewfinder,.scanner-beam{display:none!important;animation:none!important}
-        .fade-up,.fade-up.visible{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
-        .product-card,.product-card *,.social-link,.social-link:hover{transition:none!important;animation:none!important}
-        .product-card:hover *{transform:none!important}
-        @media(max-width:768px){.product-grid{grid-template-columns:1fr;gap:32px}.product-card{padding:4px 0 26px!important}}
-
-
-        /* Premium static product presentation */
-        .logo-container{display:flex;align-items:center;gap:12px}
-        .logo-img{width:48px!important;height:48px!important;object-fit:contain;display:block}
-        .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:46px 58px}
-        .product-card{background:transparent!important;border:0!important;border-bottom:1px solid var(--color-border)!important;border-radius:0!important;box-shadow:none!important;padding:12px 0 32px!important;transform:none!important;transition:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-        .product-card:hover{background:transparent!important;box-shadow:none!important;transform:none!important;border-color:var(--color-border)!important}
-        .card-visual-frame{display:flex;align-items:center;justify-content:flex-start;min-height:112px;margin:0 0 22px!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important}
-        .product-original-icon{display:block;width:100px;height:100px;object-fit:contain;border-radius:0!important}
-        .product-card h3{letter-spacing:-.045em}
-        .product-card,.product-card *,.social-link,.social-link:hover,.logo-img{animation:none!important;transition:none!important}
-        .product-card:hover *,.social-link:hover{transform:none!important}
-        .fade-up,.fade-up.visible{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
-        .vision-terminal,.vision-viewfinder,.scanner-beam{display:none!important;animation:none!important}
-        .social-link{display:flex;align-items:center;justify-content:center}
-        .social-link svg{width:22px;height:22px;fill:currentColor}
-        @media(max-width:768px){.product-grid{grid-template-columns:1fr;gap:34px}.product-card{padding:4px 0 28px!important}.logo-img{width:42px!important;height:42px!important}}
-
-        /* =========================================================
-           PREMIUM UI REDESIGN OVERRIDES (EDITORIAL & MODERN)
-           ========================================================= */
-        :root {
-            --color-bg: #FFFFFF !important;
-            --color-bg-alt: #F8FAFC !important;
-            --color-text-primary: #0F172A !important; 
-            --color-text-secondary: #475569 !important;
-            --color-accent: #0F172A !important;
-            --color-accent-blue: #2563EB !important;
-            --color-border: #E2E8F0 !important;
-            --radius-pill: 8px !important; 
-            --radius-lg: 16px !important;
-            --glass-shadow: none !important;
-            --shadow-hover: none !important;
-        }
-
-        body { background-color: var(--color-bg) !important; }
-        
-        .ambient-layer { background: #FFFFFF !important; }
-        .ambient-grid {
-            background-image: 
-                linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px) !important;
-            mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 20%, transparent 70%) !important;
-            -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 20%, transparent 70%) !important;
-        }
-
-        .bg-alt { background-color: var(--color-bg) !important; border: none !important; }
-
-        /* Typography Upgrades */
-        h1 { font-weight: 800 !important; letter-spacing: -0.04em !important; color: #020617 !important; }
-        h2 { font-weight: 700 !important; letter-spacing: -0.03em !important; color: #020617 !important; }
-        h3 { font-weight: 700 !important; letter-spacing: -0.02em !important; color: #020617 !important; }
-        
-        .dynamic-gradient-text {
-            background: linear-gradient(135deg, #020617 0%, #1E3A8A 100%) !important;
-            -webkit-background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-        }
-
-        .hero-tag {
-            border-radius: 99px !important;
-            border: 1px solid var(--color-border) !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
-            background: #F8FAFC !important;
-        }
-
-        /* Buttons */
-        .btn, .btn-google-play {
-            border-radius: 8px !important;
-            box-shadow: none !important;
-            font-weight: 600 !important;
-            letter-spacing: -0.01em !important;
-            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
-        }
-        .btn-primary, .btn-google-play { background-color: #0F172A !important; color: #FFFFFF !important; border: 1px solid #0F172A !important; }
-        .btn-primary:hover, .btn-google-play:hover { background-color: #1E293B !important; transform: none !important; box-shadow: none !important; }
-        
-        .btn-outline { border-color: var(--color-border) !important; background: transparent !important; }
-        .btn-outline:hover { background-color: #F8FAFC !important; border-color: #CBD5E1 !important; color: #0F172A !important; transform: none !important; box-shadow: none !important; }
-
-        /* Navbar */
-        .navbar { background-color: rgba(255, 255, 255, 0.95) !important; border-bottom: 1px solid var(--color-border) !important; backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important; }
-        .navbar.scrolled { box-shadow: none !important; border-bottom-color: var(--color-border) !important; }
-        .logo-text { color: #0F172A !important; font-weight: 800 !important; }
-        .nav-links a { color: var(--color-text-secondary) !important; }
-        .nav-links a:hover { color: #0F172A !important; }
-        .nav-links a.nav-blog { color: var(--color-accent-blue) !important; }
-
-        /* Product Cards - Editorial layout */
-        .product-grid { gap: 64px 48px !important; }
-        .product-card {
-            padding: 0 !important;
-            border: none !important;
-            border-bottom: none !important;
-        }
-        .card-visual-frame { margin-bottom: 20px !important; height: auto !important; min-height: auto !important; }
-        .product-original-icon {
-            width: 80px !important; height: 80px !important;
-            border-radius: 18px !important;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.03) !important;
-        }
-        .product-highlight { color: var(--color-accent-blue) !important; font-weight: 600 !important; }
-        .product-features li { color: #334155 !important; font-weight: 500 !important; }
-        .product-features li::before { color: var(--color-accent-blue) !important; }
-
-        /* Vision Section */
-        .vision-section {
-            background: #0F172A !important;
-            border-radius: 20px !important;
-            padding: 80px 40px !important;
-            box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15) !important;
-        }
-        .vision-section h2 { color: #FFFFFF !important; }
-        .vision-section p { color: #94A3B8 !important; max-width: 600px !important; margin: 0 auto !important; }
-
-        /* Philosophy / About */
-        .philosophy-container {
-            background: #F8FAFC !important;
-            border: 1px solid var(--color-border) !important;
-            box-shadow: none !important;
-            border-radius: 16px !important;
-            padding: 40px !important;
-        }
-        .philosophy-text { color: var(--color-accent-blue) !important; font-size: 1.5rem !important; }
-
-        /* FAQ */
-        .faq-container { max-width: 680px !important; }
-        .faq-item {
-            border: none !important;
-            border-bottom: 1px solid var(--color-border) !important;
-            border-radius: 0 !important;
-            padding: 0 !important;
-        }
-        .faq-item.active { background: transparent !important; }
-        .faq-question { padding: 24px 0 !important; font-size: 1.1rem !important; }
-        .faq-answer-inner { padding: 0 0 24px 0 !important; font-size: 1rem !important; }
-
-        /* Footer */
-        .footer { border-top: 1px solid var(--color-border) !important; background: #FFFFFF !important; }
-        .footer-brand h3 { color: #020617 !important; font-weight: 800 !important; }
-        .footer h4 { font-weight: 700 !important; color: #020617 !important; }
-        .social-link { background: transparent !important; border: 1px solid var(--color-border) !important; border-radius: 8px !important; }
-        .social-link:hover { background: #0F172A !important; color: #FFFFFF !important; border-color: #0F172A !important; transform: none !important; }
-
-        /* Legal Pages */
-        .legal-page h1 { font-weight: 800 !important; color: #020617 !important; }
-        .legal-page h2 { font-weight: 700 !important; color: #020617 !important; border-bottom: 1px solid var(--color-border) !important; padding-bottom: 8px !important; }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .product-grid { gap: 56px !important; }
-            .vision-section { padding: 56px 24px !important; border-radius: 16px !important; }
-            .hero { padding-top: 140px !important; }
         }
     </style>
 
@@ -476,16 +295,12 @@
     <meta name="twitter:description" content="Explore AI Store, LinsPlay, Resume Builder, and LinsCam AI at linsio.site.">
     <meta name="twitter:image" content="https://linsio.site/lins.png">
     <link rel="icon" type="image/png" href="https://linsio.site/lins.png">
-    <meta name="theme-color" content="#0b1020">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
 
-    <div class="ambient-layer">
-        <div class="ambient-grid"></div>
-    </div>
-
-    <!-- PREMIUM WEBSITE NAVBAR -->
+    <!-- PREMIUM WEBSITE NAVBAR (CLEAN) -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo-container" onclick="app.navigate('home')">
@@ -503,7 +318,7 @@
 
             <ul class="nav-links" id="nav-menu">
                 <li><a onclick="app.navigate('home', 'products')">Products</a></li>
-                <li><a onclick="app.navigate('home', 'coming-soon')">Coming Soon</a></li>
+                <li><a onclick="app.navigate('home', 'ecosystem')">Ecosystem</a></li>
                 <li><a onclick="app.navigate('home', 'about')">About</a></li>
                 <li><a onclick="app.navigate('home', 'faq')">FAQ</a></li>
                 <li><a href="/blog/" class="nav-blog">Blog</a></li>
@@ -518,18 +333,18 @@
             <!-- Hero Section -->
             <header id="hero" class="hero container">
                 <div class="hero-content">
-                    <div class="hero-tag">
+                    <div class="hero-tag fade-up">
                         <span class="live-status-dot"></span>
                         Build, Learn, Evolve
                     </div>
-                    <h1>
+                    <h1 class="fade-up">
                         Building useful technology<br>
-                        <span class="dynamic-gradient-text">for the real world.</span>
+                        for the real world.
                     </h1>
-                    <p class="hero-description">
+                    <p class="hero-description fade-up">
                         LINS IO is an independent technology ecosystem focused on building useful apps, AI-powered tools, and digital experiences that make technology more practical, accessible, and useful.
                     </p>
-                    <div class="hero-actions">
+                    <div class="hero-actions fade-up">
                         <button class="btn btn-primary" onclick="app.scrollToSection('products')">
                             Explore Products
                         </button>
@@ -537,10 +352,10 @@
                 </div>
             </header>
 
-            <!-- Products Section -->
+            <!-- Products Section (Editorial Layout with Medium Icons) -->
             <section id="products" class="section-padding bg-alt">
                 <div class="container">
-                    <div class="section-header">
+                    <div class="section-header fade-up">
                         <h2>Products</h2>
                         <p>Technology we're building for real-world use.</p>
                     </div>
@@ -548,91 +363,101 @@
                     <div class="product-grid">
 
                         <!-- AI Store -->
-                        <div class="product-card">
-<div class="card-visual-frame"><img class="product-original-icon" src="store.png" alt="AI Store app icon" width="100" height="100" loading="lazy"></div>
-<h3>AI Store</h3>
-                            <div class="product-highlight">1000+ AI Tools. One App. Everything AI.</div>
-                            <p>
-                                AI Store is a centralized AI discovery and productivity app featuring 1000+ AI tools across 20 categories. Generate structured prompts, save to your vault, and explore AI jobs.
-                            </p>
-                            
-                            <ul class="product-features">
-                                <li>1000+ AI Tools & 20 Categories</li>
-                                <li>Prompt Generator & Vault</li>
-                                <li>Latest AI Updates</li>
-                                <li>AI Jobs & Courses</li>
-                            </ul>
-                            
-                            <a href="https://play.google.com/store/apps/details?id=com.snpixel.aistore" target="_blank" rel="noopener noreferrer" class="btn-google-play" style="margin-top: auto;">
-                                <svg viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-                                Available on Google Play
-                            </a>
+                        <div class="product-item fade-up">
+                            <div class="product-visual">
+                                <img class="product-original-icon" src="store.png" alt="AI Store app icon" width="120" height="120" loading="lazy">
+                            </div>
+                            <div class="product-content">
+                                <h3>AI Store</h3>
+                                <div class="product-highlight">1000+ AI Tools. One App. Everything AI.</div>
+                                <p>
+                                    AI Store is a centralized AI discovery and productivity app featuring 1000+ AI tools across 20 categories. Generate structured prompts, save to your vault, and explore AI jobs.
+                                </p>
+                                <ul class="product-features">
+                                    <li>1000+ AI Tools & 20 Categories</li>
+                                    <li>Prompt Generator & Vault</li>
+                                    <li>Latest AI Updates</li>
+                                    <li>AI Jobs & Courses</li>
+                                </ul>
+                                <a href="https://play.google.com/store/apps/details?id=com.snpixel.aistore" target="_blank" rel="noopener noreferrer" class="btn-google-play">
+                                    <svg viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                                    Available on Google Play
+                                </a>
+                            </div>
                         </div>
 
                         <!-- LinsPlay -->
-                        <div class="product-card">
-<div class="card-visual-frame"><img class="product-original-icon" src="Inlogo.png" alt="LinsPlay app icon" width="100" height="100" loading="lazy"></div>
-<h3>LinsPlay</h3>
-                            <div class="product-highlight">5 Mini Games. 1 App. Endless Fun.</div>
-                            <p>
-                                LinsPlay is a lightweight offline gaming app featuring five mini games in one place. Designed for simple, quick, and enjoyable gameplay anytime.
-                            </p>
-                            
-                            <ul class="product-features">
-                                <li>Block Blast</li>
-                                <li>Fruit Slice</li>
-                                <li>Cyber Glide</li>
-                                <li>Highway & Galaxy</li>
-                            </ul>
-                            
-                            <a href="https://play.google.com/store/apps/details?id=com.lins.game" target="_blank" rel="noopener noreferrer" class="btn-google-play" style="margin-top: auto;">
-                                <svg viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-                                Available on Google Play
-                            </a>
+                        <div class="product-item fade-up">
+                            <div class="product-visual">
+                                <img class="product-original-icon" src="Inlogo.png" alt="LinsPlay app icon" width="120" height="120" loading="lazy">
+                            </div>
+                            <div class="product-content">
+                                <h3>LinsPlay</h3>
+                                <div class="product-highlight">5 Mini Games. 1 App. Endless Fun.</div>
+                                <p>
+                                    LinsPlay is a lightweight offline gaming app featuring five mini games in one place. Designed for simple, quick, and enjoyable gameplay anytime.
+                                </p>
+                                <ul class="product-features">
+                                    <li>Block Blast</li>
+                                    <li>Fruit Slice</li>
+                                    <li>Cyber Glide</li>
+                                    <li>Highway & Galaxy</li>
+                                </ul>
+                                <a href="https://play.google.com/store/apps/details?id=com.lins.game" target="_blank" rel="noopener noreferrer" class="btn-google-play">
+                                    <svg viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                                    Available on Google Play
+                                </a>
+                            </div>
                         </div>
 
                         <!-- Resume Builder -->
-                        <div class="product-card">
-<div class="card-visual-frame"><img class="product-original-icon" src="Resume.png" alt="resume Builder app icon" width="100" height="100" loading="lazy"></div>
-<h3>Resume Builder</h3>
-                            <div class="product-highlight">Web-based Resume Creation</div>
-                            <p>
-                                Resume Builder is a web-based creation tool designed to help users prepare professional resumes through a simple digital experience.
-                            </p>
-                            
-                            <ul class="product-features">
-                                <li>Clean structured layouts</li>
-                                <li>Fast digital workflow</li>
-                                <li>Ready for instant export</li>
-                            </ul>
-                            
-                            <a href="https://linsofficial.github.io/Resume/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top: auto;">
-                                Open Resume Builder
-                            </a>
+                        <div class="product-item fade-up">
+                            <div class="product-visual">
+                                <img class="product-original-icon" src="Resume.png" alt="Resume Builder app icon" width="120" height="120" loading="lazy">
+                            </div>
+                            <div class="product-content">
+                                <h3>Resume Builder</h3>
+                                <div class="product-highlight">Web-based Resume Creation</div>
+                                <p>
+                                    Resume Builder is a web-based creation tool designed to help users prepare professional resumes through a simple digital experience.
+                                </p>
+                                <ul class="product-features">
+                                    <li>Clean structured layouts</li>
+                                    <li>Fast digital workflow</li>
+                                    <li>Ready for instant export</li>
+                                </ul>
+                                <a href="https://linsio.site/Resume/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                    Open Resume Builder
+                                </a>
+                            </div>
                         </div>
 
-                    
-                    <div class="product-card">
-<div class="card-visual-frame"><img class="product-original-icon" src="linsnew.jpg" alt="LinsCam AI app icon" width="100" height="100" loading="lazy"></div>
-<h3>LinsCam AI</h3>
-                        <div class="product-highlight">AI-powered visual understanding. Available now.</div>
-                        <p>LinsCam AI helps you explore images, ask questions about what you see, and understand visual context through AI-powered analysis.</p>
-                        <ul class="product-features">
-                            <li>AI-powered image analysis</li>
-                            <li>Ask questions about image content</li>
-                            <li>Clear, useful visual explanations</li>
-                        </ul>
-                        <a href="https://play.google.com/store/apps/details?id=com.LinsCam.io" target="_blank" rel="noopener noreferrer" class="btn-google-play">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20.5V3.5c0-.6.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.25-.84-.76-.84-1.35M16.81 15.12 6.05 21.34l8.49-8.49 2.27 2.27M20.16 10.81c.34.27.59.69.02 2.37l-2.29 1.32L15.39 12l2.5-2.5 2.27 1.31M6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66Z"/></svg>
-                            Get it on Google Play
-                        </a>
+                        <!-- LinsCam AI -->
+                        <div class="product-item fade-up">
+                            <div class="product-visual">
+                                <img class="product-original-icon" src="linsnew.png" alt="LinsCam AI app icon" width="120" height="120" loading="lazy">
+                            </div>
+                            <div class="product-content">
+                                <h3>LinsCam AI</h3>
+                                <div class="product-highlight">AI-powered visual understanding. Available now.</div>
+                                <p>
+                                    LinsCam AI helps you explore images, ask questions about what you see, and understand visual context through AI-powered analysis.
+                                </p>
+                                <ul class="product-features">
+                                    <li>AI-powered image analysis</li>
+                                    <li>Ask questions about image content</li>
+                                    <li>Clear, useful visual explanations</li>
+                                </ul>
+                                <a href="https://play.google.com/store/apps/details?id=com.LinsCam.io" target="_blank" rel="noopener noreferrer" class="btn-google-play">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20.5V3.5c0-.6.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.25-.84-.76-.84-1.35M16.81 15.12 6.05 21.34l8.49-8.49 2.27 2.27M20.16 10.81c.34.27.59.69.02 2.37l-2.29 1.32L15.39 12l2.5-2.5 2.27 1.31M6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66Z"/></svg>
+                                    Get it on Google Play
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
-</div>
                 </div>
             </section>
-
-            <!-- Coming Soon: LinsCam AI -->
-            
 
             <!-- Ecosystem Universe -->
             <section id="ecosystem" class="section-padding">
@@ -656,7 +481,7 @@
                         <p>LINS IO is an independent technology brand focused on building practical applications, AI-powered tools, and digital experiences.</p>
                         <p>We are interested in technology that is useful in the real world, easy to access, and designed with purpose.</p>
                         <div class="philosophy-container">
-                            <p class="philosophy-text">Build useful things. Learn from them. Keep evolving.</p>
+                            <p class="philosophy-text">Build useful things.<br>Learn from them.<br>Keep evolving.</p>
                         </div>
                     </div>
                 </div>
@@ -675,15 +500,15 @@
                         </div>
                         <div class="faq-item">
                             <button class="faq-question">What products does LINS IO currently offer? <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-                            <div class="faq-answer"><div class="faq-answer-inner">AI Store, LinsPlay, and Resume Builder are currently available products.</div></div>
+                            <div class="faq-answer"><div class="faq-answer-inner">AI Store, LinsPlay, Resume Builder, and LinsCam AI are currently available products.</div></div>
                         </div>
                         <div class="faq-item">
                             <button class="faq-question">What is coming next? <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-                            <div class="faq-answer"><div class="faq-answer-inner">LinsCam AI is currently under development and marked as Coming Soon.</div></div>
+                            <div class="faq-answer"><div class="faq-answer-inner">LinsCam AI is now LIVE! We are continuously working on new updates for the AI Store and exploring new concepts for the LINS IO ecosystem.</div></div>
                         </div>
                         <div class="faq-item">
                             <button class="faq-question">Where can I download LINS IO apps? <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-                            <div class="faq-answer"><div class="faq-answer-inner">AI Store and LinsPlay are currently available through Google Play.</div></div>
+                            <div class="faq-answer"><div class="faq-answer-inner">AI Store, LinsPlay, and LinsCam AI are currently available through Google Play.</div></div>
                         </div>
                         <div class="faq-item">
                             <button class="faq-question">How can I contact LINS IO? <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
@@ -715,7 +540,7 @@
                     <h2>1. Scope</h2>
                     <p>The LINS IO website operates as an informational brand presence. We do not require user accounts, nor do we intentionally collect personal data through the site.</p>
                     <h2>2. Contact</h2>
-                    <p>For any privacy inquiries, reach us at <a href="mailto:linsio.official@gmail.com" style="color: var(--color-accent);">linsio.official@gmail.com</a>.</p>
+                    <p>For any privacy inquiries, reach us at <a href="mailto:linsio.official@gmail.com" style="color: var(--accent-link);">linsio.official@gmail.com</a>.</p>
                 </div>
             </div>
         </div>
@@ -730,7 +555,7 @@
                     <h2>1. Intellectual Property</h2>
                     <p>All branding, logos (including the LINS IO logo), and content are the property of LINS IO.</p>
                     <h2>2. Contact</h2>
-                    <p>For inquiries, contact <a href="mailto:linsio.official@gmail.com" style="color: var(--color-accent);">linsio.official@gmail.com</a>.</p>
+                    <p>For inquiries, contact <a href="mailto:linsio.official@gmail.com" style="color: var(--accent-link);">linsio.official@gmail.com</a>.</p>
                 </div>
             </div>
         </div>
@@ -866,7 +691,7 @@
             scrollToSection: function(sectionId) {
                 const section = document.getElementById(sectionId);
                 if (section) {
-                    const navHeight = 76;
+                    const navHeight = 90;
                     const sectionTop = section.getBoundingClientRect().top + window.scrollY - navHeight;
                     window.scrollTo({ top: sectionTop, behavior: 'smooth' });
                 }
