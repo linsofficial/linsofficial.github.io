@@ -1,5 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Website -->
   <url>
     <loc>https://linsio.site/</loc>
   </url>
+
+  <!-- Resume Builder -->
+  <url>
+    <loc>https://linsio.site/Resume/</loc>
+  </url>
+  <url>
+    <loc>https://linsio.site/Resume/about.html</loc>
+  </url>
+  <url>
+    <loc>https://linsio.site/Resume/contact.html</loc>
+  </url>
+  <url>
+    <loc>https://linsio.site/Resume/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://linsio.site/Resume/terms.html</loc>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://linsio.site/blog/</loc>
+  </url>
+  <url>
+    <loc>https://linsio.site/blog/ai-store-complete-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://linsio.site/blog/ai-workflow-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://linsio.site/blog/how-to-find-best-ai-tools.html</loc>
+  </url>
+
 </urlset>
