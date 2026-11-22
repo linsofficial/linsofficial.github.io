@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Store — LINS IO</title>
-  <meta name="description" content="AI Store by LINS IO — Discover 1000+ curated AI tools, built-in AI assistant, and community hub." />
+  <title>AI Store: Your Ultimate AI Hub — LINS IO</title>
+  <meta name="description" content="AI Store by LINS IO — Discover 1,000+ AI tools across 20+ categories, Smart AI Prompt Generator, Personal Prompt Vault, Social Content Generator, AI News, Jobs, Courses, and Community." />
   <link rel="icon" type="image/png" href="../lins.png" />
   <style>
-    
     :root {
       --bg: #F5F5F7;
       --surface: #FFFFFF;
@@ -101,80 +100,25 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .nav-links {
-      display: flex;
+    .back-pill {
+      display: inline-flex;
       align-items: center;
-      gap: 26px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-secondary);
-    }
-
-    .nav-links a {
-      transition: color 0.18s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .nav-cta {
-      background: var(--text);
-      color: #FFFFFF !important;
-      padding: 8px 16px;
-      border-radius: var(--radius-pill);
+      gap: 6px;
       font-size: 13px;
       font-weight: 600;
-      transition: transform 0.15s ease, opacity 0.15s ease;
-    }
-
-    .nav-cta:hover { opacity: 0.88; }
-    .nav-cta:active { transform: scale(0.96); }
-
-    .menu-toggle {
-      display: none;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
+      color: var(--text-secondary);
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      background: var(--surface);
       border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.7);
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
+      transition: color 0.15s ease, background 0.15s ease;
+    }
+
+    .back-pill:hover {
       color: var(--text);
+      background: #FAFAFC;
     }
 
-    .mobile-sheet {
-      display: none;
-      position: fixed;
-      top: 68px;
-      left: 16px;
-      right: 16px;
-      z-index: 99;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: saturate(180%) blur(24px);
-      -webkit-backdrop-filter: saturate(180%) blur(24px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 12px;
-      box-shadow: var(--shadow-lg);
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .mobile-sheet.open { display: flex; }
-
-    .mobile-sheet a {
-      padding: 12px 14px;
-      border-radius: 12px;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .mobile-sheet a:active { background: var(--bg); }
-
-    /* Container & Sections */
     .container {
       max-width: var(--max-w);
       margin: 0 auto;
@@ -182,7 +126,7 @@
     }
 
     section {
-      padding: 72px 0;
+      padding: 56px 0;
     }
 
     .section-eyebrow {
@@ -195,22 +139,14 @@
     }
 
     .section-title {
-      font-size: clamp(28px, 4.5vw, 42px);
+      font-size: clamp(26px, 4.2vw, 38px);
       font-weight: 700;
       letter-spacing: -0.03em;
       line-height: 1.12;
       color: var(--text);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
-    .section-sub {
-      font-size: 17px;
-      color: var(--text-secondary);
-      max-width: 580px;
-      line-height: 1.55;
-    }
-
-    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -236,13 +172,6 @@
 
     .btn-primary:hover { background: var(--accent-hover); }
 
-    .btn-dark {
-      background: var(--text);
-      color: #FFFFFF;
-    }
-
-    .btn-dark:hover { opacity: 0.88; }
-
     .btn-secondary {
       background: var(--surface);
       color: var(--text);
@@ -251,18 +180,6 @@
     }
 
     .btn-secondary:hover { background: #FAFAFC; }
-
-    /* iOS Squircle App Icon */
-    .app-icon {
-      width: 68px;
-      height: 68px;
-      border-radius: 18px;
-      object-fit: cover;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-      flex-shrink: 0;
-    }
 
     .app-icon-lg {
       width: 88px;
@@ -274,124 +191,8 @@
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
     }
 
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      background: var(--surface);
-      padding: 48px 0 36px;
-      margin-top: 40px;
-    }
-
-    .footer-top {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 32px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .footer-brand p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      max-width: 300px;
-      margin-top: 10px;
-    }
-
-    .footer-cols {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 48px;
-    }
-
-    .footer-col h4 {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-tertiary);
-      margin-bottom: 12px;
-    }
-
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .footer-col a {
-      font-size: 14px;
-      color: var(--text-secondary);
-      transition: color 0.15s ease;
-    }
-
-    .footer-col a:hover { color: var(--text); }
-
-    .footer-bottom {
-      padding-top: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      font-size: 13px;
-      color: var(--text-tertiary);
-    }
-
-    .social-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .social-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
-    }
-
-    .social-btn:hover {
-      color: var(--text);
-      background: #E8E8ED;
-      transform: translateY(-1px);
-    }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .menu-toggle { display: inline-flex; }
-      section { padding: 52px 0; }
-    }
-
-
-    .back-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      padding: 7px 14px;
-      border-radius: var(--radius-pill);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      transition: color 0.15s ease, background 0.15s ease;
-    }
-
-    .back-pill:hover {
-      color: var(--text);
-      background: #FAFAFC;
-    }
-
     .prod-hero {
-      padding: 120px 0 56px;
+      padding: 112px 0 40px;
     }
 
     .prod-hero-card {
@@ -442,7 +243,7 @@
     .prod-desc {
       font-size: 16px;
       color: var(--text-secondary);
-      max-width: 680px;
+      max-width: 720px;
       line-height: 1.65;
     }
 
@@ -454,19 +255,11 @@
       margin-top: 6px;
     }
 
-    .legal-row {
-      font-size: 13px;
-      color: var(--text-tertiary);
-      margin-top: 4px;
-    }
-
-    .legal-row a:hover { color: var(--accent); }
-
     .feat-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 18px;
-      margin-top: 28px;
+      margin-top: 24px;
     }
 
     .feat-card {
@@ -490,39 +283,80 @@
       line-height: 1.55;
     }
 
-    .games-pill-grid {
+    .audience-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
       margin-top: 24px;
     }
 
-    .game-pill {
+    .audience-pill {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 16px;
+      padding: 20px;
       box-shadow: var(--shadow-sm);
     }
 
-    .game-pill strong {
+    .audience-pill strong {
       display: block;
-      font-size: 15px;
-      margin-bottom: 3px;
+      font-size: 15.5px;
+      margin-bottom: 6px;
+      color: var(--text);
     }
 
-    .game-pill span {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+    .audience-pill span {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: block;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 36px 0;
+      margin-top: 32px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 13px;
       color: var(--text-tertiary);
+    }
+
+    .social-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+    }
+
+    .social-btn:hover {
+      color: var(--text);
+      background: #E8E8ED;
+      transform: translateY(-1px);
     }
 
     @media (max-width: 768px) {
       .prod-hero-card { padding: 28px 22px; }
-      .feat-grid { grid-template-columns: 1fr; }
-      .games-pill-grid { grid-template-columns: repeat(2, 1fr); }
+      .feat-grid, .audience-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -548,95 +382,122 @@
           <div class="prod-top">
             <img src="../store.png" alt="AI Store icon" class="app-icon-lg" />
             <div>
-              <span class="prod-badge">Android · AI Directory</span>
+              <span class="prod-badge">Android · Ultimate AI Hub</span>
               <h1>AI Store</h1>
-              <div class="prod-tagline">1000+ Curated AI Tools in One App</div>
+              <div class="prod-tagline">Your Ultimate AI Hub — Tools, Prompts, News, Jobs &amp; Community</div>
             </div>
           </div>
-          <p class="prod-desc">AI Store is a centralized discovery and productivity hub featuring 1000+ AI tools across writing, image generation, coding, video, and automation—plus a built-in AI assistant and community chat.</p>
+          <p class="prod-desc">Discover 1,000+ AI tools across 20+ categories, generate structured prompts, organize your personal Prompt Vault, create social media content, and stay updated with AI news, jobs, courses, and an active community—all in one lightweight app.</p>
           <div class="prod-actions">
             <a href="https://play.google.com/store/apps/details?id=com.snpixel.aistore" target="_blank" rel="noopener" class="btn btn-primary">Download on Google Play</a>
-            <a href="../index.html#contact" class="btn btn-secondary">Contact Support</a>
+            <a href="../blog/ai-store-complete-guide.html" class="btn btn-secondary">Read Complete Guide</a>
           </div>
-          
         </div>
       </div>
     </section>
 
     <section style="padding-top: 12px;">
       <div class="container">
-        <div class="section-eyebrow">Highlights</div>
-        <h2 class="section-title">Designed for everyday use.</h2>
+        <div class="section-eyebrow">Key Features</div>
+        <h2 class="section-title">Everything AI, in one place.</h2>
         <div class="feat-grid">
-          
           <div class="feat-card">
-            <h3>1000+ Organized AI Tools</h3>
-            <p>Browse by category to find the exact AI tool you need without endless searching.</p>
+            <h3>1,000+ AI Tools Directory</h3>
+            <p>Explore an organized catalog across 20+ specialized categories including writing, coding, design, research, video editing, marketing, productivity, and business automation.</p>
           </div>
-        
           <div class="feat-card">
-            <h3>Built-in AI Assistant</h3>
-            <p>Get quick recommendations and answers right inside the app.</p>
+            <h3>Smart AI Prompt Generator</h3>
+            <p>Overcome blank-page syndrome with structured, effective prompts tailored for writing, academic &amp; market research, image generation, digital marketing, and AI agents.</p>
           </div>
-        
           <div class="feat-card">
-            <h3>Community Chat</h3>
-            <p>Connect with other AI enthusiasts, share workflows, and discover trending tools.</p>
+            <h3>Personal Prompt Vault</h3>
+            <p>Save, categorize, and manage your best reusable prompts in a dedicated vault so you can copy and deploy them anytime.</p>
           </div>
-        
           <div class="feat-card">
-            <h3>Regularly Updated</h3>
-            <p>Fresh tools and categories added continuously to keep up with the AI landscape.</p>
+            <h3>Social Content Generator</h3>
+            <p>Quickly generate engaging social media captions, targeted hashtags, scroll-stopping hooks, and post ideas for personal brands or businesses.</p>
           </div>
-        
+          <div class="feat-card">
+            <h3>Latest AI News &amp; Updates</h3>
+            <p>Stay informed with curated AI news, major model launches, platform releases, and emerging tech updates without the noise.</p>
+          </div>
+          <div class="feat-card">
+            <h3>AI Jobs &amp; Learning Courses</h3>
+            <p>Discover curated AI courses and educational resources alongside AI jobs and career opportunities across the tech sector.</p>
+          </div>
+          <div class="feat-card">
+            <h3>AI Store Community</h3>
+            <p>Connect with fellow AI enthusiasts, developers, and creators to share prompt strategies, exchange ideas, and discuss real-world tools.</p>
+          </div>
+          <div class="feat-card">
+            <h3>Built-In AI Utilities</h3>
+            <p>Access practical everyday AI utilities and reference resources designed to streamline your productivity inside a single app.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    
+    <section style="padding-top: 8px;">
+      <div class="container">
+        <div class="section-eyebrow">Built For</div>
+        <h2 class="section-title">Who is AI Store for?</h2>
+        <div class="audience-grid">
+          <div class="audience-pill">
+            <strong>Students &amp; Researchers</strong>
+            <span>Study utilities, research assistants, and structured AI learning courses.</span>
+          </div>
+          <div class="audience-pill">
+            <strong>Creators &amp; Marketers</strong>
+            <span>Generate hooks, captions, hashtags, and creative prompts while discovering new media tools.</span>
+          </div>
+          <div class="audience-pill">
+            <strong>Developers &amp; Tech Pros</strong>
+            <span>Track model launches, explore coding utilities, build agent prompts, and browse AI jobs.</span>
+          </div>
+          <div class="audience-pill">
+            <strong>Entrepreneurs &amp; Founders</strong>
+            <span>Find practical AI productivity and automation tools to streamline workflows.</span>
+          </div>
+          <div class="audience-pill">
+            <strong>AI Enthusiasts</strong>
+            <span>Experiment with new platforms, organize prompt libraries, and engage with the community.</span>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="container">
-      <div class="footer-bottom" style="padding-top: 0;">
+      <div class="footer-bottom">
         <span>&copy; 2026 LINS IO &middot; <a href="../index.html" style="color: var(--accent);">Home</a> &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a></span>
-        
-      <div class="social-row">
-        <a class="social-btn" href="https://instagram.com/lins.io_?srtk=cGc0ZXBvamIzZ2h1" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        </a>
-        <a class="social-btn" href="https://www.facebook.com/share/1DtRWEawb9/" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-        </a>
-        <a class="social-btn" href="https://youtube.com/@lins_io?si=LR43E_hz1aXYE9BP" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-        </a>
-        <a class="social-btn" href="https://t.me/linsio002" target="_blank" rel="noopener" aria-label="Telegram">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-        </a>
-        <a class="social-btn" href="https://whatsapp.com/channel/0029Vb5yqiL96H4VX0o33x0I" target="_blank" rel="noopener" aria-label="WhatsApp Channel">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-        </a>
-      </div>
-
+        <div class="social-row">
+          <a class="social-btn" href="https://instagram.com/lins.io_?srtk=cGc0ZXBvamIzZ2h1" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a class="social-btn" href="https://www.facebook.com/share/1DtRWEawb9/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a class="social-btn" href="https://youtube.com/@lins_io?si=LR43E_hz1aXYE9BP" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </a>
+          <a class="social-btn" href="https://t.me/linsio002" target="_blank" rel="noopener" aria-label="Telegram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </a>
+          <a class="social-btn" href="https://whatsapp.com/channel/0029Vb5yqiL96H4VX0o33x0I" target="_blank" rel="noopener" aria-label="WhatsApp Channel">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
 
-  
   <script>
     const nav = document.getElementById('iosNav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 10) nav.classList.add('scrolled');
       else nav.classList.remove('scrolled');
     }, { passive: true });
-
-    const menuBtn = document.getElementById('menuToggle');
-    const sheet = document.getElementById('mobileSheet');
-    if (menuBtn && sheet) {
-      menuBtn.addEventListener('click', () => sheet.classList.toggle('open'));
-      sheet.querySelectorAll('a').forEach(a => a.addEventListener('click', () => sheet.classList.remove('open')));
-    }
   </script>
 
 </body>
