@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Conditions — LINS IO</title>
+  <meta name="description" content="Official Terms and Conditions for using the LINS IO website (linsio.site)." />
+  <link rel="icon" type="image/png" href="lins.png" />
+  <style>
+    :root {
+      --bg: #F5F5F7;
+      --surface: #FFFFFF;
+      --text: #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary: #86868B;
+      --accent: #0071E3;
+      --border: rgba(0, 0, 0, 0.08);
+      --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.06);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+      --max-w: 880px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .ios-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 60px;
+      background: rgba(245, 245, 247, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .ios-nav.scrolled {
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand img {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: color 0.15s ease, background 0.15s ease;
+    }
+
+    .back-pill:hover { color: var(--text); background: #FAFAFC; }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 112px 20px 64px;
+    }
+
+    .legal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 48px 42px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .legal-card h1 {
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .updated {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--bg);
+      margin-bottom: 28px;
+    }
+
+    .legal-card h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 30px 0 10px;
+      color: var(--text);
+    }
+
+    .legal-card p {
+      font-size: 15.5px;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .legal-card ul {
+      padding-left: 20px;
+      margin: 10px 0 18px;
+      color: var(--text-secondary);
+      font-size: 15.5px;
+    }
+
+    .legal-card li { margin-bottom: 8px; }
+
+    .legal-card a.inline-link {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .legal-card a.inline-link:hover { text-decoration: underline; }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
+    }
+
+    .contact-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      margin-top: 24px;
+    }
+
+    .contact-box strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 28px 20px;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 700px) {
+      .container { padding: 94px 16px 48px; }
+      .legal-card { padding: 28px 22px; border-radius: 22px; }
+    }
+</style>
+</head>
+<body>
+  <header class="ios-nav" id="iosNav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <img src="lins.png" alt="LINS IO" />
+        <span>LINS IO</span>
+      </a>
+      <a href="index.html" class="back-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>Back to Home</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="legal-card">
+      <div class="eyebrow">LINS IO Legal</div>
+      <h1>Terms &amp; Conditions</h1>
+      <span class="updated">Last Updated: November 2026</span>
+
+      <p>Welcome to <strong>LINS IO</strong>. By accessing or using <a class="inline-link" href="https://linsio.site/">linsio.site</a>, you agree to be bound by these Terms &amp; Conditions. If you do not agree with any part of these terms, please discontinue use of the website.</p>
+
+      <h2>1. Intellectual Property</h2>
+      <p>All branding, logos (including the LINS IO mark), product names (PixelRush, Scan &amp; Explain, AI Store), design layouts, graphics, and written content published on linsio.site are the intellectual property of LINS IO unless otherwise stated. You may not copy, redistribute, or use our brand assets for commercial purposes without prior written permission.</p>
+
+      <h2>2. Acceptable Use</h2>
+      <p>You agree to use this website only for lawful, informational purposes. You must not:</p>
+      <ul>
+        <li>Attempt to disrupt, scrape maliciously, or interfere with the operation of linsio.site.</li>
+        <li>Misrepresent any affiliation with LINS IO or redistribute our apps under altered branding.</li>
+        <li>Use content from our site or blog in a misleading or unlawful manner.</li>
+      </ul>
+
+      <h2>3. Products &amp; Third-Party Platforms</h2>
+      <p>Our Android applications are distributed through official channels such as the Google Play Store. Downloading and using those apps is also subject to the terms of the respective app store and any product-specific terms provided within each app.</p>
+      <p>Our blog and product pages may link to external AI tools, courses, or websites for informational purposes. LINS IO does not control and is not responsible for the availability, pricing, accuracy, or policies of third-party websites.</p>
+
+      <h2>4. Disclaimer &amp; Limitation of Liability</h2>
+      <p>All information, guides, and product descriptions on linsio.site are provided on an "as is" and "as available" basis without warranties of any kind. While we strive for accuracy, LINS IO is not liable for any direct or indirect damages arising from your use of this website or reliance on external links.</p>
+
+      <h2>5. Updates to These Terms</h2>
+      <p>We reserve the right to modify or update these Terms &amp; Conditions at any time. Continued use of linsio.site after changes are posted constitutes acceptance of the revised terms.</p>
+
+      <div class="contact-box">
+        <strong>Contact LINS IO</strong>
+        <p style="margin-bottom: 0;">For legal, licensing, or general inquiries, email <a class="inline-link" href="mailto:linsio.official@gmail.com">linsio.official@gmail.com</a>.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2026 LINS IO. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html" style="color: var(--text); font-weight: 600;">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('iosNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    }, { passive: true });
+  </script>
+</body>
+</html>

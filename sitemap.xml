@@ -5,6 +5,26 @@
   <url>
     <loc>https://linsio.site/</loc>
   </url>
+  <url>
+    <loc>https://linsio.site/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://linsio.site/terms.html</loc>
+  </url>
+
+  <!-- Dedicated Product Pages -->
+  <url>
+    <loc>https://linsio.site/products/pixelrush.html</loc>
+  </url>
+  <url>
+    <loc>https://linsio.site/products/scan-explain.html</loc>
+  </url>
+  <url>
+    <loc>https://linsio.site/products/ai-store.html</loc>
+  </url>
+  <url>
+    <loc>https://linsio.site/products/resume-builder.html</loc>
+  </url>
 
   <!-- Resume Builder -->
   <url>
@@ -35,6 +55,9 @@
   </url>
   <url>
     <loc>https://linsio.site/blog/how-to-find-best-ai-tools.html</loc>
+  </url>
+  <url>
+    <loc>https://linsio.site/blog/free-ai-courses.html</loc>
   </url>
 
 </urlset>
