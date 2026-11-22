@@ -4,48 +4,69 @@
   <!-- Main Website -->
   <url>
     <loc>https://linsio.site/</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
     <loc>https://linsio.site/privacy.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
     <loc>https://linsio.site/terms.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
 
   <!-- Dedicated Product Pages -->
   <url>
     <loc>https://linsio.site/products/pixelrush.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
     <loc>https://linsio.site/products/scan-explain.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
     <loc>https://linsio.site/products/ai-store.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
     <loc>https://linsio.site/products/resume-builder.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
 
-  <!-- Resume Builder -->
+  <!-- Resume Studio -->
   <url>
     <loc>https://linsio.site/Resume/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://linsio.site/Resume/builder.html</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://linsio.site/Resume/templates.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
     <loc>https://linsio.site/Resume/about.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
     <loc>https://linsio.site/Resume/contact.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
     <loc>https://linsio.site/Resume/privacy.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
     <loc>https://linsio.site/Resume/terms.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
 
   <!-- Blog -->
   <url>
     <loc>https://linsio.site/blog/</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
     <loc>https://linsio.site/blog/ai-store-complete-guide.html</loc>
